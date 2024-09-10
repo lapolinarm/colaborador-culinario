@@ -16,7 +16,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to restaurant_path(@restaurant), notice: "Restaurant was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
 
   end
@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.update(restaurant_params)
       redirect_to restaurant_path(@restaurant), notice: "Restaurant was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
