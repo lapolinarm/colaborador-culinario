@@ -3,7 +3,40 @@
     <div class="row">
         <!-- Sidebar (feature-sidebar) -->
         <div class="col-md-2 sidebar">
-            <!-- Aquí se colocará el código de la barra lateral en `feature-sidebar` -->
+            <h4>Filtrar</h4>
+            <button type="button" class="btn btn-outline-danger">Reset</button>
+            <hr class="my-3">
+            <form>
+                <!-- Job Location -->
+                <div class="mb-3">
+                    <label class="form-label">Job Location</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-geo-alt"></i> <!-- Icono de ubicación -->
+                        </span>
+                        <input type="text" class="form-control" placeholder="Ingrese la ubicación">
+                    </div>
+                </div>
+
+                <!-- Job Type -->
+                <div class="mb-3">
+                    <label class="form-label">Job Type</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Fulltime" id="fulltime">
+                        <label class="form-check-label" for="fulltime">Fulltime</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Parttime" id="parttime">
+                        <label class="form-check-label" for="parttime">Parttime</label>
+                    </div>
+                </div>
+
+                <!-- Salary Range -->
+                <div class="mb-3">
+                    <label class="form-label">Salary Range</label>
+                    <input type="range" class="form-range" min="1000" max="10000" step="500">
+                </div>
+            </form>
         </div>
 
         <!-- Main Content (feature-job-listings)-->
