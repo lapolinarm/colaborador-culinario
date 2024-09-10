@@ -9,9 +9,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :restaurants
+  resources :restaurants do
+    resources :jobs, only: %w[new create]
+  end
 
-  resources :jobs
-
-  resources :jobs_users, only: i%[create, update, destroy]
+  resources :jobs, except: %w[new create] do
+    resources :job_users, only: %w[create]
+    resources :favorites, only: %w[create]
+  end
 end
