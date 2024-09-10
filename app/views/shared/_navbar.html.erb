@@ -21,6 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <%# if user.role == "owner"  => else  %>
           <li class="nav-item active">
             <%= link_to 'Mis postulaciones', '#', class: 'nav-link' %>
           </li>
