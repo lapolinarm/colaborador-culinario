@@ -2,18 +2,18 @@
     <div class="header text-center my-4 py-4">
       <h2>Bienvenido a Mis trabajos</h2>
     </div>
-
+  <% estados = ["pendiente", "aceptado", "rechazado"] %>
   <% trabajos = [
-    { titulo: "Trabajo 1", empresa: "Empresa A", funcion: "Cocinero", horas: 40, pago: 500 },
-    { titulo: "Trabajo 2", empresa: "Empresa B", funcion: "Mesero", horas: 30, pago: 350 },
-    { titulo: "Trabajo 3", empresa: "Empresa C", funcion: "Limpieza", horas: 25, pago: 250 },
-    { titulo: "Trabajo 4", empresa: "Empresa D", funcion: "Cajero", horas: 35, pago: 400 },
-    { titulo: "Trabajo 5", empresa: "Empresa E", funcion: "Ayudante de cocina", horas: 20, pago: 300 },
-    { titulo: "Trabajo 6", empresa: "Empresa F", funcion: "Supervisor", horas: 45, pago: 600 },
-    { titulo: "Trabajo 7", empresa: "Empresa G", funcion: "Repartidor", horas: 15, pago: 200 },
-    { titulo: "Trabajo 8", empresa: "Empresa H", funcion: "Chef", horas: 50, pago: 800 },
-    { titulo: "Trabajo 9", empresa: "Empresa I", funcion: "Bartender", horas: 25, pago: 300 },
-    { titulo: "Trabajo 10", empresa: "Empresa J", funcion: "Host", horas: 10, pago: 150 }
+    { titulo: "Trabajo 1", empresa: "Empresa A", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
+  { titulo: "Trabajo 2", empresa: "Empresa B", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
+  { titulo: "Trabajo 3", empresa: "Empresa C", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
+  { titulo: "Trabajo 4", empresa: "Empresa D", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
+  { titulo: "Trabajo 5", empresa: "Empresa E", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
+  { titulo: "Trabajo 6", empresa: "Empresa F", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
+  { titulo: "Trabajo 7", empresa: "Empresa G", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
+  { titulo: "Trabajo 8", empresa: "Empresa H", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
+  { titulo: "Trabajo 9", empresa: "Empresa I", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample },
+  { titulo: "Trabajo 10", empresa: "Empresa J", funcion: "Host", horas: 10, pago: 150, status: estados.sample }
   ] %>
     <!--contenido Card-->
     <!-- <div class="container">
@@ -43,6 +43,7 @@
         <th scope="col">Función</th>
         <th scope="col">Horas trabajadas</th>
         <th scope="col">Pago total</th>
+        <th scope="col">Estado</th>
       </tr>
     </thead>
     <tbody>
@@ -54,6 +55,11 @@
           <td><%= trabajo[:funcion] %></td>
           <td><%= trabajo[:horas] %></td>
           <td><%= trabajo[:pago] %></td>
+          <td>
+            <span class="<%= "status-#{trabajo[:status]}" %>">
+              <%= trabajo[:status].capitalize %>
+            </span>
+          </td>
         </tr>
       <% end %>
     </tbody>

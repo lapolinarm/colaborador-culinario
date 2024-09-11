@@ -1,0 +1,16 @@
+$pendiente-color: orange;
+$aceptado-color: green;
+$rechazado-color: red;
+
+.status-pendiente {
+  color: $pendiente-color;
+
+}
+
+.status-aceptado {
+  color: $aceptado-color;
+}
+
+.status-rechazado {
+  color: $rechazado-color;
+}
