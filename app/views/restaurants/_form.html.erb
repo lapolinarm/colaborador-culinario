@@ -19,7 +19,10 @@
   <%= f.input :address %>
   <%= f.input :district %>
   <%= f.input :province %>
-  <%# <%= f.input :country %>
+  <%= f.input :country, as: :string do %>
+    <%= f.country_select :country %>
+  <% end %>
+
   <%= f.input :reference %>
 
   <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>

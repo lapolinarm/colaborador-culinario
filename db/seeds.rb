@@ -21,7 +21,7 @@ end
     address: Faker::Address.street_address,
     district: Faker::Address.community,
     province: "Lima",
-    # country: "Perú",
+    country: "Perú",
     reference: Faker::Address.secondary_address,
     user_id: User.all.sample.id
   )
