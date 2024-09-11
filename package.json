@@ -2,5 +2,8 @@
   "devDependencies": {
     "prettier": "^2.2.1",
     "prettier-plugin-erb": "^0.4.0"
+  },
+  "dependencies": {
+    "aos": "^2.3.4"
   }
 }

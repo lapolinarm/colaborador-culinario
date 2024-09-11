@@ -23,6 +23,9 @@
         <% if user_signed_in? %>
           <%# if user.role == "owner"  => else  %>
           <li class="nav-item active">
+            <%= link_to 'home', '/', class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
             <%= link_to 'Mis postulaciones', 'dashboard', class: 'nav-link' %>
           </li>
           <li class="nav-item">
@@ -53,7 +56,7 @@
               class="dropdown-menu dropdown-menu-end"
               aria-labelledby="navbarDropdown"
             >
-              <%= link_to 'Perfil', '#', class: 'dropdown-item' %>
+              <%= link_to 'Perfil', 'profile', class: 'dropdown-item' %>
               <%= link_to 'Ayuda', 'contact', class: 'dropdown-item' %>
               <%=
                 link_to 'Cerrar sesión',
