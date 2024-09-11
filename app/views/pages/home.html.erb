@@ -1,79 +1,127 @@
 <!-- Main Layout -->
 <div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar (feature-sidebar) -->
-        <div class="col-md-2 sidebar">
-            <h4>Filtrar</h4>
-            <button type="button" class="btn btn-outline-danger">Reset</button>
-            <hr class="my-3">
-            <form>
-                <!-- Job Location -->
-                <div class="mb-3">
-                    <label class="form-label">Job Location</label>
-                    <div class="input-group">
-                        <span class="input-group-text">
-                            <i class="bi bi-geo-alt"></i> <!-- Icono de ubicación -->
-                        </span>
-                        <input type="text" class="form-control" placeholder="Ingrese la ubicación">
-                    </div>
-                </div>
-
-                <!-- Job Type -->
-                <div class="mb-3">
-                    <label class="form-label">Job Type</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Fulltime" id="fulltime">
-                        <label class="form-check-label" for="fulltime">Fulltime</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Parttime" id="parttime">
-                        <label class="form-check-label" for="parttime">Parttime</label>
-                    </div>
-                </div>
-
-                <!-- Salary Range -->
-                <div class="mb-3">
-                    <label class="form-label">Salary Range</label>
-                    <input type="range" class="form-range" min="1000" max="10000" step="500">
-                </div>
-            </form>
+  <div class="row">
+    <!-- Sidebar (feature-sidebar) -->
+    <div class="col-md-2 sidebar">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="mb-0">Filtrar</h4>
+        <button type="button" class="btn btn-outline-danger">Restaurar</button>
+      </div>
+      <hr class="my-3">
+      <form>
+        <!-- Job Location -->
+        <div class="mb-3">
+          <label class="form-label">Ubicación del empleo</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="bi bi-geo-alt"></i> <!-- Icono de ubicación -->
+            </span>
+            <input type="text" class="form-control" placeholder="Distrito, zona">
+          </div>
         </div>
 
-        <!-- Main Content (feature-job-listings)-->
-        <div class="col-md-7 main-content">
-            <h2>250 Resultados</h2>
-            <div class="row job-list">
-                <!-- Job Card -->
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">UI/UX Designer</h5>
-                            <p class="card-text">Jakarta, IND - $7000/hr</p>
-                            <a href="#" class="btn btn-primary">Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Another Job Card -->
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Web Designer</h5>
-                            <p class="card-text">Bekasi, IND - $8000/hr</p>
-                            <a href="#" class="btn btn-primary">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Modalidad -->
+        <div class="mb-3">
+          <label class="form-label">Modalidad</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Presencial" id="presencial">
+            <label class="form-check-label" for="presencial">Presencial</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Remoto" id="remoto">
+            <label class="form-check-label" for="remoto">Remoto</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Hibrido" id="hibrido">
+            <label class="form-check-label" for="hibrido">Híbrido</label>
+          </div>
         </div>
 
-        <!-- Right Content (Job Details) (feature-job-details) -->
-        <div class="col-md-3 right-content">
-            <h3>Product Designer</h3>
-            <p>Roundel - Bekasi, IND</p>
-            <p>Parttime - $8000/hr</p>
-            <a href="#" class="btn btn-success">Apply Now</a>
-            <a href="#" class="btn btn-outline-secondary">Save Job</a>
+        <!-- Job Type -->
+        <div class="mb-3">
+          <label class="form-label">Tipo</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Fulltime" id="fulltime">
+            <label class="form-check-label" for="fulltime">Fulltime</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Parttime" id="parttime">
+            <label class="form-check-label" for="parttime">Parttime</label>
+          </div>
         </div>
+
+        <!-- Salary Range -->
+        <div class="mb-3">
+          <label class="form-label">Rango salario</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="salary" value="S/20-S/30" id="range1">
+            <label class="form-check-label" for="range1">S/20 - S/30</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="salary" value="S/40-S/50" id="range2">
+            <label class="form-check-label" for="range2">S/40 - S/50</label>
+          </div>
+        </div>
+
+        <!-- Funciones -->
+        <div class="mb-3">
+          <label class="form-label">Funciones</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Mesero" id="mesero">
+            <label class="form-check-label" for="mesero">Mesero</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Cajero" id="cajero">
+            <label class="form-check-label" for="cajero">Cajero</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Cocinero" id="cocinero">
+            <label class="form-check-label" for="cocinero">Cocinero</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Delivery" id="delivery">
+            <label class="form-check-label" for="delivery">Delivery</label>
+          </div>
+        </div>
+      </form>
     </div>
+
+
+    <!-- Main Content (feature-job-listings)-->
+    <div class="col-md-7 main-content">
+      <h2>250 Resultados</h2>
+      <div class="row job-list">
+        <!-- Job Card -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">UI/UX Designer</h5>
+              <p class="card-text">Jakarta, IND - $7000/hr</p>
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Another Job Card -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Web Designer</h5>
+              <p class="card-text">Bekasi, IND - $8000/hr</p>
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Content (Job Details) (feature-job-details) -->
+    <div class="col-md-3 right-content">
+      <h3>Product Designer</h3>
+      <p>Roundel - Bekasi, IND</p>
+      <p>Parttime - $8000/hr</p>
+      <a href="#" class="btn btn-success">Apply Now</a>
+      <a href="#" class="btn btn-outline-secondary">Save Job</a>
+    </div>
+  </div>
 </div>
