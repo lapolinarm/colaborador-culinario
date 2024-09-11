@@ -1,0 +1,28 @@
+<%= simple_form_for(restaurant) do |f| %>
+<%# solucion al error que me daba %>
+  <% if restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+      <ul>
+        <% restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :ruc %>
+  <%= f.input :commercial_name %>
+  <%= f.input :company_name %>
+  <%= f.input :phone %>
+  <%= f.input :mobile_phone %>
+  <%= f.input :address %>
+  <%= f.input :district %>
+  <%= f.input :province %>
+  <%# <%= f.input :country %>
+  <%= f.input :reference %>
+
+  <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
