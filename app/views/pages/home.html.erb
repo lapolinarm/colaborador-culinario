@@ -89,32 +89,41 @@
 
     <!-- Main Content (feature-job-listings)-->
     <div class="col-md-7 main-content">
+
+
       <!-- Search Card -->
       <div class="card mb-4 border-0 shadow">
         <div class="card-body">
           <h1 class="display-6">Encuentra tu empleo ideal</h1>
           <p>Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
-          <div class="input-group">
-            <span class="input-group-text bg-white">
-              <i class="bi bi-search"></i> <!-- Icono de lupa -->
-            </span>
-            <input type="text" class="form-control" placeholder="Buscar empleos...">
-            <span class="input-group-text bg-white">
-              <i class="bi bi-arrow-right"></i> <!-- Flecha hacia la derecha -->
-            </span>
+          <div class="position-relative">
+            <!-- Input con border-radius completo y padding ajustado -->
+            <input type="text" class="form-control" placeholder="Buscar empleos..." style="border-radius: 25px; padding-left: 45px; padding-right: 60px; padding-top: 10px; padding-bottom: 10px;">
+
+            <!-- Icono de lupa a la izquierda dentro del input -->
+            <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+
+            <!-- Botón circular con flecha adaptado al input con un margen uniforme -->
+            <button class="btn btn-success position-absolute top-50 translate-middle-y" style="right: 6px; width: 36px; height: 36px; border-radius: 50%; margin: 2px; display: flex; justify-content: center; align-items: center;">
+              <i class="bi bi-arrow-right text-white"></i>
+            </button>
           </div>
         </div>
       </div>
 
+
       <h2 class="mb-4">250 Resultados</h2>
 
+
       <!-- Job Listings -->
-      <div class="row job-list">
+      <div class="row job-list gx-4 gy-4"> <!-- gx-4 para espaciado horizontal y gy-3 para espaciado vertical -->
+
         <!-- Job Card -->
-        <div class="col-md-4 mb-4">
-          <div class="card border rounded-3 shadow-sm" style="background-color: #f9f9f9; border: 1px solid #ddd;">
-            <!-- Inner Card -->
-            <div class="card mb-0" style="background-color: #eaeaea;">
+        <div class="col-md-3">
+          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
+
+            <!-- Inner Card (Hijo) -->
+            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
               <div class="card-body d-flex justify-content-between align-items-center p-2">
                 <div>
                   <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
@@ -143,9 +152,10 @@
         </div>
 
         <!-- Repeat for other Job Cards -->
-        <div class="col-md-4 mb-4">
-          <div class="card border rounded-3 shadow-sm" style="background-color: #f9f9f9; border: 1px solid #ddd;">
-            <div class="card mb-0" style="background-color: #eaeaea;">
+
+        <div class="col-md-3">
+          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
+            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
               <div class="card-body d-flex justify-content-between align-items-center p-2">
                 <div>
                   <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
@@ -172,9 +182,9 @@
         </div>
 
         <!-- Third Job Card -->
-        <div class="col-md-4 mb-4">
-          <div class="card border rounded-3 shadow-sm" style="background-color: #f9f9f9; border: 1px solid #ddd;">
-            <div class="card mb-0" style="background-color: #eaeaea;">
+        <div class="col-md-3">
+          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
+            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
               <div class="card-body d-flex justify-content-between align-items-center p-2">
                 <div>
                   <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
@@ -199,7 +209,72 @@
             </div>
           </div>
         </div>
+
+        <!-- Quarter Job Card -->
+        <div class="col-md-3">
+          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
+            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
+              <div class="card-body d-flex justify-content-between align-items-center p-2">
+                <div>
+                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
+                </div>
+                <div>
+                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i>
+                </div>
+              </div>
+              <div class="card-body pt-0 pb-2">
+                <h5 class="card-title mb-1">Empresa GHI <i class="bi bi-check-circle text-success"></i></h5>
+                <p class="card-text mb-2">Product Manager</p>
+                <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Onsite</button>
+                <button class="btn btn-outline-secondary btn-sm rounded-pill">Fulltime</button>
+              </div>
+            </div>
+            <div class="card-body d-flex justify-content-between align-items-center p-2">
+              <div>
+                <p class="mb-1 fw-bold">S/70/hr</p>
+                <p class="mb-0">Lima, PE</p>
+              </div>
+              <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Fifth Job Card -->
+        <div class="col-md-3">
+          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
+            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
+              <div class="card-body d-flex justify-content-between align-items-center p-2">
+                <div>
+                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
+                </div>
+                <div>
+                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i>
+                </div>
+              </div>
+              <div class="card-body pt-0 pb-2">
+                <h5 class="card-title mb-1">Empresa GHI <i class="bi bi-check-circle text-success"></i></h5>
+                <p class="card-text mb-2">Product Manager</p>
+                <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Onsite</button>
+                <button class="btn btn-outline-secondary btn-sm rounded-pill">Fulltime</button>
+              </div>
+            </div>
+            <div class="card-body d-flex justify-content-between align-items-center p-2">
+              <div>
+                <p class="mb-1 fw-bold">S/70/hr</p>
+                <p class="mb-0">Lima, PE</p>
+              </div>
+              <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
+            </div>
+          </div>
+        </div>
+
+
       </div>
+
+
+
     </div>
 
 
