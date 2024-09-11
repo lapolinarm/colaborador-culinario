@@ -21,7 +21,7 @@
         <td><%= restaurant.company_name %></td>
         <td><%= restaurant.phone %></td>
         <td>
-          <%= link_to 'Show', restaurant_path(restaurant), class: 'btn btn-info' %>
+          <%= link_to 'Ver detalles', restaurant_path(restaurant), class: 'btn btn-info' %>
           <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn btn-warning' %>
           <%= link_to 'Delete', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
