@@ -1,0 +1,20 @@
+<Section class="container">
+  <div class="text-center my-4">
+    <h1>Formulario de contacto</h1>
+  </div>
+  <div class="mb-4">
+  <div class="text-center mb-4">
+    <h5 class="mb-4">Llena el formulario y te contactaremos lo mas pronto posible</h5>
+  </div>
+  <div>
+    <% user = "Luis" %>
+    <%= simple_form_for user do |f| %>
+      <%= f.input :email, placeholder: 'user@domain.com' %>
+
+      <%= f.input :Problema, as: :text, placeholder: 'Escribe tu comentario aquí', input_html: { rows: 5 }  %>
+      <div class="text-center my-5">
+        <%= f.button :submit, "Enviar formulario", class:"text-center" %>
+      </div>
+    <% end %>
+  </div>
+</Section>

@@ -23,14 +23,17 @@
         <% if user_signed_in? %>
           <%# if user.role == "owner"  => else  %>
           <li class="nav-item active">
-            <%= link_to 'Mis postulaciones', '#', class: 'nav-link' %>
+            <%= link_to 'Mis postulaciones', 'dashboard', class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <%= link_to 'Favoritos', '#', class: 'nav-link' %>
           </li>
           <li class="nav-item active">
-              <%= link_to 'Sobre nosotros', 'about', class: 'nav-link' %>
-            </li>
+            <%= link_to 'Sobre nosotros', 'about', class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'contáctanos', 'contact', class: 'nav-link' %>
+          </li>
           <li class="nav-item dropdown">
             <a
               href="#"
@@ -51,7 +54,7 @@
               aria-labelledby="navbarDropdown"
             >
               <%= link_to 'Perfil', '#', class: 'dropdown-item' %>
-              <%= link_to 'Ayuda', '#', class: 'dropdown-item' %>
+              <%= link_to 'Ayuda', 'contact', class: 'dropdown-item' %>
               <%=
                 link_to 'Cerrar sesión',
                         destroy_user_session_path,
