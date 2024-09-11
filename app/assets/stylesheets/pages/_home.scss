@@ -2,24 +2,45 @@
 body {
   background-color: white;
 }
+
 .sidebar {
   background-color: #fff;
   border-right: 1px solid #ddd;
   height: 100vh;
   padding: 1rem;
 }
+
 .main-content {
   background-color: white;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .right-content {
   background-color: #fff;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .job-list .card {
   margin-bottom: 1rem;
+}
+
+.parent-card {
+  border-radius: 18px !important;
+}
+
+.child-card {
+  border-radius: 18px !important;
+}
+
+.job-list .card {
+  margin-bottom: 1rem; /* Espacio entre tarjetas en la misma fila */
+}
+
+.job-list .col-md-3 {
+  padding-left: 0.5rem; /* Ajuste horizontal del espacio entre columnas */
+  padding-right: 0.5rem; /* Ajuste horizontal del espacio entre columnas */
 }
