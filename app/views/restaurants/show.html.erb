@@ -1,0 +1,25 @@
+<%# Para probar que funciona, se reemplazara por lo de Levi %>
+<h1><%= @restaurant.commercial_name %></h1>
+
+<p>
+  <strong>RUC:</strong>
+  <%= @restaurant.ruc %>
+</p>
+
+<p>
+  <strong>Company Name:</strong>
+  <%= @restaurant.company_name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @restaurant.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn btn-warning' %>
+<%= link_to 'Back', restaurants_path, class: 'btn btn-secondary' %>

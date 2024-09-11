@@ -1,9 +1,44 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+require 'faker'
+
+Job.destroy_all
+
+
+10.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: "password"
+  )
+end
+
+5.times do
+  Restaurant.create!(
+    ruc: Faker::Number.number(digits: 11),
+    commercial_name: Faker::Restaurant.name,
+    company_name: Faker::Company.name,
+    phone: Faker::PhoneNumber.phone_number,
+    mobile_phone: Faker::PhoneNumber.cell_phone,
+    address: Faker::Address.street_address,
+    district: Faker::Address.community,
+    province: "Lima",
+    # country: "Perú",
+    reference: Faker::Address.secondary_address,
+    user_id: User.all.sample.id
+  )
+end
+
+
+
+  Job.create(
+    date: Faker::Date.between(from: 1.year.ago, to: Date.today),
+    hour_start: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
+    hour_end: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
+    payment_hour: Faker::Commerce.price(range: 10..50.0, as_string: true),
+    job_type: Faker::Number.between(from: 1, to: 5), # Ajusta el rango según los tipos de trabajo que tengas
+    job_mode: Faker::Number.between(from: 1, to: 3), # Ajusta el rango según los modos de trabajo que tengas
+    function: Faker::Number.between(from: 1, to: 5), # Ajusta el rango según las funciones que tengas
+    description: Faker::Lorem.paragraph,
+    responsibility: Faker::Lorem.paragraph,
+    requirement: Faker::Lorem.paragraph,
+    restaurant_id: Restaurant.pluck(:id).sample # Asegúrate de que Restaurant tenga datos en la base de datos
+  )
