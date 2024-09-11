@@ -1,5 +1,5 @@
-<div class="main-content">
-    <div class="header text-center my-4">
+<div class="container">
+    <div class="header text-center my-4 py-4">
       <h2>Bienvenido a Mis trabajos</h2>
     </div>
 
@@ -15,8 +15,8 @@
     { titulo: "Trabajo 9", empresa: "Empresa I", funcion: "Bartender", horas: 25, pago: 300 },
     { titulo: "Trabajo 10", empresa: "Empresa J", funcion: "Host", horas: 10, pago: 150 }
   ] %>
-    <!--contenido -->
-    <div class="container">
+    <!--contenido Card-->
+    <!-- <div class="container">
       <div class="column justify-content-center">
       <% trabajos.each do |trabajo| %>
         <div class="col-md-4 my-4 mx-auto" style="width:50%;">
@@ -32,5 +32,30 @@
         </div>
         <% end %>
       </div>
-    </div>
-  </div>
+    </div> -->
+
+    <!-- Contenido tabla -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Empresa</th>
+        <th scope="col">Función</th>
+        <th scope="col">Horas trabajadas</th>
+        <th scope="col">Pago total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% contador = 0 %>
+      <% trabajos.each do |trabajo| %>
+        <tr >
+          <th scope="row"><%= contador += 1 %> </th>
+          <td><%= trabajo[:empresa] %></td>
+          <td><%= trabajo[:funcion] %></td>
+          <td><%= trabajo[:horas] %></td>
+          <td><%= trabajo[:pago] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
