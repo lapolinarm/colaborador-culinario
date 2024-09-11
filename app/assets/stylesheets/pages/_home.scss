@@ -23,24 +23,3 @@ body {
 .job-list .card {
   margin-bottom: 1rem;
 }
-
-
-#button-green {
-  background-color: $primary-color;
-  border: none;
-  color: white;
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 10px;
-}
-
-#button-white {
-  background-color: white;
-  border: solid $primary-color;
-  color: $primary-color;
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 10px;
-}

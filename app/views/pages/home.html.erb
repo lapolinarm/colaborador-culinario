@@ -1,290 +1,79 @@
 <!-- Main Layout -->
 <div class="container-fluid">
-  <div class="row">
-    <!-- Sidebar (feature-sidebar) -->
-    <div class="col-md-2 sidebar">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4 class="mb-0">Filtrar</h4>
-        <button type="button" class="btn btn-outline-danger">Restaurar</button>
-      </div>
-      <hr class="my-3">
-      <form>
-        <!-- Job Location -->
-        <div class="mb-3">
-          <label class="form-label">Ubicación del empleo</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-geo-alt"></i> <!-- Icono de ubicación -->
-            </span>
-            <input type="text" class="form-control" placeholder="Distrito, zona">
-          </div>
+    <div class="row">
+        <!-- Sidebar (feature-sidebar) -->
+        <div class="col-md-2 sidebar">
+            <h4>Filtrar</h4>
+            <button type="button" class="btn btn-outline-danger">Reset</button>
+            <hr class="my-3">
+            <form>
+                <!-- Job Location -->
+                <div class="mb-3">
+                    <label class="form-label">Job Location</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-geo-alt"></i> <!-- Icono de ubicación -->
+                        </span>
+                        <input type="text" class="form-control" placeholder="Ingrese la ubicación">
+                    </div>
+                </div>
+
+                <!-- Job Type -->
+                <div class="mb-3">
+                    <label class="form-label">Job Type</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Fulltime" id="fulltime">
+                        <label class="form-check-label" for="fulltime">Fulltime</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Parttime" id="parttime">
+                        <label class="form-check-label" for="parttime">Parttime</label>
+                    </div>
+                </div>
+
+                <!-- Salary Range -->
+                <div class="mb-3">
+                    <label class="form-label">Salary Range</label>
+                    <input type="range" class="form-range" min="1000" max="10000" step="500">
+                </div>
+            </form>
         </div>
 
-        <!-- Modalidad -->
-        <div class="mb-3">
-          <label class="form-label">Modalidad</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Presencial" id="presencial">
-            <label class="form-check-label" for="presencial">Presencial</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Remoto" id="remoto">
-            <label class="form-check-label" for="remoto">Remoto</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Hibrido" id="hibrido">
-            <label class="form-check-label" for="hibrido">Híbrido</label>
-          </div>
+        <!-- Main Content (feature-job-listings)-->
+        <div class="col-md-7 main-content">
+            <h2>250 Resultados</h2>
+            <div class="row job-list">
+                <!-- Job Card -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">UI/UX Designer</h5>
+                            <p class="card-text">Jakarta, IND - $7000/hr</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Another Job Card -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Designer</h5>
+                            <p class="card-text">Bekasi, IND - $8000/hr</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Job Type -->
-        <div class="mb-3">
-          <label class="form-label">Tipo</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Fulltime" id="fulltime">
-            <label class="form-check-label" for="fulltime">Fulltime</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Parttime" id="parttime">
-            <label class="form-check-label" for="parttime">Parttime</label>
-          </div>
+        <!-- Right Content (Job Details) (feature-job-details) -->
+        <div class="col-md-3 right-content">
+            <h3>Product Designer</h3>
+            <p>Roundel - Bekasi, IND</p>
+            <p>Parttime - $8000/hr</p>
+            <a href="#" class="btn btn-success">Apply Now</a>
+            <a href="#" class="btn btn-outline-secondary">Save Job</a>
         </div>
-
-        <!-- Salary Range -->
-        <div class="mb-3">
-          <label class="form-label">Rango salarial (hr)</label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="salary" value="S/20-S/30" id="range1">
-            <label class="form-check-label" for="range1">S/20 - S/30</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="salary" value="S/40-S/50" id="range2">
-            <label class="form-check-label" for="range2">S/40 - S/50</label>
-          </div>
-        </div>
-
-        <!-- Funciones -->
-        <div class="mb-3">
-          <label class="form-label">Funciones</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Mesero" id="mesero">
-            <label class="form-check-label" for="mesero">Mesero</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Cajero" id="cajero">
-            <label class="form-check-label" for="cajero">Cajero</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Cocinero" id="cocinero">
-            <label class="form-check-label" for="cocinero">Cocinero</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Delivery" id="delivery">
-            <label class="form-check-label" for="delivery">Delivery</label>
-          </div>
-        </div>
-      </form>
     </div>
-
-
-    <!-- Main Content (feature-job-listings)-->
-    <div class="col-md-7 main-content">
-      <!-- Search Card -->
-      <div class="card mb-4 border-0 shadow">
-        <div class="card-body">
-          <h1 class="display-6">Encuentra tu empleo ideal</h1>
-          <p>Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
-          <div class="input-group">
-            <span class="input-group-text bg-white">
-              <i class="bi bi-search"></i> <!-- Icono de lupa -->
-            </span>
-            <input type="text" class="form-control" placeholder="Buscar empleos...">
-            <span class="input-group-text bg-white">
-              <i class="bi bi-arrow-right"></i> <!-- Flecha hacia la derecha -->
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <h2 class="mb-4">250 Resultados</h2>
-
-      <!-- Job Listings -->
-      <div class="row job-list">
-        <!-- Job Card -->
-        <div class="col-md-4 mb-4">
-          <div class="card border rounded-3 shadow-sm" style="background-color: #f9f9f9; border: 1px solid #ddd;">
-            <!-- Inner Card -->
-            <div class="card mb-0" style="background-color: #eaeaea;">
-              <div class="card-body d-flex justify-content-between align-items-center p-2">
-                <div>
-                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
-                </div>
-                <div>
-                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i> <!-- Icono guardar empleo -->
-                </div>
-              </div>
-              <div class="card-body pt-0 pb-2">
-                <h5 class="card-title mb-1">Empresa XYZ <i class="bi bi-check-circle text-success"></i></h5>
-                <p class="card-text mb-2">UI/UX Designer</p>
-                <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Onsite</button>
-                <button class="btn btn-outline-secondary btn-sm rounded-pill">Fulltime</button>
-              </div>
-            </div>
-
-            <!-- Parent Card Footer -->
-            <div class="card-body d-flex justify-content-between align-items-center p-2">
-              <div>
-                <p class="mb-1 fw-bold">S/40/hr</p>
-                <p class="mb-0">Lima, PE</p>
-              </div>
-              <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Repeat for other Job Cards -->
-        <div class="col-md-4 mb-4">
-          <div class="card border rounded-3 shadow-sm" style="background-color: #f9f9f9; border: 1px solid #ddd;">
-            <div class="card mb-0" style="background-color: #eaeaea;">
-              <div class="card-body d-flex justify-content-between align-items-center p-2">
-                <div>
-                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
-                </div>
-                <div>
-                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i>
-                </div>
-              </div>
-              <div class="card-body pt-0 pb-2">
-                <h5 class="card-title mb-1">Empresa ABC <i class="bi bi-check-circle text-success"></i></h5>
-                <p class="card-text mb-2">Web Developer</p>
-                <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Onsite</button>
-                <button class="btn btn-outline-secondary btn-sm rounded-pill">Fulltime</button>
-              </div>
-            </div>
-            <div class="card-body d-flex justify-content-between align-items-center p-2">
-              <div>
-                <p class="mb-1 fw-bold">S/50/hr</p>
-                <p class="mb-0">Lima, PE</p>
-              </div>
-              <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Third Job Card -->
-        <div class="col-md-4 mb-4">
-          <div class="card border rounded-3 shadow-sm" style="background-color: #f9f9f9; border: 1px solid #ddd;">
-            <div class="card mb-0" style="background-color: #eaeaea;">
-              <div class="card-body d-flex justify-content-between align-items-center p-2">
-                <div>
-                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
-                </div>
-                <div>
-                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i>
-                </div>
-              </div>
-              <div class="card-body pt-0 pb-2">
-                <h5 class="card-title mb-1">Empresa DEF <i class="bi bi-check-circle text-success"></i></h5>
-                <p class="card-text mb-2">Software Engineer</p>
-                <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Onsite</button>
-                <button class="btn btn-outline-secondary btn-sm rounded-pill">Fulltime</button>
-              </div>
-            </div>
-            <div class="card-body d-flex justify-content-between align-items-center p-2">
-              <div>
-                <p class="mb-1 fw-bold">S/60/hr</p>
-                <p class="mb-0">Lima, PE</p>
-              </div>
-              <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <!-- Right Content (Job Details) (feature-job-details) -->
-    <div class="col-md-3 right-content">
-      <!-- Job Image Card -->
-      <div class="card mb-4 position-relative" style="border-radius: 10px; height: 130px; overflow: hidden;">
-        <!-- Card with Image and Dark Overlay -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: url('business-image.jpg'); opacity: 0.5; background-size: cover; background-position: center;">
-        </div>
-
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);">
-          <!-- Overlay content -->
-          <div class="d-flex justify-content-center align-items-center h-100">
-            <span class="text-white fw-bold" style="padding: 5px 10px; border-radius: 5px;">
-              Expira en 1:30:06
-            </span>
-          </div>
-        </div>
-
-        <!-- Logo (Avatar) -->
-        <div class="position-absolute" style="bottom: -25px; left: 20px;">
-          <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px; border: 2px solid white;">
-        </div>
-      </div>
-
-
-
-      <!-- Job Title and Company -->
-      <h3 class="mt-4">Product Designer</h3>
-      <p class="fw-bold">Roundel</p>
-
-      <!-- Location Information -->
-      <div class="row mb-2">
-        <div class="col-6 fw-bold">Ubicación</div>
-        <div class="col-6 text-end">Lima, PE</div>
-        <div class="col-12">Av. Pedro de Osma 301, Barranco 15063</div>
-      </div>
-
-      <!-- Schedule Information -->
-      <div class="row mb-2">
-        <div class="col-6 fw-bold">Horario</div>
-        <div class="col-6 text-end">Presencial</div>
-        <div class="col-12">Lun 09/09/24 | 18:00 - 22:00</div>
-      </div>
-
-      <!-- Hours and Salary Information -->
-      <div class="row mb-2">
-        <div class="col-6 fw-bold">Horas</div>
-        <div class="col-6 text-end fw-bold">Salario</div>
-        <div class="col-6">4 hr</div>
-        <div class="col-6 text-end">S/. 15/hr</div>
-      </div>
-
-      <!-- Published Date and Other Offers -->
-      <p class="text-muted mb-1">Publicado hace 4 días</p>
-      <p class="text-muted">Otras ofertas de esta empresa</p>
-
-      <!-- Apply and More Info Buttons -->
-      <div class="d-flex gap-2 mb-3">
-        <a href="#" class="btn btn-success rounded-pill">Aplica ahora</a>
-        <a href="#" class="btn btn-outline-secondary rounded-pill">Ver más</a>
-      </div>
-
-      <!-- Divider -->
-      <hr class="my-3">
-
-      <!-- Description Section -->
-      <h5>Description</h5>
-      <p>Lorem ipsumLorem ipsumLorem ipsum<br>
-        Lorem ipsumLorem ipsumLorem ipsum<br>
-        Lorem ipsumLorem ipsumLorem ipsum</p>
-
-      <!-- Responsibilities Section -->
-      <h5>Responsibilities</h5>
-      <p>Lorem ipsumLorem ipsumLorem ipsum<br>
-        Lorem ipsumLorem ipsumLorem ipsum<br>
-        Lorem ipsumLorem ipsumLorem ipsum</p>
-
-      <!-- Requirements Section -->
-      <h5>Requirement</h5>
-      <p>This is a paragraph.</p>
-    </div>
-
-  </div>
 </div>
