@@ -1,0 +1,55 @@
+// <!-- colors -->
+$primary-color: #00ae7a;
+$secondary-color: #dad0fe;
+$back-color: #f4f4f4;
+
+//font-size
+$font-size-small: 1rem;
+$font-size-medium: 1.25rem; // Tamaño estándar para el cuerpo de texto
+$font-size-large: 1.5rem;
+$font-size-xlarge: 1.75rem;
+
+
+.standar {
+  font-size: $font-size-medium;
+  font-weight: 200;
+}
+
+.larger {
+  font-size: $font-size-xlarge;
+  font-weight: 800;
+}
+
+.large {
+  font-size: $font-size-large;
+  font-weight: 600;
+}
+
+.small {
+  font-size: $font-size-small;
+  font-weight: 400;
+}
+
+#button-green {
+  background-color: $primary-color;
+  border: none;
+  color: white;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+
+#button-white {
+  background-color: white;
+  border: solid $primary-color;
+  color: $primary-color;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+
+#hola {
+  color: #dad0fe;
+}

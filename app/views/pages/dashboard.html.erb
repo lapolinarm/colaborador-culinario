@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" id="background" data-controller="dashboard">
     <div class="header text-center my-4 py-4">
-      <h2>Bienvenido a Mis trabajos</h2>
+      <h2 >Bienvenido a Mis trabajos</h2>
     </div>
   <% estados = ["pendiente", "aceptado", "rechazado"] %>
   <% trabajos = [
@@ -16,11 +16,11 @@
   { titulo: "Trabajo 10", empresa: "Empresa J", funcion: "Host", horas: 10, pago: 150, status: estados.sample }
   ] %>
     <!--contenido Card-->
-    <!-- <div class="container">
+    <div class="container">
       <div class="column justify-content-center">
       <% trabajos.each do |trabajo| %>
-        <div class="col-md-4 my-4 mx-auto" style="width:50%;">
-          <div class="card">
+        <div data-aos="fade-right" class="col-md-4 my-4 mx-auto" style="width:50%;">
+          <div class="card" data-aos="fade-right">
             <div class="card-body">
               <h5 class="card-title"><%= trabajo[:titulo] %></h5>
               <p class="card-text">Empresa: <%= trabajo[:empresa] %></p>
@@ -32,7 +32,7 @@
         </div>
         <% end %>
       </div>
-    </div> -->
+    </div>
 
     <!-- Contenido tabla -->
   <table class="table">
@@ -65,3 +65,13 @@
     </tbody>
   </table>
 </div>
+
+
+<style>
+  .container {
+    background-color:#f4f4f4;
+    color:white;
+  }
+
+
+</style>
