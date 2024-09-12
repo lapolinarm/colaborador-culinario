@@ -1,16 +1,16 @@
 <%# Para probar que funciona, se reemplazara por lo de Levi %>
-<h1>Restaurants</h1>
+<h1>Lista de Restaurantes</h1>
 
-<%= link_to 'Create a new Restaurant', new_restaurant_path, class: 'btn btn-primary' %>
+<%= link_to 'Crear nuevo restaurante', new_restaurant_path, class: 'btn btn-primary' %>
 
 <table>
   <thead>
     <tr>
-      <th>RUC</th>
-      <th>Commercial Name</th>
-      <th>Company Name</th>
-      <th>Phone</th>
-      <th>Actions</th>
+      <th>R.U.C.</th>
+      <th>Nombre comercial</th>
+      <th>Razón Social</th>
+      <th>Telefono fijo</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -22,10 +22,11 @@
         <td><%= restaurant.phone %></td>
         <td>
           <%= link_to 'Ver detalles', restaurant_path(restaurant), class: 'btn btn-info' %>
-          <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn btn-warning' %>
-          <%= link_to 'Delete', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Editar', edit_restaurant_path(restaurant), class: 'btn btn-warning' %>
+          <%= link_to 'Borrar', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
