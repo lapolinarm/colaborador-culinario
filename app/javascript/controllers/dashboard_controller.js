@@ -7,4 +7,7 @@ export default class extends Controller {
     AOS.init();
     console.log("instalado aos")
   }
+
+
+
 }
