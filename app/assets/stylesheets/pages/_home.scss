@@ -25,22 +25,108 @@ body {
 }
 
 .job-list .card {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Espacio entre tarjetas en la misma fila */
 }
 
 .parent-card {
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
   border-radius: 18px !important;
 }
 
 .child-card {
+  background-color: #eaeaea;
+  border: 1px solid #ccc;
+  margin: 2px;
   border-radius: 18px !important;
-}
-
-.job-list .card {
-  margin-bottom: 1rem; /* Espacio entre tarjetas en la misma fila */
 }
 
 .job-list .col-md-3 {
   padding-left: 0.5rem; /* Ajuste horizontal del espacio entre columnas */
   padding-right: 0.5rem; /* Ajuste horizontal del espacio entre columnas */
+}
+
+/* Estilo para la imagen del logo */
+.child-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Estilo para el icono de guardar empleo */
+.child-card .bi-bookmark {
+  font-size: 1.5rem;
+}
+
+/* Botones de la tarjeta (Onsite, Fulltime) */
+.child-card .btn {
+  border-radius: 50px;
+}
+
+/* Botón de Detalle */
+.parent-card .btn-primary {
+  border-radius: 50px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Estilo para el texto del salario y ubicación */
+.parent-card .salary-location {
+  font-weight: bold;
+}
+
+
+
+
+.job-image-card {
+  border-radius: 10px;
+  height: 130px;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.background-image {
+  background-image: url('business-image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.overlay-content .expiration-time {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+
+
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-image: url('logo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+.job-image-logo {
+  bottom: -25px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.job-image-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid white;
 }
