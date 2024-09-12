@@ -50,20 +50,20 @@
     <tbody>
       <% contador = 0 %>
       <% trabajos.each do |trabajo| %>
-        <tr >
-          <th scope="row"><%= contador += 1 %> </th>
-          <td><%= trabajo[:empresa] %></td>
-          <td><%= trabajo[:funcion] %></td>
-          <td><%= trabajo[:horas] %></td>
-          <td><%= trabajo[:pago] %></td>
-          <td>
+        <tr>
+          <th scope="row" class="align-content-center"><%= contador += 1 %> </th>
+          <td class="align-content-center"><%= trabajo[:empresa] %></td>
+          <td class="align-content-center"><%= trabajo[:funcion] %></td>
+          <td class="align-content-center"><%= trabajo[:horas] %></td>
+          <td class="align-content-center"><%= trabajo[:pago] %></td>
+          <td class="align-content-center">
             <span class="<%= "status-#{trabajo[:status]}" %>">
               <%= trabajo[:status].capitalize %>
             </span>
           </td>
-          <td>
+          <td class="align-content-center">
             <% if trabajo[:status] != "rechazado" %>
-              <i class="fa-solid fa-xmark btn"></i>
+              <i class="fa-solid fa-xmark btn btn-primary fa-2x" id="custom-icon-white"></i>
             <% end %>
           </td>
         </tr>

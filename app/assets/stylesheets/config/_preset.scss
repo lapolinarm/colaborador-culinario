@@ -10,22 +10,22 @@ $font-size-large: 1.5rem;
 $font-size-xlarge: 1.75rem;
 
 
-.standar {
+.subtitle-card {
   font-size: $font-size-medium;
   font-weight: 200;
 }
 
-.larger {
+.main-title {
   font-size: $font-size-xlarge;
   font-weight: 800;
 }
 
-.large {
+.title-card {
   font-size: $font-size-large;
   font-weight: 600;
 }
 
-.small {
+.p-card {
   font-size: $font-size-small;
   font-weight: 400;
 }
@@ -50,11 +50,14 @@ $font-size-xlarge: 1.75rem;
   border-radius: 10px;
 }
 
-#hola {
-  color: #dad0fe;
-}
-
-
 body {
   background-color: white;
+}
+
+#custom-icon-white {
+  color: white;
+}
+
+#custom-icon-white:hover {
+  background-color: rgb(250, 0, 0);
 }
