@@ -1,5 +1,0 @@
-<% if user_signed_in? %>
-  <%= button_to 'Aplicar', job_job_users_path(@job), method: :post, class: "btn btn-primary" %>
-<% else %>
-  <%= link_to 'Inicia sesión para aplicar', new_user_session_path, class: "btn btn-primary" %>
-<% end %>
