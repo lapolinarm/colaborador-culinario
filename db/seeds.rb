@@ -21,7 +21,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
 puts "=" * 50
 puts "Inicio el Seeds en las tablas"
 
-10.times do
+20.times do
   instance = Util.new
 
   typePayMethod = {
