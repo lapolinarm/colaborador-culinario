@@ -98,13 +98,13 @@
           <p>Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
           <div class="position-relative">
             <!-- Input con border-radius completo y padding ajustado -->
-            <input type="text" class="form-control" placeholder="Buscar empleos..." style="border-radius: 25px; padding-left: 45px; padding-right: 60px; padding-top: 10px; padding-bottom: 10px;">
+            <input type="text" class="form-control search-input" placeholder="Buscar empleos...">
 
             <!-- Icono de lupa a la izquierda dentro del input -->
-            <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+            <i class="bi bi-search search-icon"></i>
 
             <!-- Botón circular con flecha adaptado al input con un margen uniforme -->
-            <button class="btn btn-success position-absolute top-50 translate-middle-y" style="right: 6px; width: 36px; height: 36px; border-radius: 50%; margin: 2px; display: flex; justify-content: center; align-items: center;">
+            <button class="btn btn-success search-button">
               <i class="bi bi-arrow-right text-white"></i>
             </button>
           </div>
@@ -120,16 +120,16 @@
 
         <!-- Job Card -->
         <div class="col-md-3">
-          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
+          <div class="card border parent-card">
 
             <!-- Inner Card (Hijo) -->
-            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
+            <div class="card mb-0 child-card">
               <div class="card-body d-flex justify-content-between align-items-center p-2">
                 <div>
-                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
+                  <img src="<%= asset_path('logo.jpg') %>" class="logo" alt="logo">
                 </div>
                 <div>
-                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i> <!-- Icono guardar empleo -->
+                  <i class="bi bi-bookmark"></i> <!-- Icono guardar empleo -->
                 </div>
               </div>
               <div class="card-body pt-0 pb-2">
@@ -143,7 +143,7 @@
             <!-- Parent Card Footer -->
             <div class="card-body d-flex justify-content-between align-items-center p-2">
               <div>
-                <p class="mb-1 fw-bold">S/40/hr</p>
+                <p class="mb-1 salary-location">S/40/hr</p>
                 <p class="mb-0">Lima, PE</p>
               </div>
               <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
@@ -151,29 +151,34 @@
           </div>
         </div>
 
+
         <!-- Repeat for other Job Cards -->
 
         <div class="col-md-3">
-          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
-            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
+          <div class="card border parent-card">
+
+            <!-- Inner Card (Hijo) -->
+            <div class="card mb-0 child-card">
               <div class="card-body d-flex justify-content-between align-items-center p-2">
                 <div>
-                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
+                  <img src="<%= asset_path('logo.jpg') %>" class="logo" alt="logo">
                 </div>
                 <div>
-                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i>
+                  <i class="bi bi-bookmark"></i> <!-- Icono guardar empleo -->
                 </div>
               </div>
               <div class="card-body pt-0 pb-2">
-                <h5 class="card-title mb-1">Empresa ABC <i class="bi bi-check-circle text-success"></i></h5>
-                <p class="card-text mb-2">Web Developer</p>
+                <h5 class="card-title mb-1">Empresa XYZ <i class="bi bi-check-circle text-success"></i></h5>
+                <p class="card-text mb-2">UI/UX Designer</p>
                 <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Onsite</button>
                 <button class="btn btn-outline-secondary btn-sm rounded-pill">Fulltime</button>
               </div>
             </div>
+
+            <!-- Parent Card Footer -->
             <div class="card-body d-flex justify-content-between align-items-center p-2">
               <div>
-                <p class="mb-1 fw-bold">S/50/hr</p>
+                <p class="mb-1 salary-location">S/40/hr</p>
                 <p class="mb-0">Lima, PE</p>
               </div>
               <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
@@ -183,26 +188,30 @@
 
         <!-- Third Job Card -->
         <div class="col-md-3">
-          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
-            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
+          <div class="card border parent-card">
+
+            <!-- Inner Card (Hijo) -->
+            <div class="card mb-0 child-card">
               <div class="card-body d-flex justify-content-between align-items-center p-2">
                 <div>
-                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
+                  <img src="<%= asset_path('logo.jpg') %>" class="logo" alt="logo">
                 </div>
                 <div>
-                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i>
+                  <i class="bi bi-bookmark"></i> <!-- Icono guardar empleo -->
                 </div>
               </div>
               <div class="card-body pt-0 pb-2">
-                <h5 class="card-title mb-1">Empresa DEF <i class="bi bi-check-circle text-success"></i></h5>
-                <p class="card-text mb-2">Software Engineer</p>
+                <h5 class="card-title mb-1">Empresa XYZ <i class="bi bi-check-circle text-success"></i></h5>
+                <p class="card-text mb-2">UI/UX Designer</p>
                 <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Onsite</button>
                 <button class="btn btn-outline-secondary btn-sm rounded-pill">Fulltime</button>
               </div>
             </div>
+
+            <!-- Parent Card Footer -->
             <div class="card-body d-flex justify-content-between align-items-center p-2">
               <div>
-                <p class="mb-1 fw-bold">S/60/hr</p>
+                <p class="mb-1 salary-location">S/40/hr</p>
                 <p class="mb-0">Lima, PE</p>
               </div>
               <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
@@ -212,26 +221,30 @@
 
         <!-- Quarter Job Card -->
         <div class="col-md-3">
-          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
-            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
+          <div class="card border parent-card">
+
+            <!-- Inner Card (Hijo) -->
+            <div class="card mb-0 child-card">
               <div class="card-body d-flex justify-content-between align-items-center p-2">
                 <div>
-                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
+                  <img src="<%= asset_path('logo.jpg') %>" class="logo" alt="logo">
                 </div>
                 <div>
-                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i>
+                  <i class="bi bi-bookmark"></i> <!-- Icono guardar empleo -->
                 </div>
               </div>
               <div class="card-body pt-0 pb-2">
-                <h5 class="card-title mb-1">Empresa GHI <i class="bi bi-check-circle text-success"></i></h5>
-                <p class="card-text mb-2">Product Manager</p>
+                <h5 class="card-title mb-1">Empresa XYZ <i class="bi bi-check-circle text-success"></i></h5>
+                <p class="card-text mb-2">UI/UX Designer</p>
                 <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Onsite</button>
                 <button class="btn btn-outline-secondary btn-sm rounded-pill">Fulltime</button>
               </div>
             </div>
+
+            <!-- Parent Card Footer -->
             <div class="card-body d-flex justify-content-between align-items-center p-2">
               <div>
-                <p class="mb-1 fw-bold">S/70/hr</p>
+                <p class="mb-1 salary-location">S/40/hr</p>
                 <p class="mb-0">Lima, PE</p>
               </div>
               <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
@@ -243,26 +256,30 @@
 
         <!-- Fifth Job Card -->
         <div class="col-md-3">
-          <div class="card border rounded-4 shadow-sm parent-card" style="background-color: #f9f9f9; border: 2px solid #ddd;">
-            <div class="card mb-0 child-card" style="background-color: #eaeaea; border: 1px solid #ccc; margin: 2px;">
+          <div class="card border parent-card">
+
+            <!-- Inner Card (Hijo) -->
+            <div class="card mb-0 child-card">
               <div class="card-body d-flex justify-content-between align-items-center p-2">
                 <div>
-                  <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px;">
+                  <img src="<%= asset_path('logo.jpg') %>" class="logo" alt="logo">
                 </div>
                 <div>
-                  <i class="bi bi-bookmark" style="font-size: 1.5rem;"></i>
+                  <i class="bi bi-bookmark"></i> <!-- Icono guardar empleo -->
                 </div>
               </div>
               <div class="card-body pt-0 pb-2">
-                <h5 class="card-title mb-1">Empresa GHI <i class="bi bi-check-circle text-success"></i></h5>
-                <p class="card-text mb-2">Product Manager</p>
+                <h5 class="card-title mb-1">Empresa XYZ <i class="bi bi-check-circle text-success"></i></h5>
+                <p class="card-text mb-2">UI/UX Designer</p>
                 <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Onsite</button>
                 <button class="btn btn-outline-secondary btn-sm rounded-pill">Fulltime</button>
               </div>
             </div>
+
+            <!-- Parent Card Footer -->
             <div class="card-body d-flex justify-content-between align-items-center p-2">
               <div>
-                <p class="mb-1 fw-bold">S/70/hr</p>
+                <p class="mb-1 salary-location">S/40/hr</p>
                 <p class="mb-0">Lima, PE</p>
               </div>
               <a href="#" class="btn btn-primary rounded-pill px-3">Detalle</a>
@@ -283,25 +300,27 @@
     <!-- Right Content (Job Details) (feature-job-details) -->
     <div class="col-md-3 right-content">
       <!-- Job Image Card -->
-      <div class="card mb-4 position-relative" style="border-radius: 10px; height: 130px; overflow: hidden;">
+      <div class="card mb-4 position-relative job-image-card">
         <!-- Card with Image and Dark Overlay -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: url('business-image.jpg'); opacity: 0.5; background-size: cover; background-position: center;">
+        <div class="position-absolute top-0 start-0 w-100 h-100 background-image">
         </div>
 
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="position-absolute top-0 start-0 w-100 h-100 dark-overlay">
           <!-- Overlay content -->
-          <div class="d-flex justify-content-center align-items-center h-100">
-            <span class="text-white fw-bold" style="padding: 5px 10px; border-radius: 5px;">
+          <div class="d-flex justify-content-center align-items-center h-100 overlay-content">
+            <span class="text-white fw-bold expiration-time">
               Expira en 1:30:06
             </span>
           </div>
         </div>
 
         <!-- Logo (Avatar) -->
-        <div class="position-absolute" style="bottom: -25px; left: 20px;">
-          <img src="logo.jpg" class="rounded-circle" alt="logo" style="width: 50px; height: 50px; border: 2px solid white;">
+        <div class="position-absolute job-image-logo">
+          <img src="<%= asset_path('logo.jpg') %>" class="rounded-circle" alt="logo">
         </div>
+
       </div>
+
 
 
 
