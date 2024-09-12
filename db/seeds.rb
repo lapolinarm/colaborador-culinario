@@ -1,6 +1,7 @@
 
 require 'faker'
 
+Restaurant.destroy_all
 Job.destroy_all
 
 
@@ -11,7 +12,7 @@ Job.destroy_all
   )
 end
 
-5.times do
+10.times do
   Restaurant.create!(
     ruc: Faker::Number.number(digits: 11),
     commercial_name: Faker::Restaurant.name,
@@ -28,7 +29,7 @@ end
 end
 
 
-
+10.times do
   Job.create(
     date: Faker::Date.between(from: 1.year.ago, to: Date.today),
     hour_start: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
@@ -42,3 +43,4 @@ end
     requirement: Faker::Lorem.paragraph,
     restaurant_id: Restaurant.pluck(:id).sample # Asegúrate de que Restaurant tenga datos en la base de datos
   )
+end

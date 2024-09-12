@@ -45,3 +45,4 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:ruc, :commercial_name, :company_name, :phone, :mobile_phone, :address, :district, :province, :country, :reference, :user_id)
   end
 end
+

@@ -2,24 +2,30 @@
 <h1><%= @restaurant.commercial_name %></h1>
 
 <p>
-  <strong>RUC:</strong>
+  <strong>R.U.C.:</strong>
   <%= @restaurant.ruc %>
 </p>
 
 <p>
-  <strong>Company Name:</strong>
+  <strong>Nombre Comercial:</strong>
   <%= @restaurant.company_name %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong>Telefono fijo:</strong>
   <%= @restaurant.phone %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Telefono movil:</strong>
+  <%= @restaurant.mobile_phone %>
+</p>
+
+
+<p>
+  <strong>Dirección:</strong>
   <%= @restaurant.address %>
 </p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn btn-warning' %>
-<%= link_to 'Back', restaurants_path, class: 'btn btn-secondary' %>
+<%= link_to 'Editar', edit_restaurant_path(@restaurant), class: 'btn btn-warning' %>
+<%= link_to 'Regresar', restaurants_path, class: 'btn btn-secondary' %>

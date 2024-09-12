@@ -1,18 +1,16 @@
 class JobUsersController < ApplicationController
-  before_action :set_job
+  before_action :authenticate_user!
 
   def create
-    @job_user = @job.job_users.build(user: current_user)
-    if @job_user.save
-      redirect_to job_path(@job), notice: 'You have successfully applied to this job.'
+    job = Job.find(params[:job_id])
+    job_user = JobUser.new(job: job, user: current_user, status: 0)
+
+    if job_user.save
+      flash[:notice] = "Has aplicado al trabajo correctamente."
+      redirect_to job_path(job)
     else
-      redirect_to job_path(@job), alert: 'There was an error in applying to this job.'
+      flash[:alert] = "Hubo un problema al aplicar al trabajo."
+      redirect_to job_path(job)
     end
-  end
-
-  private
-
-  def set_job
-    @job = Job.find(params[:job_id])
   end
 end
