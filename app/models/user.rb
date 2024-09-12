@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :restaurants, dependent: :destroy
-  has_many :jobs_users, dependent: :destroy
+  has_many :job_users, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :jobs, through: :jobs_users
+  has_many :jobs, through: :job_users
 end
