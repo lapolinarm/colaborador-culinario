@@ -76,8 +76,7 @@ puts "Inicio el Seeds en las tablas"
 
   typeJobMode = {
     "Presencial" => 0,
-    "Remoto" => 1,
-    "Hibrido" => 2
+    "Hibrido" => 1
   }
   valTypeJobMode = instance.valor_random_del_hash(typeJobMode)
 
