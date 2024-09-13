@@ -1,5 +1,11 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %w[show edit update destroy]
+  before_action :authenticate_user!
+  before_action :authorize_collaborator!, only: [:apply]
+
+  def apply
+    # Lógica para aplicar a un trabajo
+  end
 
   def index
     @jobs = Job.all
@@ -45,5 +51,11 @@ class JobsController < ApplicationController
 
   def set_job
     @job = Job.find(params[:id])
+  end
+
+  def authorize_collaborator!
+    unless current_user.collaborator?
+      redirect_to root_path, alert: 'Solo los colaboradores pueden aplicar a trabajos.'
+    end
   end
 end
