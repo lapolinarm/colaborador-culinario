@@ -129,7 +129,7 @@
                 </div>
                 <div class="card-body pt-0 pb-2">
                   <h5 class="card-title mb-1"><%= job.restaurant.commercial_name %> <i class="bi bi-check-circle text-success"></i></h5>
-                  <p class="card-text mb-2"><%= job.function %></p>
+                  <p class="card-text mb-2"><%= ["Mozo", "Azafata", "Delivery", "Lavaplatos"][job.function] %></p>
                   <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Expira en <%= time_ago_in_words(job.date) %></button>
                 </div>
               </div>
