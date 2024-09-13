@@ -29,6 +29,8 @@ class PagesController < ApplicationController
     else
       @time_remaining = 0
     end
+
+    @job_user = JobUser.new
   end
 
   def about
