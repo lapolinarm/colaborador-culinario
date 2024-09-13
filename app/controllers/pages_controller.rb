@@ -36,9 +36,6 @@ class PagesController < ApplicationController
   def about
   end
 
-  def dashboard
-  end
-
   private
 
   def calculate_time_remaining(job)
