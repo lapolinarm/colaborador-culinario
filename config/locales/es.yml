@@ -1,0 +1,34 @@
+es:
+  time:
+    helpers:
+      distance_of_time_in_words:
+        less_than_x_minutes:
+          one: "menos de un minuto"
+          other: "menos de %{count} minutos"
+        x_minutes:
+          one: "un minuto"
+          other: "%{count} minutos"
+        about_x_hours:
+          one: "alrededor de una hora"
+          other: "alrededor de %{count} horas"
+        x_hours:
+          one: "una hora"
+          other: "%{count} horas"
+        about_x_days:
+          one: "alrededor de un día"
+          other: "alrededor de %{count} días"
+        x_days:
+          one: "un día"
+          other: "%{count} días"
+        about_x_months:
+          one: "alrededor de un mes"
+          other: "alrededor de %{count} meses"
+        x_months:
+          one: "un mes"
+          other: "%{count} meses"
+        about_x_years:
+          one: "alrededor de un año"
+          other: "alrededor de %{count} años"
+        x_years:
+          one: "un año"
+          other: "%{count} años"

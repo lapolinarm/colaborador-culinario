@@ -21,7 +21,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
 puts "=" * 50
 puts "Inicio el Seeds en las tablas"
 
-10.times do
+20.times do
   instance = Util.new
 
   typePayMethod = {
@@ -76,8 +76,7 @@ puts "Inicio el Seeds en las tablas"
 
   typeJobMode = {
     "Presencial" => 0,
-    "Remoto" => 1,
-    "Hibrido" => 2
+    "Hibrido" => 1
   }
   valTypeJobMode = instance.valor_random_del_hash(typeJobMode)
 
