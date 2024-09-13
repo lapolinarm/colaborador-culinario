@@ -1,14 +1,14 @@
 <%= simple_form_for @job do |f| %>
-  <%# <% if @job.errors.any? %>
-  <%#   <div id="error_explanation">
-  <%#     <h2><%= pluralize(@job.errors.count, "error") %> <%# Prohibido guardar este trabajo:</h2>
-  <%#     <ul>
-  <%#       <% @job.errors.full_messages.each do |message| %>
-  <%#         <li><%= message %></li>
-  <%#       <% end %>
-  <%#    </ul>
-  <%#   </div>
-  <%# <% end %>
+   <% if @job.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@job.errors.count, "error") %> Error falta campos:</h2>
+       <ul>
+         <% @job.errors.full_messages.each do |message| %>
+           <li><%= message %> % </li>
+         <% end %>
+      </ul>
+     </div>
+   <% end %>
 
   <%= f.input :date, as: :string, label: "Fecha del trabajo", placeholder: "YYYY-MM-DD" %>
   <%= f.input :hour_start, label: "Hora de inicio", as: :time %>

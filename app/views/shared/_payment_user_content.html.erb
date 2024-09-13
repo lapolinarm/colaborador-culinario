@@ -1,0 +1,56 @@
+<div class="container_def text-center  my-4 py-4" >
+  <div class="custom-title text-center m-5">
+    <h1>Mis Pagos</h1>
+  </div>
+
+  <% estados = ["pendiente", "aceptado", "rechazado"] %>
+  <% trabajos = [
+  { titulo: "Trabajo 1", empresa: "Empresa A", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
+  { titulo: "Trabajo 2", empresa: "Empresa B", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
+  { titulo: "Trabajo 3", empresa: "Empresa C", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
+  { titulo: "Trabajo 4", empresa: "Empresa D", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
+  { titulo: "Trabajo 5", empresa: "Empresa E", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
+  { titulo: "Trabajo 6", empresa: "Empresa F", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
+  { titulo: "Trabajo 7", empresa: "Empresa G", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
+  { titulo: "Trabajo 8", empresa: "Empresa H", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
+  { titulo: "Trabajo 9", empresa: "Empresa I", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample },
+  { titulo: "Trabajo 10", empresa: "Empresa J", funcion: "Host", horas: 10, pago: 150, status: estados.sample },
+  { titulo: "Trabajo 11", empresa: "Empresa K", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
+  { titulo: "Trabajo 12", empresa: "Empresa L", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
+  { titulo: "Trabajo 13", empresa: "Empresa M", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
+  { titulo: "Trabajo 14", empresa: "Empresa N", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
+  { titulo: "Trabajo 15", empresa: "Empresa O", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
+  { titulo: "Trabajo 16", empresa: "Empresa P", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
+  { titulo: "Trabajo 17", empresa: "Empresa Q", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
+  { titulo: "Trabajo 18", empresa: "Empresa R", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
+  { titulo: "Trabajo 19", empresa: "Empresa S", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
+  { titulo: "Trabajo 20", empresa: "Empresa T", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample },
+  { titulo: "Trabajo 21", empresa: "Empresa U", funcion: "Host", horas: 10, pago: 150, status: estados.sample },
+  { titulo: "Trabajo 22", empresa: "Empresa V", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
+  { titulo: "Trabajo 23", empresa: "Empresa W", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
+  { titulo: "Trabajo 24", empresa: "Empresa X", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
+  { titulo: "Trabajo 25", empresa: "Empresa Y", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
+  { titulo: "Trabajo 26", empresa: "Empresa Z", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
+  { titulo: "Trabajo 27", empresa: "Empresa AA", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
+  { titulo: "Trabajo 28", empresa: "Empresa AB", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
+  { titulo: "Trabajo 29", empresa: "Empresa AC", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
+  { titulo: "Trabajo 30", empresa: "Empresa AD", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample }
+] %>
+
+
+  <div class="column justify-content-center">
+  <% trabajos.each do |trabajo| %>
+    <div data-aos="fade-right" class="col-md-4 my-4 mx-auto" style="width:50%;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= trabajo[:titulo] %></h5>
+          <p class="card-text">Empresa: <%= trabajo[:empresa] %></p>
+          <p class="card-text">Función: <%= trabajo[:funcion] %></p>
+          <p class="card-text">horas trabajadas: <%= trabajo[:horas] %></p>
+          <p class="card-text">Pago total: <%= trabajo[:pago] %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

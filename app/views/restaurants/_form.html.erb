@@ -2,7 +2,7 @@
 <%# solucion al error que me daba %>
   <% if restaurant.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(restaurant.errors.count, "error") %> Error debe llenar todos los campos:</h2>
+      <h2><%= pluralize(restaurant.errors.count, "error") %> Error falta campos:</h2>
       <ul>
         <% restaurant.errors.full_messages.each do |message| %>
           <li><%= message %></li>

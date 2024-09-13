@@ -1,0 +1,49 @@
+<h1>Panel de Colaborador</h1>
+
+<h2>Trabajos a los que has aplicado</h2>
+
+<% if @applied_jobs.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Hora de Inicio</th>
+        <th>Hora de Fin</th>
+        <th>Pago por Hora</th>
+        <th>Restaurante</th>
+        <th>Estado de la Aplicación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @applied_jobs.each do |job| %>
+        <tr>
+          <td><%= job.date %></td>
+          <td><%= job.hour_start %></td>
+          <td><%= job.hour_end %></td>
+          <td><%= job.payment_hour %></td>
+          <td><%= job.restaurant.commercial_name if job.restaurant %></td>
+          <td><%= job.job_users.find_by(user: current_user).status %></td>
+          <td>
+            <%= link_to 'Ver Detalles del Trabajo', job_path(job), class: 'btn btn-info' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No has aplicado a ningún trabajo todavía.</p>
+<% end %>
+
+<div>
+  <h2>Filtrar Trabajos Aplicados</h2>
+<%= form_with url: dashboard_path, method: :get, local: true do %>
+  <div class="form-group">
+    <%= label_tag :status, 'Estado de la Aplicación' %>
+    <%= select_tag :status, options_for_select([['Pendiente', 'pending'], ['Aceptado', 'accepted'], ['Rechazado', 'rejected']], params[:status]), include_blank: true, class: 'form-control' %>
+  </div>
+
+  <%= submit_tag 'Filtrar', class: 'btn btn-primary' %>
+<% end %>
+
+</div>
