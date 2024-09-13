@@ -1,27 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const countdownElement = document.getElementById('countdown');
-  let timeRemaining = parseInt(countdownElement.getAttribute('data-time-remaining'), 10);
+  const countdownElements = document.querySelectorAll('.expiration-time');
 
-  if (isNaN(timeRemaining)) {
-    console.error('El valor de data-time-remaining no es un número válido');
-    return;
-  }
+  countdownElements.forEach(el => {
+    const timeRemaining = el.dataset.timeRemaining;
 
-  function updateCountdown() {
-    if (timeRemaining <= 0) {
-      countdownElement.textContent = 'Expirado';
-      return;
+    function updateCountdown() {
+      if (timeRemaining === "Oferta expirada") {
+        el.innerHTML = "Oferta expirada";
+        return;
+      }
+
+      try {
+        const remainingTime = JSON.parse(timeRemaining);
+        const distance = remainingTime.hours * 3600 + remainingTime.minutes * 60 + remainingTime.seconds;
+
+        if (distance < 0) {
+          el.innerHTML = "EXPIRED";
+          return;
+        }
+
+        const hours = Math.floor(distance / 3600);
+        const minutes = Math.floor((distance % 3600) / 60);
+        const seconds = Math.floor(distance % 60);
+
+        el.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+      } catch (e) {
+        el.innerHTML = "Error al calcular el tiempo";
+      }
     }
 
-    const hours = Math.floor(timeRemaining / 3600);
-    const minutes = Math.floor((timeRemaining % 3600) / 60);
-    const seconds = timeRemaining % 60;
-
-    countdownElement.textContent = `Expira en ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-    timeRemaining -= 1;
-  }
-
-  updateCountdown(); // Llama a la función una vez para mostrar el tiempo inicial
-  setInterval(updateCountdown, 1000); // Actualiza el contador cada segundo
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  });
 });
