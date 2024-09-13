@@ -1,0 +1,56 @@
+<!-- app/views/pages/_job_listings.html.erb -->
+<div class="col-md-7 main-content">
+  <!-- Search Card -->
+  <div class="card mb-4 border-0 shadow">
+    <div class="card-body">
+      <h1 class="display-6">Encuentra tu empleo ideal</h1>
+      <p>Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
+      <div class="position-relative">
+        <input type="text" class="form-control search-input" placeholder="Buscar empleos...">
+        <i class="bi bi-search search-icon"></i>
+        <button class="btn btn-success search-button">
+          <i class="bi bi-arrow-right text-white"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="mb-4"><%= pluralize(jobs.count, 'Resultado') %></h2>
+
+  <!-- Job Listings -->
+  <div class="row job-list gx-4 gy-4">
+    <% jobs.each do |job| %>
+      <div class="col-md-3">
+        <div class="card border parent-card">
+          <!-- Inner Card (Hijo) -->
+          <div class="card mb-0 child-card">
+            <div class="card-body d-flex justify-content-between align-items-center p-2">
+              <div>
+                <img src="<%= asset_path('logo.jpg') %>" class="logo" alt="logo">
+              </div>
+              <div>
+                <i class="bi bi-bookmark"></i> <!-- Icono guardar empleo -->
+              </div>
+            </div>
+            <div class="card-body pt-0 pb-2">
+              <h5 class="card-title mb-1"><%= job.restaurant.commercial_name %> <i class="bi bi-check-circle text-success"></i></h5>
+              <p class="card-text mb-2"><%= job.function.humanize %></p>
+              <button class="btn btn-outline-secondary btn-sm rounded-pill me-2">Expira en <%= time_ago_in_words(job.date) %></button>
+            </div>
+          </div>
+
+          <!-- Parent Card Footer -->
+          <div class="card-body d-flex justify-content-between align-items-center p-2">
+            <div>
+              <p class="mb-1 salary-location"><%= number_to_currency(job.payment_hour, unit: 'S/.', precision: 0) %>/hr</p>
+              <p class="mb-0"><%= job_location(job) %></p>
+            </div>
+            <%= turbo_frame_tag "job_#{job.id}" do %>
+              <%= link_to 'Detalle', home_path(job_id: job.id), data: { turbo_frame: "job_details" }, class: 'btn btn-primary rounded-pill px-3' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
