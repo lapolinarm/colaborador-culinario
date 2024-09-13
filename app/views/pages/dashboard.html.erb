@@ -1,40 +1,54 @@
-<div class="container pb-5 mb-5" id="background" data-controller="dashboard">
-    <div class="header text-center my-4 py-4">
-      <h1 >Mis Postulaciones</h1>
+<div data-controller="dashboard">
+
+  <div class="d-flex flex-row">
+    <div class="col-ml-2 sidebar">
+      <h1 class="text-center">Dashboard</h1>
+      <div class="d-flex flex-column gap-2" >
+        <button class="btn btn-primary" data-action="click->dashboard#showView" data-view="1">1</button>
+        <button data-action="click->dashboard#showView" data-view="2">2</button>
+      </div>
     </div>
-  <% estados = ["pendiente", "aceptado", "rechazado"] %>
-  <% trabajos = [
-    { titulo: "Trabajo 1", empresa: "Empresa A", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
-    { titulo: "Trabajo 2", empresa: "Empresa B", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
-    { titulo: "Trabajo 3", empresa: "Empresa C", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
-    { titulo: "Trabajo 4", empresa: "Empresa D", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
-    { titulo: "Trabajo 5", empresa: "Empresa E", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
-    { titulo: "Trabajo 6", empresa: "Empresa F", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
-    { titulo: "Trabajo 7", empresa: "Empresa G", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
-    { titulo: "Trabajo 8", empresa: "Empresa H", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
-    { titulo: "Trabajo 9", empresa: "Empresa I", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample },
-    { titulo: "Trabajo 10", empresa: "Empresa J", funcion: "Host", horas: 10, pago: 150, status: estados.sample },
-    { titulo: "Trabajo 11", empresa: "Empresa K", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
-    { titulo: "Trabajo 12", empresa: "Empresa L", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
-    { titulo: "Trabajo 13", empresa: "Empresa M", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
-    { titulo: "Trabajo 14", empresa: "Empresa N", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
-    { titulo: "Trabajo 15", empresa: "Empresa O", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
-    { titulo: "Trabajo 16", empresa: "Empresa P", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
-    { titulo: "Trabajo 17", empresa: "Empresa Q", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
-    { titulo: "Trabajo 18", empresa: "Empresa R", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
-    { titulo: "Trabajo 19", empresa: "Empresa S", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
-    { titulo: "Trabajo 20", empresa: "Empresa T", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample },
-    { titulo: "Trabajo 21", empresa: "Empresa U", funcion: "Host", horas: 10, pago: 150, status: estados.sample },
-    { titulo: "Trabajo 22", empresa: "Empresa V", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
-    { titulo: "Trabajo 23", empresa: "Empresa W", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
-    { titulo: "Trabajo 24", empresa: "Empresa X", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
-    { titulo: "Trabajo 25", empresa: "Empresa Y", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
-    { titulo: "Trabajo 26", empresa: "Empresa Z", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
-    { titulo: "Trabajo 27", empresa: "Empresa AA", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
-    { titulo: "Trabajo 28", empresa: "Empresa AB", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
-    { titulo: "Trabajo 29", empresa: "Empresa AC", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
-    { titulo: "Trabajo 30", empresa: "Empresa AD", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample }
-  ] %>
+
+    <div class="container pb-5 mb-5 w-auto" id="background" >
+      <div class="header text-center my-4 py-4">
+
+        <h1 data-dashboard-target="title">Mis Postulaciones</h1>
+        <p data-dashboard-target="text">Aquí verás tus postulaciones.</p>
+        <h1 >Mis Postulaciones</h1>
+      </div>
+      <% estados = ["pendiente", "aceptado", "rechazado"] %>
+      <% trabajos = [
+      { titulo: "Trabajo 1", empresa: "Empresa A", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
+      { titulo: "Trabajo 2", empresa: "Empresa B", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
+      { titulo: "Trabajo 3", empresa: "Empresa C", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
+      { titulo: "Trabajo 4", empresa: "Empresa D", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
+      { titulo: "Trabajo 5", empresa: "Empresa E", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
+      { titulo: "Trabajo 6", empresa: "Empresa F", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
+      { titulo: "Trabajo 7", empresa: "Empresa G", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
+      { titulo: "Trabajo 8", empresa: "Empresa H", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
+      { titulo: "Trabajo 9", empresa: "Empresa I", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample },
+      { titulo: "Trabajo 10", empresa: "Empresa J", funcion: "Host", horas: 10, pago: 150, status: estados.sample },
+      { titulo: "Trabajo 11", empresa: "Empresa K", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
+      { titulo: "Trabajo 12", empresa: "Empresa L", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
+      { titulo: "Trabajo 13", empresa: "Empresa M", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
+      { titulo: "Trabajo 14", empresa: "Empresa N", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
+      { titulo: "Trabajo 15", empresa: "Empresa O", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
+      { titulo: "Trabajo 16", empresa: "Empresa P", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
+      { titulo: "Trabajo 17", empresa: "Empresa Q", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
+      { titulo: "Trabajo 18", empresa: "Empresa R", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
+      { titulo: "Trabajo 19", empresa: "Empresa S", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
+      { titulo: "Trabajo 20", empresa: "Empresa T", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample },
+      { titulo: "Trabajo 21", empresa: "Empresa U", funcion: "Host", horas: 10, pago: 150, status: estados.sample },
+      { titulo: "Trabajo 22", empresa: "Empresa V", funcion: "Cocinero", horas: 40, pago: 500, status: estados.sample },
+      { titulo: "Trabajo 23", empresa: "Empresa W", funcion: "Mesero", horas: 30, pago: 350, status: estados.sample },
+      { titulo: "Trabajo 24", empresa: "Empresa X", funcion: "Limpieza", horas: 25, pago: 250, status: estados.sample },
+      { titulo: "Trabajo 25", empresa: "Empresa Y", funcion: "Cajero", horas: 35, pago: 400, status: estados.sample },
+      { titulo: "Trabajo 26", empresa: "Empresa Z", funcion: "Ayudante de cocina", horas: 20, pago: 300, status: estados.sample },
+      { titulo: "Trabajo 27", empresa: "Empresa AA", funcion: "Supervisor", horas: 45, pago: 600, status: estados.sample },
+      { titulo: "Trabajo 28", empresa: "Empresa AB", funcion: "Repartidor", horas: 15, pago: 200, status: estados.sample },
+      { titulo: "Trabajo 29", empresa: "Empresa AC", funcion: "Chef", horas: 50, pago: 800, status: estados.sample },
+      { titulo: "Trabajo 30", empresa: "Empresa AD", funcion: "Bartender", horas: 25, pago: 300, status: estados.sample }
+    ] %>
     <!--contenido Card-->
     <!-- <div class="container">
       <div class="column justify-content-center">
@@ -55,54 +69,62 @@
     </div> -->
 
     <!-- Contenido tabla -->
-  <table class="table animate__animated animate__bounceInRight animate__slow">
-    <thead>
-      <tr class="text-center">
-        <th scope="col">#</th>
-        <th scope="col">Empresa</th>
-        <th scope="col">Función</th>
-        <th scope="col">Horas</th>
-        <th scope="col">Pago total</th>
-        <th scope="col">Estado</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% contador = 0 %>
-      <% trabajos.each do |trabajo| %>
-        <tr class="text-center">
-          <th scope="row" class="align-content-center"><%= contador += 1 %> </th>
-          <td class="align-content-center"><%= trabajo[:empresa] %></td>
-          <td class="align-content-center"><%= trabajo[:funcion] %></td>
-          <td class="align-content-center"><%= trabajo[:horas] %></td>
-          <td class="align-content-center"><%= trabajo[:pago] %></td>
+      <table class="table animate__animated animate__bounceInRight animate__slow">
+        <thead>
+          <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Función</th>
+            <th scope="col">Horas</th>
+            <th scope="col">Pago total</th>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% contador = 0 %>
+          <% trabajos.each do |trabajo| %>
+            <tr class="text-center">
+              <th scope="row" class="align-content-center"><%= contador += 1 %> </th>
+              <td class="align-content-center"><%= trabajo[:empresa] %></td>
+              <td class="align-content-center"><%= trabajo[:funcion] %></td>
+              <td class="align-content-center"><%= trabajo[:horas] %></td>
+              <td class="align-content-center"><%= trabajo[:pago] %></td>
 
-          <td class="align-content-center">
-            <div class="d-flex flex-row">
-              <div class="<%= "status-aceptado #{'active-status' if trabajo[:status] == 'aceptado'}" %>">Aceptado</div>
-              <div class="<%= "status-pendiente #{'active-status' if trabajo[:status] == 'pendiente'}" %>">Pendiente</div>
-              <div class="<%= "status-rechazado #{'active-status' if trabajo[:status] == 'rechazado'}" %>">Rechazado</div>
-            </div>
-          </td>
+              <td class="align-content-center">
+                <div class="d-flex flex-row">
+                  <div class="<%= "status-aceptado #{'active-status' if trabajo[:status] == 'aceptado'}" %>">Aceptado</div>
+                  <div class="<%= "status-pendiente #{'active-status' if trabajo[:status] == 'pendiente'}" %>">Pendiente</div>
+                  <div class="<%= "status-rechazado #{'active-status' if trabajo[:status] == 'rechazado'}" %>">Rechazado</div>
+                </div>
+              </td>
 
-          <td class="align-content-center">
-            <% if trabajo[:status] != "rechazado" %>
-              <i class="fa-solid fa-xmark btn btn-primary fa-2x" id="custom-icon-white"></i>
-            <% end %>
-          </td>
+              <td class="align-content-center">
+                <% if trabajo[:status] != "rechazado" %>
+                  <i class="fa-solid fa-xmark btn btn-primary fa-2x" id="custom-icon-white"></i>
+                <% end %>
+              </td>
 
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <%# estilos %>
+    <style>
+      .container {
+        background-color:#f4f4f4;
+        color:white;
+      }
+
+      .sidebar {
+        position: fixed;
+      }
+
+    </style>
+
+  </div>
+
+
 </div>
-
-<style>
-  .container {
-    background-color:#f4f4f4;
-    color:white;
-  }
-
-
-</style>
