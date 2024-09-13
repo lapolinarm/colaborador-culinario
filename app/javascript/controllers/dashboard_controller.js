@@ -26,6 +26,8 @@ export default class extends Controller {
     } else if (view === "3") {
       document.getElementById('content3').style.display = 'block';
     }
+
+    AOS.refresh()
   }
 
   hideAllContents() {
