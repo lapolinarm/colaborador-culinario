@@ -1,0 +1,85 @@
+<h1>Panel de Dueño de Restaurante</h1>
+
+<h2>Mis Restaurantes</h2>
+
+<% if @restaurants.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre Comercial</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @restaurants.each do |restaurant| %>
+        <tr>
+          <td><%= restaurant.commercial_name %></td>
+          <td><%= restaurant.address %></td>
+          <td><%= restaurant.phone %></td>
+          <td>
+            <%= link_to 'Ver Detalles', restaurant_path(restaurant), class: 'btn btn-info' %>
+            <%= link_to 'Editar', edit_restaurant_path(restaurant), class: 'btn btn-warning' %>
+            <%= link_to 'Eliminar', restaurant_path(restaurant), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No tienes restaurantes registrados. <%= link_to 'Crear un restaurante', new_restaurant_path, class: 'btn btn-primary' %></p>
+<% end %>
+
+<h2>Trabajos Publicados</h2>
+
+<% if @restaurants.any? %>
+  <% @restaurants.each do |restaurant| %>
+    <h3><%= restaurant.commercial_name %></h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Hora de Inicio</th>
+          <th>Hora de Fin</th>
+          <th>Pago por Hora</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% restaurant.jobs.each do |job| %>
+          <tr>
+            <td><%= job.date %></td>
+            <td><%= job.hour_start %></td>
+            <td><%= job.hour_end %></td>
+            <td><%= job.payment_hour %></td>
+            <td>
+              <%= link_to 'Ver Trabajo', job_path(job), class: 'btn btn-info' %>
+              <%= link_to 'Editar', edit_job_path(job), class: 'btn btn-warning' %>
+              <%= link_to 'Eliminar', job_path(job), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% else %>
+  <p>No tienes trabajos publicados aún.</p>
+<% end %>
+
+<div>
+  <h2>Filtrar Trabajos Publicados</h2>
+<%= form_with url: dashboard_path, method: :get, local: true do %>
+  <div class="form-group">
+    <%= label_tag :date, 'Fecha' %>
+    <%= date_field_tag :date, params[:date], class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :restaurant_id, 'Restaurante' %>
+    <%= select_tag :restaurant_id, options_from_collection_for_select(current_user.restaurants, :id, :commercial_name, params[:restaurant_id]), include_blank: true, class: 'form-control' %>
+  </div>
+
+  <%= submit_tag 'Filtrar', class: 'btn btn-primary' %>
+<% end %>
+</div>

@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @restaurants = Restaurant.all
   end
@@ -44,4 +46,11 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(:ruc, :commercial_name, :company_name, :phone, :mobile_phone, :address, :district, :province, :country, :reference, :user_id)
   end
+
+  def authorize_owner!
+    unless current_user.owner?
+      redirect_to root_path, alert: 'No tienes permiso para realizar esta acción.'
+    end
+  end
 end
+

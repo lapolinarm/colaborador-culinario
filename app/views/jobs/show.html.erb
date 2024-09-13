@@ -1,24 +1,59 @@
 <h1>Detalles del trabajo</h1>
 
 <p>
-  <strong>Title:</strong>
-  <%= @job.title %>
+  <strong>Fecha:</strong>
+  <%= @job.date %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Hora inicial:</strong>
+  <%= @job.hour_start %>
+</p>
+
+<p>
+  <strong>Hasta:</strong>
+  <%= @job.hour_end %>
+</p>
+
+<p>
+  <strong>Pago por hora:</strong>
+  <%= @job.payment_hour %>
+</p>
+
+<p>
+  <strong>Tipo de trabajo:</strong>
+  <%= @job.job_type %>
+</p>
+
+<p>
+  <strong>Modo de trabajo:</strong>
+  <%= @job.job_mode %>
+</p>
+
+<p>
+  <strong>Función:</strong>
+  <%= @job.function %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
   <%= @job.description %>
 </p>
 
 <p>
-  <strong>Salary:</strong>
-  <%= @job.salary %>
+  <strong>Responsabilidades del trabajo:</strong>
+  <%= @job.responsibility %>
 </p>
 
 <p>
-  <strong>Restaurant:</strong>
+  <strong>Requirimientos del trabajo:</strong>
+  <%= @job.requirement %>
+</p>
+
+<p>
+  <strong>Restaurantrails s:</strong>
   <%= @job.restaurant.commercial_name if @job.restaurant %>
 </p>
 
-<%= link_to 'Edit', edit_job_path(@job), class: 'btn btn-warning' %>
-<%= link_to 'Back', jobs_path, class: 'btn btn-secondary' %>
+<%= link_to 'Editar', edit_job_path(@job), class: 'btn btn-warning' %>
+<%= link_to 'Regresar', jobs_path, class: 'btn btn-secondary' %>
