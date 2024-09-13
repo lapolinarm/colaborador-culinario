@@ -138,9 +138,9 @@
               <div class="card-body d-flex justify-content-between align-items-center p-2">
                 <div>
                   <p class="mb-1 salary-location"><%= number_to_currency(job.payment_hour, unit: 'S/.', precision: 0) %>/hr</p>
-                  <p class="mb-0"><%= job.location %></p>
+                  <p class="mb-0"><%= job_location(job) %></p>
                 </div>
-                <a href="<%= job_path(job) %>" class="btn btn-primary rounded-pill px-3">Detalle</a>
+                <%= link_to 'Detalle', home_path(job_id: job.id), class: 'btn btn-primary rounded-pill px-3' %>
               </div>
             </div>
           </div>
@@ -162,14 +162,21 @@
         <div class="position-absolute top-0 start-0 w-100 h-100 background-image">
         </div>
 
+
+        <%# aqui va %>
         <div class="position-absolute top-0 start-0 w-100 h-100 dark-overlay">
           <!-- Overlay content -->
           <div class="d-flex justify-content-center align-items-center h-100 overlay-content">
-            <span class="text-white fw-bold expiration-time">
-              Expira en 1:30:06
+            <span class="text-white fw-bold expiration-time" id="countdown" data-time-remaining="<%= @time_remaining %>">
+              <!-- El JavaScript actualizará este contenido -->
             </span>
           </div>
         </div>
+
+        <%= javascript_include_tag 'countdown', 'data-turbo-track': 'reload' %>
+
+
+
 
         <!-- Logo (Avatar) -->
         <div class="position-absolute job-image-logo">
@@ -182,59 +189,67 @@
 
 
       <!-- Job Title and Company -->
-      <h3 class="mt-4">Product Designer</h3>
-      <p class="fw-bold">Roundel</p>
+      <% if @selected_job.present? %>
+        <h3 class="mt-4"><%= @selected_job.function.capitalize %></h3>
+        <p class="fw-bold"><%= @selected_job.restaurant.commercial_name %></p>
 
-      <!-- Location Information -->
-      <div class="row mb-2">
-        <div class="col-6 fw-bold">Ubicación</div>
-        <div class="col-6 fw-bold text-end">Lima, PE</div>
-        <div class="col-12">Av. Pedro de Osma 301, Barranco 15063</div>
-      </div>
+        <!-- Location Information -->
+        <div class="row mb-2">
+          <div class="col-6 fw-bold">Ubicación</div>
+          <div class="col-6 fw-bold text-end"><%= job_location(@selected_job) %></div>
+          <div class="col-12"><%= @selected_job.restaurant.address %></div>
+        </div>
 
-      <!-- Schedule Information -->
-      <div class="row mb-2">
-        <div class="col-6 fw-bold">Horario</div>
-        <div class="col-6 fw-bold text-end">Presencial</div>
-        <div class="col-12">Lun 09/09/24 | 18:00 - 22:00</div>
-      </div>
+        <!-- Schedule Information -->
+        <div class="row mb-2">
+          <div class="col-6 fw-bold">Horario</div>
+          <div class="col-6 fw-bold text-end"><%= @selected_job.job_mode.capitalize %></div>
+          <div class="col-12">
+            <%= formatted_schedule(@selected_job.date, @selected_job.hour_start, @selected_job.hour_end) %>
+          </div>
 
-      <!-- Hours and Salary Information -->
-      <div class="row mb-2">
-        <div class="col-6 fw-bold">Horas</div>
-        <div class="col-6 text-end fw-bold">Salario</div>
-        <div class="col-6">4 hr</div>
-        <div class="col-6 text-end">S/. 15/hr</div>
-      </div>
+        </div>
 
-      <!-- Published Date and Other Offers -->
-      <p class="text-muted mb-1">Publicado hace 4 días</p>
-      <p class="text-muted">Otras ofertas de esta empresa</p>
+        <!-- Hours and Salary Information -->
+        <div class="row mb-2">
+          <div class="col-6 fw-bold">Horas</div>
+          <div class="col-6 text-end fw-bold">Salario</div>
+          <div class="col-6"><%= hours_difference(@selected_job.hour_start, @selected_job.hour_end) %> hr</div>
+          <div class="col-6 text-end"><%= number_to_currency(@selected_job.payment_hour, unit: 'S/.', precision: 0) %>/hr</div>
+        </div>
 
-      <!-- Apply and More Info Buttons -->
-      <div class="d-flex gap-2 mb-3">
-        <a href="#" class="btn btn-success rounded-pill">Aplica ahora</a>
-        <a href="#" class="btn btn-outline-secondary rounded-pill">Ver más</a>
-      </div>
+        <!-- Published Date and Other Offers -->
+        <p class="text-muted mb-1">Publicado hace <%= time_ago_in_words(@selected_job.created_at) %></p>
+        <p class="text-muted">Otras ofertas de esta empresa</p>
 
-      <!-- Divider -->
-      <hr class="my-3">
+        <!-- Apply and More Info Buttons -->
+        <div class="d-flex gap-2 mb-3">
+          <a href="#" class="btn btn-success rounded-pill">Aplica ahora</a>
+          <a href="#" class="btn btn-outline-secondary rounded-pill">Ver más</a>
+        </div>
 
-      <!-- Description Section -->
-      <h5>Description</h5>
-      <p>Lorem ipsumLorem ipsumLorem ipsum<br>
-        Lorem ipsumLorem ipsumLorem ipsum<br>
-        Lorem ipsumLorem ipsumLorem ipsum</p>
+        <!-- Divider -->
+        <hr class="my-3">
 
-      <!-- Responsibilities Section -->
-      <h5>Responsibilities</h5>
-      <p>Lorem ipsumLorem ipsumLorem ipsum<br>
-        Lorem ipsumLorem ipsumLorem ipsum<br>
-        Lorem ipsumLorem ipsumLorem ipsum</p>
+        <!-- Description Section -->
+        <h5>Descripción</h5>
+        <p><%= @selected_job.description %></p>
 
-      <!-- Requirements Section -->
-      <h5>Requirement</h5>
-      <p>This is a paragraph.</p>
+        <!-- Responsibilities Section -->
+        <h5>Responsabilidades</h5>
+        <p><%= @selected_job.responsibility %></p>
+
+        <!-- Requirements Section -->
+        <h5>Requerimientos</h5>
+        <p><%= @selected_job.requirement %></p>
+      <% else %>
+        <p>Selecciona un trabajo para ver los detalles.</p>
+      <% end %>
+
+
+
+
+
     </div>
 
   </div>
