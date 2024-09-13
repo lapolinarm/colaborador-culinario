@@ -6,4 +6,7 @@ class Job < ApplicationRecord
   def location
     "#{restaurant.province}, #{restaurant.country}"
   end
+
+  enum function: { mozo: 0, azafata: 1, delivery: 2, lavaplatos: 3 }
+
 end
