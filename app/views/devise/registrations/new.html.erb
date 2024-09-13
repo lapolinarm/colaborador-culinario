@@ -32,6 +32,8 @@
                 autocomplete: 'new-password',
               }
     %>
+    <%=
+      f.input :role, collection: ["collaborator", "owner"]   %>
   </div>
 
   <div class="form-actions">
