@@ -63,21 +63,13 @@
     <p class="text-muted mb-1">Publicado hace <%= time_ago_in_words(@selected_job.created_at) %></p>
     <p class="text-muted">Otras ofertas de esta empresa</p>
 
-
     <!-- Apply and More Info Buttons -->
     <div class="d-flex gap-2 mb-3">
-      <%= simple_form_for [@selected_job, @job_user] do |f| %>
+      <%= simple_form_for [selected_job, job_user] do |f| %>
         <%= f.submit "Aplicar ahora", class: "btn btn-success rounded-pill" %>
       <% end %>
+      <a href="#" class="btn btn-outline-secondary rounded-pill">Ver más</a>
     </div>
-
-
-
-
-
-
-
-
 
     <!-- Divider -->
     <hr class="my-3">

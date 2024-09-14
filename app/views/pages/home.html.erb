@@ -3,6 +3,8 @@
   <div class="row">
     <%= render 'pages/sidebar' %>
     <%= render 'pages/job_listings', jobs: @jobs %>
-    <%= render 'pages/job_details', selected_job: @selected_job, job_user: @job_user %>
+
+    <%= render 'pages/job_details', selected_job: @selected_job, job_user: @job_user, time_remaining: @time_remaining %>
+
   </div>
 </div>
