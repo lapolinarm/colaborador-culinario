@@ -11,8 +11,10 @@
         <div class="card-body ">
           <p>Restaurante: <%= job.restaurant.commercial_name%></p>
           <p>Status: <%= job.job_users.find_by(user: current_user).status %></p>
+          <p>Metodo de pago: <%= job.job_users.find_by(user: current_user).payment_method_used %></p>
+          <p>Monto Pagado: <%= job.job_users.find_by(user: current_user).amount_paid %></p>
+
           <p>Función: <%= job.function.capitalize %></p>
-          <p>Descripción: <%= job.description.capitalize %></p>
           <p>Fecha: <%= job.date %></p>
         </div>
       </div>
