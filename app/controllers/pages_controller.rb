@@ -36,6 +36,9 @@ class PagesController < ApplicationController
   def about
   end
 
+  def application
+  end
+
   private
 
   def calculate_time_remaining(job)
