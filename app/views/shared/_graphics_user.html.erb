@@ -3,5 +3,15 @@
     <h1>Mis graficos</h1>
   </div>
 
+  <div class="bg-black">
+    <h1>Mis Postulaciones</h1>
+
+    <% @applied_jobs.each do |job| %>
+      <div>
+        <h1><%= job.function %></h1>
+        <p>Restaurante: <%= job.restaurant.commercial_name%></p>
+      </div>
+    <% end %>
+  </div>
 
 </div>
