@@ -3,6 +3,10 @@
     <h1>Mis graficos</h1>
   </div>
 
+  <%= line_chart User.group_by_day(:created_at).count %>
+
+  <%= pie_chart @all_applied_jobs, labels: @all_applied_jobs %>
+
   <!--contenido Card-->
   <div class="bg-black p-4">
     <div class="my-4 mx-auto">

@@ -46,6 +46,7 @@ class PagesController < ApplicationController
       render 'owners_dashboard'
     elsif current_user.collaborator?
       @applied_jobs = current_user.jobs
+      @all_applied_jobs = @applied_jobs
       @applied_jobs = @applied_jobs.where(job_users: { status: params[:status] }) if params[:status].present?
       render 'pages/application'
     else
