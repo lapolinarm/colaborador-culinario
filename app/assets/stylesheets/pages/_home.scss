@@ -3,6 +3,81 @@ body {
   background-color: white;
 }
 
+
+
+/* CSS para el header fijo */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegúrate de que el header esté por encima de otros elementos */
+}
+
+/* CSS para el contenedor principal */
+#main-container {
+  margin-top: 60px; /* Ajusta según la altura de tu header */
+  height: calc(100vh - 60px); /* Ajusta la altura total disponible */
+  overflow: hidden; /* Asegura que el scroll esté controlado en cada sección */
+  position: relative;
+}
+
+/* CSS para el sidebar */
+#sidebar {
+  position: sticky;
+  top: 0; /* Fijo en la parte superior del viewport */
+  height: calc(100vh - 60px); /* Altura total menos la altura del header */
+  overflow-y: auto; /* Permite scroll vertical en el sidebar */
+  z-index: 10; /* Mantiene el sidebar por encima de los demás elementos */
+}
+
+/* CSS para los listados de trabajos y detalles de trabajos */
+#job_listings, #job_details {
+  overflow-y: auto; /* Permite scroll vertical en estas secciones */
+  height: calc(100vh - 60px); /* Altura total menos la altura del header */
+  position: relative;
+  z-index: 5; /* Mantiene estas secciones debajo del sidebar pero encima de otros elementos */
+}
+
+/* CSS para mantener el detalle debajo de todos los elementos */
+#job_details {
+  z-index: 0; /* Asegura que el detalle esté en el fondo */
+}
+
+
+/* Ajustes adicionales para elementos interactivos */
+#avatar-menu {
+  position: relative; /* Asegura que el menú no sea afectado por el scroll */
+  z-index: 2000; /* Debe estar por encima de todos los demás elementos */
+}
+
+
+
+
+
+/* Ocultar las barras de desplazamiento en todos los navegadores */
+#sidebar, #job_listings, #job_details {
+  overflow-y: scroll; /* Asegura que el contenido pueda ser desplazado */
+}
+
+/* Ocultar las barras de desplazamiento en navegadores WebKit (Chrome, Safari) */
+#sidebar::-webkit-scrollbar,
+#job_listings::-webkit-scrollbar,
+#job_details::-webkit-scrollbar {
+  display: none;
+}
+
+/* Para navegadores Firefox */
+#sidebar, #job_listings, #job_details {
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+}
+
+
+
+
+
+
+
 .sidebar {
   background-color: #fff;
   border-right: 1px solid #ddd;
