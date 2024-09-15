@@ -1,3 +1,4 @@
+// app/javascript/home.js
 document.addEventListener('turbo:frame-load', () => {
   const countdownElements = document.querySelectorAll('.expiration-time');
 
@@ -52,4 +53,17 @@ document.addEventListener('turbo:frame-load', () => {
       el.innerHTML = "Error al calcular el tiempo";
     }
   });
+});
+
+
+document.addEventListener('turbo:frame-load', function() {
+  const jobListings = document.getElementById('job_listings');
+  const jobDetails = document.getElementById('job_details');
+
+  if (jobListings && jobDetails) {
+    jobListings.addEventListener('click', function() {
+      console.log("Job listings clicked");
+      jobDetails.scrollTop = 0;
+    });
+  }
 });
