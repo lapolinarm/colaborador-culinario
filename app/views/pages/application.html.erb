@@ -1,0 +1,64 @@
+<div data-controller="dashboard">
+
+  <div class="d-flex flex-row">
+    <div class="col-ml-2 sidebar p-0">
+      <h1 class="text-center my-4" data-aos="fade-right">Dashboard</h1>
+      <div class="d-flex flex-column gap-2" >
+        <button class="btn btn-primary " data-action="click->dashboard#showView" data-view="1" data-aos="fade-right">Mis Pagos</button>
+        <button class="btn btn-primary" data-action="click->dashboard#showView" data-view="2" data-aos="fade-right">Mis postulaciones</button>
+        <button class="btn btn-primary" data-action="click->dashboard#showView" data-view="3" data-aos="fade-right">Mis graficoss</button>
+      </div>
+    </div>
+
+    <div class="container pb-5 mb-5" >
+      <div class="content background" id="content3" style="display: block;">
+        <%= render 'shared/graphics_user' %>
+      </div>
+
+
+      <div class="content background" id="content1" style="display: none;">
+        <%= render 'shared/payment_user_content' %>
+      </div>
+
+      <div  class="content background" id="content2" style="display: none;">
+        <%= render 'shared/all_applications_user' %>
+      </div>
+
+    </div>
+
+    <%# estilos %>
+    <style>
+      .container_def {
+        background-color:#f4f4f4;
+        color:white;
+        width: 100%%;
+        border-radius: 8px;
+      }
+
+      .custom-title {
+        background-color: lightblue;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: black;
+      }
+
+      .content {
+        margin-left: 250px; /* Debe ser igual al ancho del sidebar */
+        padding: 20px;
+      }
+      .sidebar {
+        position: fixed;
+        border: 1px solid black;
+        background-color: #f4f4f4;
+        height: 100%;
+        width: 250px;
+        left: 0;
+      }
+
+    </style>
+
+  </div>
+
+
+</div>

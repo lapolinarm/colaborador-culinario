@@ -1,0 +1,92 @@
+<%# app/views/pages/_job_details.html.erb %>
+<%= turbo_frame_tag "job_details", id:"job_details", class:"col-md-3 right-content" do %>
+  <!-- Job Image Card -->
+  <div class="card mb-4 position-relative job-image-card">
+    <!-- Card with Image and Dark Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 background-image">
+      <!-- Placeholder for background image -->
+    </div>
+
+    <!-- Dark Overlay with Countdown -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 dark-overlay">
+      <div class="d-flex justify-content-center align-items-center h-100 overlay-content">
+        <span class="text-white fw-bold expiration-time" id="countdown" data-time-remaining="<%= @time_remaining.is_a?(String) ? @time_remaining : @time_remaining.to_json %>">
+          <!-- JavaScript will update this content -->
+          <% if @time_remaining.is_a?(String) %>
+            <%= @time_remaining %>
+          <% elsif @time_remaining.is_a?(Hash) %>
+            <%= "#{@time_remaining[:hours]}h #{@time_remaining[:minutes]}m #{@time_remaining[:seconds]}s" %>
+          <% else %>
+            Tiempo desconocido
+          <% end %>
+        </span>
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'countdown', 'data-turbo-track': 'reload' %>
+
+    <!-- Logo (Avatar) -->
+    <div class="position-absolute job-image-logo">
+      <img src="<%= asset_path('logo.jpg') %>" class="rounded-circle" alt="logo">
+    </div>
+  </div>
+
+  <!-- Job Title and Company -->
+  <% if @selected_job.present? %>
+    <h3 class="mt-4"><%= @selected_job.function.capitalize %></h3>
+    <p class="fw-bold"><%= @selected_job.restaurant.commercial_name %></p>
+
+    <!-- Location Information -->
+    <div class="row mb-2">
+      <div class="col-6 fw-bold">Ubicación</div>
+      <div class="col-6 fw-bold text-end"><%= job_location(@selected_job) %></div>
+      <div class="col-12"><%= @selected_job.restaurant.address %></div>
+    </div>
+
+    <!-- Schedule Information -->
+    <div class="row mb-2">
+      <div class="col-6 fw-bold">Horario</div>
+      <div class="col-6 fw-bold text-end"><%= @selected_job.job_mode.capitalize %></div>
+      <div class="col-12">
+        <%= formatted_schedule(@selected_job.date, @selected_job.hour_start, @selected_job.hour_end) %>
+      </div>
+    </div>
+
+    <!-- Hours and Salary Information -->
+    <div class="row mb-2">
+      <div class="col-6 fw-bold">Horas</div>
+      <div class="col-6 text-end fw-bold">Salario</div>
+      <div class="col-6"><%= hours_difference(@selected_job.hour_start, @selected_job.hour_end) %> hr</div>
+      <div class="col-6 text-end"><%= number_to_currency(@selected_job.payment_hour, unit: 'S/.', precision: 0) %>/hr</div>
+    </div>
+
+    <!-- Published Date and Other Offers -->
+    <p class="text-muted mb-1">Publicado hace <%= time_ago_in_words(@selected_job.created_at) %></p>
+    <p class="text-muted">Otras ofertas de esta empresa</p>
+
+    <!-- Apply and More Info Buttons -->
+    <div class="d-flex gap-2 mb-3">
+      <%= simple_form_for [selected_job, job_user] do |f| %>
+        <%= f.submit "Aplicar ahora", class: "btn btn-success rounded-pill" %>
+      <% end %>
+      <a href="#" class="btn btn-outline-secondary rounded-pill">Mis postulaciones</a>
+    </div>
+
+    <!-- Divider -->
+    <hr class="my-3">
+
+    <!-- Description Section -->
+    <h5>Descripción</h5>
+    <p><%= @selected_job.description %></p>
+
+    <!-- Responsibilities Section -->
+    <h5>Responsabilidades</h5>
+    <p><%= @selected_job.responsibility %></p>
+
+    <!-- Requirements Section -->
+    <h5>Requerimientos</h5>
+    <p><%= @selected_job.requirement %></p>
+  <% else %>
+    <p>Selecciona un trabajo para ver los detalles.</p>
+  <% end %>
+<% end %>
