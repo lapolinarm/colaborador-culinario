@@ -137,3 +137,10 @@ body {
 //   top: 0;
 //   z-index: 1020;
 // }
+
+
+.expiration-time {
+  text-align: center;  /* Centramos el texto */
+  line-height: 1.5;    /* Ajustamos la altura de línea para separar las filas */
+  font-weight: bold;   /* Opción de estilo adicional para hacerlo más visible */
+}

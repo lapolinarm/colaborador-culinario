@@ -1,7 +1,6 @@
 class JobUsersController < ApplicationController
   before_action :set_job
 
-
   def create
     @job_user = @job.job_users.build(user: current_user)
     if @job_user.save
