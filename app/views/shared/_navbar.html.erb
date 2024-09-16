@@ -21,7 +21,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <%# if user.role == "owner"  => else  %>
+          <% if current_user.collaborator? %>
+          <%# ----------------------collaborator  %>
           <li class="nav-item active">
             <%= link_to 'Home', '/', class: "nav-link custom-link-color" %>
           </li>
@@ -68,6 +69,54 @@
               %>
             </div>
           </li>
+
+          <%# ----------------------owner  %>
+          <% elsif current_user.owner? %>
+          <li class="nav-item active">
+            <%= link_to 'Home', '/', class: "nav-link custom-link-color" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'Restaurantes', application_path(user: current_user), class: "nav-link custom-link-color" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Publicaciones', '#', class: "nav-link custom-link-color" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'Nueva publicación', 'about', class: "nav-link custom-link-color" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              href="#"
+              class="avatar"
+              id="navbarDropdown"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <%=
+                image_tag 'https://res.cloudinary.com/roldan-cloudinary/image/upload/v1726246081/colaborador%20culinario/ktscqsdwihjo4fgfo957.jpg',
+                          class: 'avatar',
+                          alt: 'dropdown menu'
+              %>
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdown"
+            >
+              <%= link_to 'Perfil', 'profile', class: 'dropdown-item custom-link-color' %>
+              <%= link_to 'Ayuda', 'contact', class: 'dropdown-item custom-link-color' %>
+              <%=
+                link_to 'Cerrar sesión',
+                        destroy_user_session_path,
+                        data: {
+                          turbo_method: :delete,
+                        },
+                        class: 'dropdown-item custom-link-color'
+              %>
+            </div>
+          </li>
+          <% end %>
+
         <% else %>
           <li class="nav-item">
             <%= link_to 'Iniciar sesión', new_user_session_path, class: 'nav-link' %>
