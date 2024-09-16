@@ -6,26 +6,32 @@
       <div class="d-flex flex-column gap-2" >
         <button class="btn" data-action="click->dashboard#showView" data-view="1" data-aos="fade-right">
           <div class="d-flex">
-            <i class="fa-solid fa-credit-card" id="dash-icon"></i>
-            <p class="my-auto">
-              Mis Pagos
-            </p>
-          </div>
-        </button>
-        <button class="btn" data-action="click->dashboard#showView" data-view="2" data-aos="fade-right">
-        <div class="d-flex">
-            <i class="fa-solid fa-list" id="dash-icon"></i>
-            <p class="my-auto">
-              Mis Postulaciones
-            </p>
+            <div class="d-flex gap-3 icon-extras" id="dash-icon">
+              <i class="fa-solid fa-credit-card" id="icon-custom"></i>
+              <p class="my-auto">
+                Mis Pagos
+              </p>
+            </div>
           </div>
         </button>
         <button class="btn" data-action="click->dashboard#showView" data-view="3" data-aos="fade-right">
         <div class="d-flex">
-            <i class="fa-solid fa-chart-line" id="dash-icon"></i>
+          <div class="d-flex gap-3 icon-extras" id="dash-icon">
+            <i class="fa-solid fa-list" id="icon-custom"></i>
+            <p class="my-auto">
+              Mis Postulaciones
+            </p>
+          </div>
+          </div>
+        </button>
+        <button class="btn" data-action="click->dashboard#showView" data-view="3" data-aos="fade-right">
+        <div class="d-flex">
+          <div class="d-flex gap-3 icon-extras" id="dash-icon">
+            <i class="fa-solid fa-chart-line" id="icon-custom"></i>
             <p class="my-auto">
               Mis Graficos
             </p>
+          </div>
           </div>
         </button>
       </div>
@@ -53,6 +59,12 @@
       #p-white {
           color: white ;
         }
+
+      #icon-custom {
+        margin-left: 10px;
+      }
+
+
 
       #side {
 
@@ -95,7 +107,20 @@
       }
 
       .icon-extras {
+        display: flex;
+        align-items: center;
+        background-color: grey;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        justify-content: flex-start;
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
 
+      .icon-extras:hover {
+        width: 180px;
+        border-radius: 20px;
       }
 
     </style>
