@@ -18,7 +18,36 @@
         </div>
       </div>
       <% end %>
-
     </div>
   </div>
+
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Restaurante</th>
+        <th scope="col">Función</th>
+        <th scope="col">Metodo de pago</th>
+        <th scope="col">Monto Pagado</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">status</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% count = 0 %>
+      <% @applied_jobs.each do |job| %>
+      <tr>
+        <th scope="row"><%= count += 1 %></th>
+          <td ><%= job.restaurant.commercial_name%></td>
+          <td ><%= job.function.capitalize %></td>
+          <td ><%= job.job_users.find_by(user: current_user).payment_method_used %></td>
+          <td ><%= job.job_users.find_by(user: current_user).amount_paid %></td>
+          <td ><%= job.date %></td>
+          <td ><%= job.job_users.find_by(user: current_user).status %></td>
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>
