@@ -1,0 +1,73 @@
+/* Ocultar las barras de desplazamiento en todos los navegadores */
+#job_details {
+  overflow-y: auto; /* Permite scroll vertical en estas secciones */
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+  height: calc(100vh - 60px); /* Altura total menos la altura del header */
+  position: relative;
+  z-index: 0; /* Asegura que el detalle esté en el fondo */
+}
+
+/* Ocultar las barras de desplazamiento en navegadores WebKit (Chrome, Safari) */
+#job_details::-webkit-scrollbar {
+  display: none;
+}
+
+.right-content {
+  background-color: $secondary-color;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.job-image-card {
+  border-radius: 10px;
+  height: 130px;
+  overflow: hidden;
+  position: relative;
+}
+
+.background-image {
+  background-image: url('business-image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.overlay-content .expiration-time {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-image: url('logo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.job-image-logo {
+  bottom: -25px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.job-image-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.expiration-time {
+  text-align: center;  /* Centramos el texto */
+  line-height: 1.5;    /* Ajustamos la altura de línea para separar las filas */
+  font-weight: bold;   /* Opción de estilo adicional para hacerlo más visible */
+}

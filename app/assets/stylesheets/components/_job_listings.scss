@@ -1,0 +1,85 @@
+/* Ocultar las barras de desplazamiento en todos los navegadores */
+#job_listings {
+  overflow-y: auto; /* Permite scroll vertical en estas secciones */
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+  height: calc(100vh - 60px); /* Altura total menos la altura del header */
+  position: relative;
+  z-index: 5; /* Mantiene estas secciones debajo del sidebar pero encima de otros elementos */
+}
+
+/* Ocultar las barras de desplazamiento en navegadores WebKit (Chrome, Safari) */
+#job_listings::-webkit-scrollbar {
+  display: none;
+}
+
+.main-content {
+  background-color: white;
+  padding: 1.5rem;
+}
+
+// Estilos para el card filter
+#card-filter {
+  background-color: $quaternary-color;
+  border-radius: 18px; // Aplica border-radius a la tarjeta
+
+  // Estilos para el input de búsqueda dentro de #card-filter
+  .search-input {
+    border-radius: 18px; // Aplica border-radius al input
+  }
+}
+
+
+
+.job-list .card {
+  margin-bottom: 1rem; /* Espacio entre tarjetas en la misma fila */
+}
+
+
+// Estilos para el card padre del job
+.parent-card {
+  background-color: white;
+  border: 2px solid $tertiary-color;
+  border-radius: 18px !important;
+
+  // Estilos para el card hijo del job
+  .child-card {
+    background-color: $secondary-color;
+    margin: 2px;
+    border-radius: 18px !important;
+
+    // Estilos para el botón de expiración en job
+    .expiration {
+      font-size: $font-size-h5;
+    }
+  }
+}
+
+
+.job-list .col-md-3 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.child-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.child-card .bi-bookmark {
+  font-size: 1.5rem;
+}
+
+.child-card .btn {
+  border-radius: 50px;
+}
+
+.parent-card .btn-primary {
+  border-radius: 50px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.parent-card .salary-location {
+  font-weight: bold;
+}

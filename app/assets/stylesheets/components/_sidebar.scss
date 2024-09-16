@@ -1,0 +1,41 @@
+/* Ocultar las barras de desplazamiento en todos los navegadores */
+#sidebar {
+  overflow-y: scroll; /* Asegura que el contenido pueda ser desplazado */
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+  position: sticky; /* Mantiene la barra lateral fija al hacer scroll */
+  top: 0;
+  height: calc(100vh - 60px); /* Altura completa menos el header */
+  z-index: 10;
+}
+
+/* Ocultar las barras de desplazamiento en navegadores WebKit (Chrome, Safari) */
+#sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar {
+  background-color: $secondary-color; /* Fondo blanco para la barra lateral */
+  height: 100vh; /* Altura total de la ventana */
+  padding: 1rem; /* Espaciado interno */
+}
+
+/* Estilos para el enlace 'Restaurar' */
+.restore-link {
+  text-decoration: none; /* Elimina la raya debajo del enlace */
+  color: #ff385c; /* Color rojo estilo 'danger' */
+  font-size: $font-size-h4;
+}
+
+.restore-link:hover {
+  color: #e7002a; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilos las etiquetas del filtro */
+.form-label {
+  font-size: $font-size-h3;
+  font-weight: bold;
+}
+
+.form-check-label {
+  font-size: $font-size-h4;
+}
