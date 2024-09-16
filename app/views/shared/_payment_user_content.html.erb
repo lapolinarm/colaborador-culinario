@@ -4,18 +4,17 @@
   </div>
 
     <!--contenido Card-->
-  <div class="bg-black p-4">
+  <div class="p-4">
     <div class="my-4 mx-auto">
       <% @applied_jobs.each do |job| %>
-      <div class="card card-def my-4 bg-primary" data-aos="fade-right">
+      <div class="card card-def my-4 bg-light w-100" data-aos="fade-right">
         <div class="card-body ">
-          <p>Restaurante: <%= job.restaurant.commercial_name%></p>
-          <p>Status: <%= job.job_users.find_by(user: current_user).status %></p>
-          <p>Metodo de pago: <%= job.job_users.find_by(user: current_user).payment_method_used %></p>
-          <p>Monto Pagado: <%= job.job_users.find_by(user: current_user).amount_paid %></p>
-
-          <p>Función: <%= job.function.capitalize %></p>
-          <p>Fecha: <%= job.date %></p>
+          <p >Restaurante: <%= job.restaurant.commercial_name%></p>
+          <p >Status: <%= job.job_users.find_by(user: current_user).status %></p>
+          <p >Metodo de pago: <%= job.job_users.find_by(user: current_user).payment_method_used %></p>
+          <p >Monto Pagado: <%= job.job_users.find_by(user: current_user).amount_paid %></p>
+          <p >Función: <%= job.function.capitalize %></p>
+          <p >Fecha: <%= job.date %></p>
         </div>
       </div>
       <% end %>

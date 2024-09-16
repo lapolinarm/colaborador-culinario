@@ -2,30 +2,36 @@
 
   <div class="d-flex flex-row">
     <div class="col-ml-2 " id="side">
-      <h2 class="text-start my-4 mt-4 p-2" data-aos="fade-right">Dashboard</h2>
+      <h2 class="text-start my-4 mt-4 p-4" data-aos="fade-right">Dashboard</h2>
       <div class="d-flex flex-column gap-2" >
         <button class="btn" data-action="click->dashboard#showView" data-view="1" data-aos="fade-right">
           <div class="d-flex">
-            <i class="fa-solid fa-angle-right" id="dash-icon"></i>
-            <p class="my-auto">
-              Mis Pagos
-            </p>
+            <div class="d-flex gap-3 icon-extras" id="dash-icon">
+              <i class="fa-solid fa-credit-card" id="icon-custom"></i>
+              <p class="my-auto" id="p-white">
+                Mis Pagos
+              </p>
+            </div>
           </div>
         </button>
         <button class="btn" data-action="click->dashboard#showView" data-view="2" data-aos="fade-right">
         <div class="d-flex">
-            <i class="fa-solid fa-angle-right" id="dash-icon"></i>
-            <p class="my-auto">
+          <div class="d-flex gap-3 icon-extras" id="dash-icon">
+            <i class="fa-solid fa-list" id="icon-custom"></i>
+            <p class="my-auto" id="p-white">
               Mis Postulaciones
             </p>
+          </div>
           </div>
         </button>
         <button class="btn" data-action="click->dashboard#showView" data-view="3" data-aos="fade-right">
         <div class="d-flex">
-            <i class="fa-solid fa-angle-right" id="dash-icon"></i>
-            <p class="my-auto">
+          <div class="d-flex gap-3 icon-extras" id="dash-icon">
+            <i class="fa-solid fa-chart-line" id="icon-custom"></i>
+            <p class="my-auto" id="p-white">
               Mis Graficos
             </p>
+          </div>
           </div>
         </button>
       </div>
@@ -50,6 +56,17 @@
     <%# estilos %>
     <style>
 
+      #p-white {
+          color: white ;
+        }
+
+      #icon-custom {
+        margin-left: 10px;
+        color: white;
+      }
+
+
+
       #side {
 
         top: 63px;
@@ -59,7 +76,7 @@
         position: sticky;
         border-right: 3px solid black;
         background-color: #f4f4f4;
-        width: 250px;
+        width: 30vw;
         left: 0;
         padding-top: 50px;
       }
@@ -80,8 +97,9 @@
       }
 
       .content {
-        margin-left: 250px;
-        padding: 20px;
+        padding-top: 100px;
+        padding-left: 100px;
+        padding-right: 100px;
       }
 
       #dash-icon {
@@ -89,6 +107,28 @@
         margin: 10px;
       }
 
+      .icon-extras {
+        display: flex;
+        align-items: center;
+        background-color: #00ae7a;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        justify-content: flex-start;
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      .icon-extras:hover {
+        width: 180px;
+        border-radius: 20px;
+      }
+
+      .cancel-btn {
+        background-color: #cf4545;
+        color: white;
+        border-radius: 10px;
+      }
     </style>
 
   </div>

@@ -9,7 +9,7 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
-    
+
   end
 
   def show
@@ -41,7 +41,7 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-    redirect_to jobs_path, notice: "Job was successfully deleted."
+    redirect_to application_path(user: current_user), notice: "Job was successfully deleted."
   end
 
   private
