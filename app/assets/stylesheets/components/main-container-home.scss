@@ -1,0 +1,7 @@
+/* CSS para el contenedor principal */
+#main-container {
+  margin-top: 60px; /* Ajusta según la altura de tu header */
+  height: calc(100vh - 60px); /* Ajusta la altura total disponible */
+  overflow: hidden; /* Asegura que el scroll esté controlado en cada sección */
+  position: relative;
+}
