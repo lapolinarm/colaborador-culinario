@@ -10,9 +10,9 @@
       <div class="card card-def my-4 bg-light w-100" data-aos="fade-right">
         <div class="card-body ">
           <p >Restaurante: <%= job.restaurant.commercial_name%></p>
-          <p >Status: <%= job.job_users.find_by(user: current_user).status %></p>
-          <p >Metodo de pago: <%= job.job_users.find_by(user: current_user).payment_method_used %></p>
-          <p >Monto Pagado: <%= job.job_users.find_by(user: current_user).amount_paid %></p>
+          <p >Status: <%= job.job_users.find_by(user: current_user).status.present? ? current_user.status : "sin informacion" %></p>
+          <p >Metodo de pago: <%= job.job_users.find_by(user: current_user).payment_method_used.present? ? current_user.payment_method_used : "sin informacion" %></p>
+          <p >Monto a pagar: <%= job.job_users.find_by(user: current_user).amount_paid.present? ? current_user.amount_paid : "sin informacion" %></p>
           <p >Función: <%= job.function.capitalize %></p>
           <p >Fecha: <%= job.date %></p>
         </div>
@@ -40,10 +40,10 @@
         <th scope="row"><%= count += 1 %></th>
           <td ><%= job.restaurant.commercial_name%></td>
           <td ><%= job.function.capitalize %></td>
-          <td ><%= job.job_users.find_by(user: current_user).payment_method_used %></td>
-          <td ><%= job.job_users.find_by(user: current_user).amount_paid %></td>
+          <td ><%= job.job_users.find_by(user: current_user).payment_method_used.present? ? current_user.payment_method_used : "sin informacion" %></td>
+          <td ><%= job.job_users.find_by(user: current_user).amount_paid.present? ? current_user.amount_paid : "sin informacion" %></td>
           <td ><%= job.date %></td>
-          <td ><%= job.job_users.find_by(user: current_user).status %></td>
+          <td ><%= job.job_users.find_by(user: current_user).status.present? ? current_user.status : "sin informacion" %></td>
 
       </tr>
       <% end %>
