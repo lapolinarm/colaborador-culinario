@@ -15,7 +15,7 @@
               <p>Función: <%= job.function.capitalize %></p>
               <p>Descripción: <%= job.description.capitalize %></p>
               <p>Fecha: <%= job.date %></p>
-              <%= button_to 'Cancelar', job_path(job), method: :delete, class: 'btn btn-danger', data: { turbo_method: :delete } %>
+              <%= button_to 'Cancelar', job_path(job), method: :delete, class: 'btn cancel-btn', data: { turbo_method: :delete } %>
             </div>
           </div>
         </div>
