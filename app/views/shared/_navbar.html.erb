@@ -76,13 +76,13 @@
             <%= link_to 'Home', '/', class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item active">
-            <%= link_to 'Restaurantes', application_path(user: current_user), class: "nav-link custom-link-color" %>
+            <%= link_to 'Restaurantes', restaurants_path(user: current_user), class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Publicaciones', '#', class: "nav-link custom-link-color" %>
+            <%= link_to 'Publicaciones', "#", class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item active">
-            <%= link_to 'Nueva publicación', 'about', class: "nav-link custom-link-color" %>
+            <%= link_to 'Nueva publicación', new_restaurant_path, class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -103,8 +103,8 @@
               class="dropdown-menu dropdown-menu-end"
               aria-labelledby="navbarDropdown"
             >
-              <%= link_to 'Perfil', 'profile', class: 'dropdown-item custom-link-color' %>
-              <%= link_to 'Ayuda', 'contact', class: 'dropdown-item custom-link-color' %>
+              <%= link_to 'Perfil', profile_path, class: 'dropdown-item custom-link-color' %>
+              <%= link_to 'Ayuda', contact_path, class: 'dropdown-item custom-link-color' %>
               <%=
                 link_to 'Cerrar sesión',
                         destroy_user_session_path,
