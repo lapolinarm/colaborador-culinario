@@ -67,7 +67,7 @@
     <!-- Apply and More Info Buttons -->
     <div class="d-flex gap-2 mb-3">
       <%= simple_form_for [selected_job, job_user] do |f| %>
-        <%= f.submit "Aplicar ahora", class: "btn btn-success rounded-pill" %>
+        <%= f.submit "Aplicar ahora", class: "btn btn-success rounded-pill", data: {turbo: false} %>
       <% end %>
       <a href="#" class="btn btn-outline-secondary rounded-pill">Mis postulaciones</a>
     </div>
