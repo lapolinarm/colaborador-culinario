@@ -13,11 +13,11 @@
       <% @applied_jobs.each do |job| %>
       <div class="card card-def my-4 bg-primary" data-aos="fade-right">
         <div class="card-body ">
-          <p>Restaurante: <%= job.restaurant.commercial_name%></p>
-          <p>Status: <%= job.job_users.find_by(user: current_user).status %></p>
-          <p>Función: <%= job.function.capitalize %></p>
-          <p>Descripción: <%= job.description.capitalize %></p>
-          <p>Fecha: <%= job.date %></p>
+          <p id="p-white">Restaurante: <%= job.restaurant.commercial_name%></p>
+          <p id="p-white">Status: <%= job.job_users.find_by(user: current_user).status %></p>
+          <p id="p-white">Función: <%= job.function.capitalize %></p>
+          <p id="p-white">Descripción: <%= job.description.capitalize %></p>
+          <p id="p-white">Fecha: <%= job.date %></p>
         </div>
       </div>
       <% end %>

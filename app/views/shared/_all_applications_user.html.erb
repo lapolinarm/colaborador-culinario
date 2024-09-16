@@ -8,21 +8,20 @@
     <div class="my-4 mx-auto">
       <% @applied_jobs.each do |job| %>
       <div class="card card-def my-4 bg-primary" data-aos="fade-right">
-        <div class="card-body ">
-          <p>Restaurante: <%= job.restaurant.commercial_name%></p>
-          <p>Direccion del restaurante: <%= job.restaurant.address%></p>
-          <p>Teléfono del restaurante: <%= job.restaurant.phone%></p>
-          <p>Status: <%= job.job_users.find_by(user: current_user).status %></p>
-          <p>Función: <%= job.function.capitalize %></p>
-          <p>Descripción: <%= job.description.capitalize %></p>
-          <p>Modo de trabajo: <%= job.job_mode %></p>
-          <p>Pago por hora: <%= job.payment_hour %> soles </p>
+        <div class="card-body" id="p-white">
+          <p id="p-white">Restaurante: <%= job.restaurant.commercial_name%></p>
+          <p id="p-white">Direccion del restaurante: <%= job.restaurant.address%></p>
+          <p id="p-white">Teléfono del restaurante: <%= job.restaurant.phone%></p>
+          <p id="p-white">Status: <%= job.job_users.find_by(user: current_user).status %></p>
+          <p id="p-white">Función: <%= job.function.capitalize %></p>
+          <p id="p-white">Descripción: <%= job.description.capitalize %></p>
+          <p id="p-white">Modo de trabajo: <%= job.job_mode %></p>
+          <p id="p-white">Pago por hora: <%= job.payment_hour %> soles </p>
 
-          <p>Fecha: <%= job.date %></p>
+          <p id="p-white">Fecha: <%= job.date %></p>
         </div>
       </div>
       <% end %>
-
     </div>
   </div>
 
