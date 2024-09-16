@@ -1,4 +1,5 @@
-<%= turbo_frame_tag "job_details", class:"col-md-3 right-content sticky-top" do %>
+<%# app/views/pages/_job_details.html.erb %>
+<%= turbo_frame_tag "job_details", id:"job_details", class:"col-md-3 right-content" do %>
   <!-- Job Image Card -->
   <div class="card mb-4 position-relative job-image-card">
     <!-- Card with Image and Dark Overlay -->
@@ -65,8 +66,10 @@
 
     <!-- Apply and More Info Buttons -->
     <div class="d-flex gap-2 mb-3">
-      <a href="#" class="btn btn-success rounded-pill">Aplica ahora</a>
-      <a href="#" class="btn btn-outline-secondary rounded-pill">Ver más</a> 
+      <%= simple_form_for [selected_job, job_user] do |f| %>
+        <%= f.submit "Aplicar ahora", class: "btn btn-success rounded-pill" %>
+      <% end %>
+      <a href="#" class="btn btn-outline-secondary rounded-pill">Mis postulaciones</a>
     </div>
 
     <!-- Divider -->
