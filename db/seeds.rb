@@ -22,7 +22,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('favorites')
 puts "=" * 50
 puts "Inicio el Seeds en las tablas"
 
-20.times do
+50.times do
   instance = Util.new
 
   typePayMethod = {
@@ -91,13 +91,13 @@ puts "Inicio el Seeds en las tablas"
   }
 
   valTypeFunction = instance.valor_random_del_hash(typeFunction)
-  hourTemp = instance.returnStarTime #Hora
+  hourTemp = instance.returnMoment("time") #Hora
   random_hours_sum = rand(2..4) #es una hora aleatoria
-  randomPaymentHour = [10, 20, 30, 40, 50].sample
+  randomPaymentHour = [20, 30, 40, 50].sample
 
   # puts "Creando Jobs aleatorios..."
   job = Job.create!(
-    date: instance.returnDate,
+    date: instance.returnMoment("date"),
     hour_start: hourTemp,
     hour_end: hourTemp + (random_hours_sum * 3600), #a la hora, se le suma
     payment_hour: randomPaymentHour,

@@ -17,7 +17,7 @@ export default class extends Controller {
     this.hideAllContents();
 
 
-    const view = event.target.dataset.view;
+    const view = event.currentTarget.dataset.view;
 
     if (view === "1") {
       document.getElementById('content1').style.display = 'block';

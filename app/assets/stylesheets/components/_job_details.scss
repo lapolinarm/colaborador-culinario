@@ -12,62 +12,68 @@
   display: none;
 }
 
-.right-content {
+#job_details {
   background-color: $secondary-color;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-.job-image-card {
-  border-radius: 10px;
-  height: 130px;
-  overflow: hidden;
-  position: relative;
-}
+  // Estilo para la imagen del negocio
+  .job-image-card {
+    border-radius: 10px;
+    height: 130px;
+    overflow: hidden;
+    position: relative;
 
-.background-image {
-  background-image: url('business-image.jpg');
-  background-size: cover;
-  background-position: center;
-}
+    // Imagen del negocio
+    .background-image {
+      background-image: url('business-image.jpg');
+      background-size: cover;
+      background-position: center;
+    }
 
-.dark-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-}
+    .dark-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
 
-.overlay-content .expiration-time {
-  padding: 5px 10px;
-  border-radius: 5px;
-}
+    .expiration-time {
+      text-align: center;  /* Centramos el texto */
+      line-height: 1.5;    /* Ajustamos la altura de línea para separar las filas */
+      font-weight: bold;   /* Opción de estilo adicional para hacerlo más visible */
+      font-size: $font-size-h2;
+    }
 
-.logo {
-  width: 50px;
-  height: 50px;
-  border: 2px solid white;
-  border-radius: 50%;
-  background-image: url('logo.jpg');
-  background-size: cover;
-  background-position: center;
-}
+    .overlay-content .expiration-time {
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
 
-.job-image-logo {
-  bottom: -25px;
-  left: 20px;
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-}
+    // Estilos para el logo del negocio
+    .logo {
+      width: 50px;
+      height: 50px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background-image: url('logo.jpg');
+      background-size: cover;
+      background-position: center;
+    }
 
-.job-image-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 2px solid white;
-}
+    .job-image-logo {
+      bottom: -25px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+    }
 
-.expiration-time {
-  text-align: center;  /* Centramos el texto */
-  line-height: 1.5;    /* Ajustamos la altura de línea para separar las filas */
-  font-weight: bold;   /* Opción de estilo adicional para hacerlo más visible */
+    .job-image-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 2px solid white;
+    }
+  }
+
+
 }
