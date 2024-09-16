@@ -13,7 +13,7 @@
 }
 
 .main-content {
-  background-color: white;
+  background-color: $septenary-color;
   padding: 1.5rem;
 }
 
@@ -37,7 +37,7 @@
 
 // Estilos para el card padre del job
 .parent-card {
-  background-color: white;
+  background-color: $septenary-color;
   border: 2px solid $tertiary-color;
   border-radius: 18px !important;
 
@@ -47,9 +47,33 @@
     margin: 2px;
     border-radius: 18px !important;
 
+    h4 {
+      color: $senary-color;
+    }
+
     // Estilos para el botón de expiración en job
     .expiration {
       font-size: $font-size-h5;
+    }
+  }
+
+  #location {
+    color: $senary-color;
+  }
+
+  .detail-button {
+    background-color: transparent; /* Sin fondo */
+    color: $quinary-color; /* Texto verde */
+    border: 2px solid $quinary-color; /* Borde verde de 2px */
+    border-radius: 50px; /* Border radius redondeado */
+    padding: 0.5rem 1rem; /* Ajusta el espacio interior */
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
+    font-size: $font-size-h5;
+
+    &:hover {
+      background-color: $quinary-color; /* Fondo verde claro al pasar el cursor */
+      color: $septenary-color; /* Cambia el texto a blanco */
     }
   }
 }

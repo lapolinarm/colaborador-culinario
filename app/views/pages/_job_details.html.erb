@@ -1,5 +1,5 @@
 <%# app/views/pages/_job_details.html.erb %>
-<%= turbo_frame_tag "job_details", id:"job_details", class:"col-md-3 right-content" do %>
+<%= turbo_frame_tag "job_details", id:"job_details", class:"col-md-3" do %>
   <!-- Job Image Card -->
   <div class="card mb-4 position-relative job-image-card">
     <!-- Card with Image and Dark Overlay -->
@@ -33,36 +33,36 @@
 
   <!-- Job Title and Company -->
   <% if @selected_job.present? %>
-    <h3 class="mt-4"><%= @selected_job.function.capitalize %></h3>
-    <p class="fw-bold"><%= @selected_job.restaurant.commercial_name %></p>
+    <h2 class="mt-4"><%= @selected_job.function.capitalize %></h2>
+    <h3 class="fw-bold"><%= @selected_job.restaurant.commercial_name %></h3>
 
     <!-- Location Information -->
     <div class="row mb-2">
-      <div class="col-6 fw-bold">Ubicación</div>
-      <div class="col-6 fw-bold text-end"><%= job_location(@selected_job) %></div>
-      <div class="col-12"><%= @selected_job.restaurant.address %></div>
+      <h3 class="col-6 fw-bold">Ubicación</h3>
+      <h3 class="col-6 fw-bold text-end"><%= job_location(@selected_job) %></h3>
+      <h4 class="col-12"><%= @selected_job.restaurant.address %></h4>
     </div>
 
     <!-- Schedule Information -->
     <div class="row mb-2">
-      <div class="col-6 fw-bold">Horario</div>
-      <div class="col-6 fw-bold text-end"><%= @selected_job.job_mode.capitalize %></div>
-      <div class="col-12">
+      <h3 class="col-6 fw-bold">Horario</h3>
+      <h3 class="col-6 fw-bold text-end"><%= @selected_job.job_mode.capitalize %></h3>
+      <h4 class="col-12">
         <%= formatted_schedule(@selected_job.date, @selected_job.hour_start, @selected_job.hour_end) %>
-      </div>
+      </h4>
     </div>
 
     <!-- Hours and Salary Information -->
     <div class="row mb-2">
-      <div class="col-6 fw-bold">Horas</div>
-      <div class="col-6 text-end fw-bold">Salario</div>
-      <div class="col-6"><%= hours_difference(@selected_job.hour_start, @selected_job.hour_end) %> hr</div>
-      <div class="col-6 text-end"><%= number_to_currency(@selected_job.payment_hour, unit: 'S/.', precision: 0) %>/hr</div>
+      <h3 class="col-6 fw-bold">Horas</h3>
+      <h3 class="col-6 text-end fw-bold">Salario</h3>
+      <h4 class="col-6"><%= hours_difference(@selected_job.hour_start, @selected_job.hour_end) %> hr</h4>
+      <h4 class="col-6 text-end"><%= number_to_currency(@selected_job.payment_hour, unit: 'S/.', precision: 0) %>/hr</h4>
     </div>
 
     <!-- Published Date and Other Offers -->
-    <p class="text-muted mb-1">Publicado hace <%= time_ago_in_words(@selected_job.created_at) %></p>
-    <p class="text-muted">Otras ofertas de esta empresa</p>
+    <h4 class="text-muted mb-1">Publicado hace <%= time_ago_in_words(@selected_job.created_at) %></h4>
+    <h4 class="text-muted">Otras ofertas de esta empresa</h4>
 
     <!-- Apply and More Info Buttons -->
     <div class="d-flex gap-2 mb-3">
@@ -76,15 +76,15 @@
     <hr class="my-3">
 
     <!-- Description Section -->
-    <h5>Descripción</h5>
+    <h3>Descripción</h3>
     <p><%= @selected_job.description %></p>
 
     <!-- Responsibilities Section -->
-    <h5>Responsabilidades</h5>
+    <h3>Responsabilidades</h3>
     <p><%= @selected_job.responsibility %></p>
 
     <!-- Requirements Section -->
-    <h5>Requerimientos</h5>
+    <h3>Requerimientos</h3>
     <p><%= @selected_job.requirement %></p>
   <% else %>
     <p>Selecciona un trabajo para ver los detalles.</p>
