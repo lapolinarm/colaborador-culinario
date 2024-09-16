@@ -4,23 +4,21 @@
   </div>
 
   <!--contenido Card-->
-  <div class="bg-black p-4">
-    <div class="my-4 mx-auto">
+  <div class=" p-4">
+    <div class="row">
       <% @applied_jobs.each do |job| %>
-      <div class="card card-def my-4 bg-primary" data-aos="fade-right">
-        <div class="card-body" id="p-white">
-          <p id="p-white">Restaurante: <%= job.restaurant.commercial_name%></p>
-          <p id="p-white">Direccion del restaurante: <%= job.restaurant.address%></p>
-          <p id="p-white">Teléfono del restaurante: <%= job.restaurant.phone%></p>
-          <p id="p-white">Status: <%= job.job_users.find_by(user: current_user).status %></p>
-          <p id="p-white">Función: <%= job.function.capitalize %></p>
-          <p id="p-white">Descripción: <%= job.description.capitalize %></p>
-          <p id="p-white">Modo de trabajo: <%= job.job_mode %></p>
-          <p id="p-white">Pago por hora: <%= job.payment_hour %> soles </p>
-
-          <p id="p-white">Fecha: <%= job.date %></p>
+        <div class="col-md-6 my-4 d-flex align-items-stretch">
+          <div class="card card-def bg-light w-100" data-aos="fade-right">
+            <div class="card-body d-flex flex-column">
+              <p>Restaurante: <%= job.restaurant.commercial_name %></p>
+              <p>Status: <%= job.job_users.find_by(user: current_user).status %></p>
+              <p>Función: <%= job.function.capitalize %></p>
+              <p>Descripción: <%= job.description.capitalize %></p>
+              <p>Fecha: <%= job.date %></p>
+              <%= button_to 'Cancelar', job_path(job), method: :delete, class: 'btn btn-danger', data: { turbo_method: :delete } %>
+            </div>
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
