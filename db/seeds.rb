@@ -1,4 +1,5 @@
 require 'active_support/all'
+
 puts "Borrando job_users..."
 JobUser.destroy_all # Elimina todas las job_users existentes
 
@@ -6,7 +7,7 @@ puts "Borrando jobs..."
 Job.destroy_all # Elimina todas las jobs existentes
 
 puts "Borrando restaurants..."
-Restaurant.destroy_all # Elimina todas los restaurants existentes
+Restaurant.destroy_all # Elimina todos los restaurants existentes
 
 puts "Borrando usuarios..."
 User.destroy_all # Elimina todos los usuarios existentes
@@ -52,18 +53,20 @@ puts "Inicio el Seeds en las tablas"
   valRestaurant = instance.returnRestaurants
   location = valRestaurant.to_s[-7..-1].strip[1..-2]
 
-  # puts "Creando restaurantes aleatorios..."
+  # En lugar de buscar el país dinámicamente, simplemente asignamos el código alpha-2 de Perú
+  country_code = 'PE'  # Código de Perú
 
+  # puts "Creando restaurantes aleatorios..."
   restaurant = Restaurant.create!(
     ruc: "201#{rand(10000000..99999999)}",
     commercial_name: valRestaurant[0...-7].strip,
     company_name: "#{valRestaurant[0...-7].strip.to_s.upcase} S.A.C",
     phone: "01#{rand(1000000..9999999)}",
-    mobile_phone:"9#{rand(10000000..99999999).to_s}",
+    mobile_phone: "9#{rand(10000000..99999999).to_s}",
     address: instance.returnAddres(location),
     district: instance.randomDistritos(location),
     province: instance.returnProvince(location),
-    country: 'Perú',
+    country: country_code,  # Aquí se almacena el código del país
     reference: "XX_reference",
     user: user
   )
@@ -93,7 +96,6 @@ puts "Inicio el Seeds en las tablas"
   randomPaymentHour = [10, 20, 30, 40, 50].sample
 
   # puts "Creando Jobs aleatorios..."
-
   job = Job.create!(
     date: instance.returnDate,
     hour_start: hourTemp,
@@ -116,7 +118,6 @@ puts "Inicio el Seeds en las tablas"
   valtypeStatus = instance.valor_random_del_hash(typeStatus)
 
   # puts "Creando JobUsers aleatorios..."
-
   job_user = JobUser.create!(
     status: valtypeStatus,
     payment_method_used: valPayMethod,
@@ -126,12 +127,11 @@ puts "Inicio el Seeds en las tablas"
   )
 
   # puts "Creando Favorites aleatorios..."
-
   favorite = Favorite.create!(
     user: user,
     job: job
   )
-
 end
-puts "terminando el Seeds"
+
+puts "Terminando el Seeds"
 puts "=" * 50

@@ -1,30 +1,26 @@
-<%= simple_form_for @job do |f| %>
-   <% if @job.errors.any? %>
-     <div id="error_explanation">
-       <h2><%= pluralize(@job.errors.count, "error") %> Error falta campos:</h2>
-       <ul>
-         <% @job.errors.full_messages.each do |message| %>
-           <li><%= message %> % </li>
-         <% end %>
+<%= simple_form_for [@restaurant, @job] do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> Error falta campos:</h2>
+      <ul>
+        <% @job.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
-     </div>
-   <% end %>
+    </div>
+  <% end %>
 
   <%= f.input :date, as: :string, label: "Fecha del trabajo", placeholder: "YYYY-MM-DD" %>
   <%= f.input :hour_start, label: "Hora de inicio", as: :time %>
-  <%= f.input :hour_end, label: "Hasta" ,as: :time %>
+  <%= f.input :hour_end, label: "Hasta", as: :time %>
   <%= f.input :payment_hour, label: "Pago por hora" %>
 
-  <%= f.input :job_type, label: "Tipo de trabajo" ,collection: [['Full-time', 1], ['Part-time', 2], ['otros', 3]], prompt: "Selecciona un tipo de trabajo" %>
-  <%= f.input :job_mode, label: "Modo de trabajo" ,collection: [['Presencial', 1], ['Remoto', 2], ['Hibrido', 3]], prompt: "Selecciona un modo de trabajo" %>
-
-  <%= f.input :function, label: "Función" ,collection: [['Mozo', 1], ['Personal de limpieza', 2], ['Delivery', 3], ['Lavaplatos', 4], ['Azafata', 5]], prompt: "Selecciona una función" %>
-
-  <%= f.input :description, label: "Descripción" ,as: :text %>
-  <%= f.input :responsibility, label: "Responsabilidades del trabajo" ,as: :text %>
-  <%= f.input :requirement, label: "Requerimientos del trabajo" ,as: :text %>
-
-  <%= f.input :restaurant_id, as: :select, collection: Restaurant.all.collect { |r| [r.commercial_name, r.id] }, prompt: "Selecciona un Restaurante" %>
+  <%= f.input :job_type, label: "Tipo de trabajo", collection: [['Full-time', 1], ['Part-time', 2], ['otros', 3]], prompt: "Selecciona un tipo de trabajo" %>
+  <%= f.input :job_mode, label: "Modo de trabajo", collection: [['Presencial', 1], ['Remoto', 2], ['Hibrido', 3]], prompt: "Selecciona un modo de trabajo" %>
+  <%= f.input :function, label: "Función", collection: [['Mozo', 1], ['Personal de limpieza', 2], ['Delivery', 3], ['Lavaplatos', 4], ['Azafata', 5]], prompt: "Selecciona una función" %>
+  <%= f.input :description, label: "Descripción", as: :text %>
+  <%= f.input :responsibility, label: "Responsabilidades del trabajo", as: :text %>
+  <%= f.input :requirement, label: "Requerimientos del trabajo", as: :text %>
 
   <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
