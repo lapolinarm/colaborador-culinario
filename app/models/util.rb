@@ -186,46 +186,26 @@ class Util
     hash.values.sample
   end
 
-  def returnDate
-    dateTemp = [
-    [Date.new(2024, 10, 15)],
-    [Date.new(2024, 9, 15)],
-    [Date.new(2024, 9, 13)],
-    [Date.new(2024, 9, 13)],
-    [Date.new(2024, 9, 14)],
-    [Date.new(2024, 9, 14)],
-    [Date.new(2024, 9, 15)],
-    [Date.new(2024, 9, 15)],
-    [Date.new(2024, 10, 1)],
-    [Date.new(2024, 10, 2)],
-    [Date.new(2024, 10, 3)],
-    [Date.new(2024, 9, 15)],
-    [Date.new(2024, 9, 12)],
-    ].sample
+  def returnMoment(moment)
+    hoy = Date.today
 
-    dateTemp[0]
-  end
+    un_mes_futuro = hoy.next_month
 
-  def returnStarTime
-    timeTemp = [
-      [Time.new(2024, 9, 15, 14, 30)],
-      [Time.new(2024, 9, 15, 16, 30)],
-      [Time.new(2024, 9, 13, 18, 00)],
-      [Time.new(2024, 9, 13, 17, 00)],
-      [Time.new(2024, 9, 14, 20, 00)],
-      [Time.new(2024, 9, 15, 20, 30)],
-      [Time.new(2024, 9, 15, 20, 00)],
-      [Time.new(2024, 9, 16, 21, 00)],
-      [Time.new(2024, 9, 16, 21, 00)],
-      [Time.new(2024, 9, 16, 21, 30)],
-      [Time.new(2024, 9, 15, 19, 30)],
-      [Time.new(2024, 9, 12, 17, 30)],
-    ].sample
+    base_date = Date.new(2000, 1, 1)
+    inicio_dias = (hoy - base_date).to_i
+    fin_dias = (un_mes_futuro - base_date).to_i
+    random_dias = rand(inicio_dias..fin_dias)
+    fecha_aleatoria = base_date + random_dias
 
-    #event_time.strftime("%H:%M")  # Salida: 14:30
-    #event_time.strftime("%I:%M %p")  # Salida: 02:30 PM
-
-    timeTemp[0]
+    if moment.eql? 'date'
+      fecha_aleatoria
+    else
+      hora_inicio = 15
+      hora_fin = 20
+      hora_aleatoria = rand(hora_inicio..hora_fin)
+      minuto_aleatorio = rand(0..59)
+      fecha_hora_aleatoria = Time.new(fecha_aleatoria.year, fecha_aleatoria.month, fecha_aleatoria.day, hora_aleatoria, minuto_aleatorio, 0, "-05:00")
+    end
   end
 
 
