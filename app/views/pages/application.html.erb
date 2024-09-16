@@ -1,12 +1,33 @@
 <div data-controller="dashboard">
 
   <div class="d-flex flex-row">
-    <div class="col-ml-2 sidebar p-0">
-      <h1 class="text-center my-4" data-aos="fade-right">Dashboard</h1>
+    <div class="col-ml-2 " id="side">
+      <h2 class="text-start my-4 mt-4 p-2" data-aos="fade-right">Dashboard</h2>
       <div class="d-flex flex-column gap-2" >
-        <button class="btn btn-primary " data-action="click->dashboard#showView" data-view="1" data-aos="fade-right">Mis Pagos</button>
-        <button class="btn btn-primary" data-action="click->dashboard#showView" data-view="2" data-aos="fade-right">Mis postulaciones</button>
-        <button class="btn btn-primary" data-action="click->dashboard#showView" data-view="3" data-aos="fade-right">Mis graficoss</button>
+        <button class="btn" data-action="click->dashboard#showView" data-view="1" data-aos="fade-right">
+          <div class="d-flex">
+            <i class="fa-solid fa-angle-right" id="dash-icon"></i>
+            <p class="my-auto">
+              Mis Pagos
+            </p>
+          </div>
+        </button>
+        <button class="btn" data-action="click->dashboard#showView" data-view="2" data-aos="fade-right">
+        <div class="d-flex">
+            <i class="fa-solid fa-angle-right" id="dash-icon"></i>
+            <p class="my-auto">
+              Mis Postulaciones
+            </p>
+          </div>
+        </button>
+        <button class="btn" data-action="click->dashboard#showView" data-view="3" data-aos="fade-right">
+        <div class="d-flex">
+            <i class="fa-solid fa-angle-right" id="dash-icon"></i>
+            <p class="my-auto">
+              Mis Graficos
+            </p>
+          </div>
+        </button>
       </div>
     </div>
 
@@ -28,6 +49,21 @@
 
     <%# estilos %>
     <style>
+
+      #side {
+
+        top: 63px;
+        height: 100vh;
+        overflow-y: auto;
+        z-index: 10;
+        position: sticky;
+        border-right: 3px solid black;
+        background-color: #f4f4f4;
+        width: 250px;
+        left: 0;
+        padding-top: 50px;
+      }
+
       .container_def {
         background-color:#f4f4f4;
         color:white;
@@ -44,16 +80,13 @@
       }
 
       .content {
-        margin-left: 250px; /* Debe ser igual al ancho del sidebar */
+        margin-left: 250px;
         padding: 20px;
       }
-      .sidebar {
-        position: fixed;
-        border: 1px solid black;
-        background-color: #f4f4f4;
-        height: 100%;
-        width: 250px;
-        left: 0;
+
+      #dash-icon {
+        align-self: center;
+        margin: 10px;
       }
 
     </style>
