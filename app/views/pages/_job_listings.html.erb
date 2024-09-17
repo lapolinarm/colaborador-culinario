@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <h2 class="mb-4"><%= pluralize(jobs.count, 'Resultado') %></h2>
+  <h2 class="mb-4"><%= pluralize(jobs.count, 'Resultado', 'Resultados') %></h2>
 
   <!-- Job Listings -->
   <div class="row job-list gx-4 gy-4">
@@ -37,19 +37,7 @@
               <% if job.function.present? %>
                 <h4 class="card-text mb-2"><%= job.function.humanize %></h4>
               <% else %>
-                <h4 class="card-text mb-2">Función no especificada</h4>
-              <% end %>
-
-              <% if job.job_type.present? %>
-                <p class="card-text mb-2"><%= job.job_type.humanize %></p>
-              <% else %>
-                <p class="card-text mb-2">Tipo de trabajo no especificado</p>
-              <% end %>
-
-              <% if job.job_mode.present? %>
-                <p class="card-text mb-2"><%= job.job_mode.humanize %></p>
-              <% else %>
-                <p class="card-text mb-2">Modo de trabajo no especificado</p>
+                <h4 class="card-text mb-2">Sin función</h4>
               <% end %>
               <button class="expiration btn btn-outline-secondary btn-sm rounded-sm me-2">Expira en <%= time_ago_in_words(job.date) %></button>
             </div>
