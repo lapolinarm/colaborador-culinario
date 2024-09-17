@@ -2,21 +2,30 @@
   <div class="text-center my-4">
     <h1>Perfil de usuario</h1>
   </div>
-  <div>
-  <img src="" alt="">
-  </div>
+
   <div class=" container mb-4 d-flex flex-column align-items-center gap-4">
-    <div class="my-4 text-center">
-      <h1 class="custom-title">Bienvenid@ <%= current_user.first_name + " " + current_user.last_name%></h1>
-    </div>
-    <div class="mb-4 text-center">
-      <h5 class="custom-cards"><strong>Rol: </strong><% if current_user.role  == "collaborator" %>
-          colaborador <i class="fa-solid fa-utensils"></i>
-        <% else current_user.role  == "owner" %>
-          empresario <i class="fa-solid fa-briefcase"></i>
-        <% end %></h5>
+    <div class="row align-items-center">
+
+        <div class="my-4 text-center">
+          <h1 class="custom-title">Bienvenid@ <%= current_user.first_name + " " + current_user.last_name%></h1>
+        </div>
+
     </div>
     <div class="row">
+
+      <div class="col-md-6 my-4 d-flex align-items-stretch ">
+        <img class="avatar-img mx-auto levitate" src="https://res.cloudinary.com/roldan-cloudinary/image/upload/v1726246081/colaborador%20culinario/ktscqsdwihjo4fgfo957.jpg" alt="profile-pic">
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <h5 class="custom-cards align-self-center"><strong>Rol: </strong><% if current_user.role  == "collaborator" %>
+            colaborador <i class="fa-solid fa-utensils"></i>
+          <% else current_user.role  == "owner" %>
+            empresario <i class="fa-solid fa-briefcase"></i>
+          <% end %>
+        </h5>
+      </div>
+
       <div class="col-md-4 my-4 d-flex align-items-stretch">
         <div class="mb-4 text-center">
           <h5 class="custom-cards"><strong>Nombre: </strong><%= current_user.first_name.present? ? current_user.first_name : "No hay un nombre disponible." %></h5>
@@ -103,6 +112,36 @@
       transform: translateY(-10px);
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     }
+
+    .avatar-img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+    }
+
+    @keyframes levitate {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+
+    .levitate {
+      animation: levitate 3s ease-in-out infinite;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .levitate:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Opcional: para un efecto de sombra en hover */
+    }
+
+
   </style>
 
 </Section>
