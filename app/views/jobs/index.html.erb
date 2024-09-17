@@ -1,28 +1,37 @@
-<h1>Trabajos</h1>
+<div class="custom">
+  <h1>Trabajos</h1>
 
-<%= link_to 'Nuevo trabajo', new_job_path, class: 'btn btn-primary' %>
+  <%# <%= link_to 'Nuevo trabajo', new_restaurant_job_path(@restaurant), class: 'btn btn-primary' %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Descripción</th> <th>Descripción Detallada</th>
-      <th>Pago por Hora</th>
-      <th>Restaurante</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @jobs.each do |job| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= job.description %></td> <td><%= job.description %></td>
-        <td><%= job.payment_hour %></td>
-        <td><%= job.restaurant.commercial_name if job.restaurant %></td>
-        <td>
-          <%= link_to 'Mostrar', job_path(job), class: 'btn btn-info' %>
-          <%= link_to 'Editar', edit_job_path(job), class: 'btn btn-warning' %>
-          <%= link_to 'Eliminar', job_path(job), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-        </td>
+        <th>Descripción</th> <th>Descripción Detallada</th>
+        <th>Pago por Hora</th>
+        <th>Restaurante</th>
+        <th>Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td><%= job.description %></td> <td><%= job.description %></td>
+          <td><%= job.payment_hour %></td>
+          <td><%= job.restaurant.commercial_name if job.restaurant %></td>
+          <td>
+            <%= link_to 'Mostrar', job_path(job), class: 'btn btn-info' %>
+            <%= link_to 'Editar', edit_job_path(job), class: 'btn btn-warning' %>
+            <%= link_to 'Eliminar', job_path(job), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <style>
+    .custom {
+      margin-top: 80px;
+    }
+    </style>
+
+</div>
