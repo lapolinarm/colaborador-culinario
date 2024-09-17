@@ -12,9 +12,10 @@ class JobUsersController < ApplicationController
 
   private
   def job_user_params
-    params.require(:job_user).permit(:user_id, :job_id, :payment_method_used, :amount_paid)
+    params.require(:job_user).permit(:user_id, :job_id, :payment_method_used, :amount_paid, :status)
   end
   def set_job
     @job = Job.find(params[:job_id])
   end
 end
+
