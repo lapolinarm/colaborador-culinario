@@ -1,5 +1,5 @@
 // app/javascript/home.js
-document.addEventListener('turbo:frame-load', () => {
+function initializeCountdown() {
   const countdownElements = document.querySelectorAll('.expiration-time');
 
   countdownElements.forEach(el => {
@@ -20,7 +20,6 @@ document.addEventListener('turbo:frame-load', () => {
           return;
         }
 
-        // Restar un segundo
         distance--;
 
         const days = Math.floor(distance / (3600 * 24));
@@ -45,7 +44,7 @@ document.addEventListener('turbo:frame-load', () => {
         el.innerHTML = message;
       }
 
-      // Actualizar el countdown cada segundo
+      // Inicializar countdown y luego actualizar cada segundo
       updateCountdown();
       setInterval(updateCountdown, 1000);
 
@@ -53,7 +52,18 @@ document.addEventListener('turbo:frame-load', () => {
       el.innerHTML = "Error al calcular el tiempo";
     }
   });
+}
+
+// Ejecutar cuando la página cargue por primera vez
+document.addEventListener('turbo:load', () => {
+  initializeCountdown();
 });
+
+// Ejecutar cada vez que el frame de detalles de trabajo cambie
+document.addEventListener('turbo:frame-load', () => {
+  initializeCountdown();
+});
+
 
 
 document.addEventListener('turbo:frame-load', function() {
