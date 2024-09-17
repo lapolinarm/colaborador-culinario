@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <%= javascript_include_tag 'countdown', crossorigin: 'anonymous', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'home', crossorigin: 'anonymous', 'data-turbo-track': 'reload' %>
 
     <!-- Logo (Avatar) -->
     <div class="position-absolute job-image-logo">
@@ -67,7 +67,7 @@
     <!-- Apply and More Info Buttons -->
     <div class="d-flex gap-2 mb-3">
       <%= simple_form_for [selected_job, job_user] do |f| %>
-        <%= f.submit "Aplicar ahora", class: "apply-now rounded-pill", data: {turbo: false} %>
+        <%= f.submit "Aplicar ahora", class: "apply-now rounded-pill", id: "apply-button", data: {turbo: false} %>
       <% end %>
       <%= link_to 'Mis postulaciones', application_path(user: current_user), class: "my-applications-button rounded-pill", data: {turbo: false}%>
     </div>
