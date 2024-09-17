@@ -51,6 +51,19 @@ class PagesController < ApplicationController
   end
 
   def application
+
+    @array = []
+
+
+    10.times do
+      @array << Faker::Number.between(from: 1, to: 10)
+    end
+
+    puts @array
+
+
+
+
     if current_user.owner?
       @restaurants = current_user.restaurants
       if params[:date].present? || params[:restaurant_id].present?

@@ -38,16 +38,16 @@
     </div>
 
     <div class="container pb-5 mb-5" >
-      <div class="content background" id="content3" style="display: block;">
+      <div class="content" id="content3" style="display: block;">
         <%= render 'shared/graphics_user' %>
       </div>
 
 
-      <div class="content background" id="content1" style="display: none;">
+      <div class="content" id="content1" style="display: none;">
         <%= render 'shared/payment_user_content' %>
       </div>
 
-      <div  class="content background" id="content2" style="display: none;">
+      <div  class="content" id="content2" style="display: none;">
         <%= render 'shared/all_applications_user' %>
       </div>
 
@@ -70,26 +70,27 @@
       #side {
 
         top: 63px;
-        height: 100vh;
-        overflow-y: hidden;
+        background-color: #f4f4f4; /* Fondo blanco para la barra lateral */
+        height: 100vh; /* Altura total de la ventana */
+        padding: 1rem; /* Espaciado interno */
+        margin-top: 60px;
+
+        overflow-y: scroll; /* Asegura que el contenido pueda ser desplazado */
+        scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+        position: sticky; /* Mantiene la barra lateral fija al hacer scroll */
+
+        height: calc(100vh - 60px); /* Altura completa menos el header */
         z-index: 10;
-        position: sticky;
-        border-right: 3px solid black;
-        background-color: #f4f4f4;
-        width: 15vw;
-        left: 0;
-        padding-top: 50px;
       }
 
       .container_def {
-        background-color:#f4f4f4;
-        color:white;
+
         width: 100%%;
         border-radius: 8px;
       }
 
       .custom-title {
-        background-color: lightblue;
+        background-color: #dad0fe;
         border-radius: 8px;
         padding: 1.5rem;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -125,9 +126,15 @@
       }
 
       .cancel-btn {
+        background-color: #f4f4f4;
+        color: black;
+        border-radius: 10px;
+      }
+
+      .cancel-btn:hover {
         background-color: #cf4545;
         color: white;
-        border-radius: 10px;
+
       }
     </style>
 
