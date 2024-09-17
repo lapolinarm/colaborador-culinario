@@ -4,14 +4,16 @@ class JobUsersController < ApplicationController
   def create
     @job_user = @job.job_users.build(user: current_user)
     if @job_user.save
-      redirect_to root_path, notice: 'You have successfully applied to this job.'
+      redirect_to root_path, notice: 'Trabajo solicitado con éxito.'
     else
-      redirect_to job_path(@job), alert: 'There was an error in applying to this job.'
+      redirect_to job_path(@job), alert: 'Error.'
     end
   end
 
   private
-
+  def job_user_params
+    params.require(:job_user).permit(:user_id, :job_id, :payment_method_used, :amount_paid)
+  end
   def set_job
     @job = Job.find(params[:job_id])
   end
