@@ -3,6 +3,14 @@
     <h1>Mis graficos</h1>
   </div>
 
+
+  <% column_chart({"2021-01-01" => 2, "2021-01-02" => 3})%>
+  <%= column_chart @array %>
+  <%= @array %>
+
+  <% column_chart({"2021-01-01" => 2, "2021-01-02" => 3})%>
+
+
   <%# <%= column_chart Utils.months({count: 7}) %>
 
 </div>
