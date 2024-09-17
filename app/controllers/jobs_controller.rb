@@ -1,7 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %w[show edit update destroy]
   before_action :authenticate_user!
-  before_action :set_restaurant, only: %w[new create]
   before_action :authorize_collaborator!, only: [:apply]
 
   def apply
@@ -10,26 +9,24 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+
   end
 
   def show
   end
 
   def new
-    @job = @restaurant.jobs.new
+    @job = Job.new
   end
 
   def create
-    @job = @restaurant.jobs.new(job_params)
-    puts job_params # Esto te permitirá ver los parámetros en la consola
-
+    @job = Job.new(job_params)
     if @job.save
       redirect_to job_path(@job), notice: "Job was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
-
 
   def edit
   end
@@ -50,15 +47,11 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:date, :hour_start, :hour_end, :payment_hour, :description, :responsibility, :requirement, :restaurant_id)
+    params.require(:job).permit(:title, :description, :salary, :restaurant_id)
   end
 
   def set_job
     @job = Job.find(params[:id])
-  end
-
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id]) if params[:restaurant_id].present?
   end
 
   def authorize_collaborator!
