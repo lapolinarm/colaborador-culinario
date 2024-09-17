@@ -41,8 +41,7 @@
               <% else %>
                 <h4 class="card-text mb-2">Sin función</h4>
               <% end %>
-
-              <button class="expiration btn btn-outline-secondary btn-sm rounded-sm me-2">Expira en <%= time_ago_in_words(job.date) %></button>
+              <button class="expiration btn btn-outline-secondary btn-sm rounded-sm me-2 text-truncate">Expira en <%= time_ago_in_words(job.date) %></button>
             </div>
           </div>
 
