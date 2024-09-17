@@ -40,8 +40,8 @@ class PagesController < ApplicationController
       @selected_job = Job.find(params[:job_id])
       @time_remaining = calculate_time_remaining(@selected_job)
     else
-      @selected_job = nil
-      @time_remaining = nil
+      @selected_job = @jobs.first
+      @time_remaining = calculate_time_remaining(@jobs.first)
     end
 
     @job_user = JobUser.new

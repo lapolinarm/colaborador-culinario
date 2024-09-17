@@ -5,8 +5,9 @@ module JobsHelper
     "#{province}, #{country_code}"
   end
 
-  def formatted_schedule(date, start_time, end_time)
-    "#{date.strftime('%a %d/%m/%y')} | #{start_time.strftime('%H:%M')} - #{end_time.strftime('%H:%M')}"
+  def formatted_schedule(date, hour_start, hour_end)
+    formatted_date = I18n.l(date, format: '%a %d/%m/%y') # Utiliza la configuración de días de la semana en español
+    "#{formatted_date} | #{hour_start.strftime('%H:%M')} - #{hour_end.strftime('%H:%M')}"
   end
 
   def hours_difference(start_time, end_time)
