@@ -75,5 +75,50 @@
     }
   }
 
+  .specific-details {
+    color: $senary-color;
+  }
+
+  .business-details {
+    color: $quinary-color;
+  }
+
+  .other-offers {
+    color: $quinary-color;
+  }
+
+  // Estilo personalizado para el botón "Aplicar ahora"
+  .apply-now {
+    background-color: $quinary-color; /* Fondo verde */
+    color: $septenary-color; /* Texto blanco */
+    font-weight: bold; /* Texto en negrita */
+    font-size: $font-size-h4; /* Altura del texto */
+    border: none; /* Sin borde */
+    padding: 0.5rem 1rem; /* Ajusta el espacio interior */
+    margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+    transition: background-color 0.3s ease; /* Transición suave al hover */
+
+    &:hover {
+      background-color: rgba(0, 174, 122, 0.8); /* Fondo verde más tenue al pasar el cursor */
+    }
+  }
+
+  // Estilo personalizado para el botón "Mis postulaciones"
+  .my-applications-button {
+    background-color: transparent; /* Sin fondo */
+    color: $quinary-color; /* Texto verde */
+    border: 2px solid $quinary-color; /* Borde verde de 2px */
+    border-radius: 50px; /* Borde redondeado */
+    padding: 0.3rem 0.8rem; /* Ajusta el espacio interior */
+    margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
+    font-size: $font-size-h4;
+
+    &:hover {
+      background-color: $quinary-color; /* Fondo verde al pasar el cursor */
+      color: $septenary-color; /* Cambia el texto a blanco */
+    }
+  }
 
 }
