@@ -5,16 +5,18 @@
 
     <!--contenido Card-->
   <div class="p-4">
-    <div class="my-4 mx-auto">
+    <div class="row">
       <% @applied_jobs.each do |job| %>
-      <div class="card card-def my-4 bg-light w-100" data-aos="fade-right">
-        <div class="card-body ">
-          <p >Restaurante: <%= job.restaurant.commercial_name%></p>
-          <p >Status: <%= job.job_users.find_by(user: current_user).status.present? ? current_user.status : "sin informacion" %></p>
-          <p >Metodo de pago: <%= job.job_users.find_by(user: current_user).payment_method_used.present? ? current_user.payment_method_used : "sin informacion" %></p>
-          <p >Monto a pagar: <%= job.job_users.find_by(user: current_user).amount_paid.present? ? current_user.amount_paid : "sin informacion" %></p>
-          <p >Función: <%= job.function.capitalize %></p>
-          <p >Fecha: <%= job.date %></p>
+      <div class="col-md-6 my-4 d-flex align-items-stretch">
+        <div class="card card-def my-4 bg-light w-100" data-aos="fade-right">
+          <div class="card-body d-flex flex-column">
+            <p > <strong>Restaurante: </strong>Restaurante: <%= job.restaurant.commercial_name%></p>
+            <p > <strong> Status: </strong> <%= job.job_users.find_by(user: current_user).status.present? ? current_user.status : "sin informacion" %></p>
+            <p > <strong> Metodo de pago: </strong> <%= job.job_users.find_by(user: current_user).payment_method_used.present? ? current_user.payment_method_used : "sin informacion" %></p>
+            <p > <strong> Monto a pagar: </strong> <%= job.job_users.find_by(user: current_user).amount_paid.present? ? current_user.amount_paid : "sin informacion" %></p>
+            <p > <strong>Función: </strong><%= job.function.capitalize %></p>
+            <p > <strong> Fecha: </strong> <%= job.date %></p>
+          </div>
         </div>
       </div>
       <% end %>
