@@ -21,7 +21,21 @@ class PagesController < ApplicationController
   end
 
   def home
-    @jobs = Job.all
+    # Filtrar empleos que no han expirado (criterio 1)
+    @jobs = Job.where("date > ? OR (date = ? AND hour_start > ?)", Date.current, Date.current, Time.current)
+
+    if user_signed_in?
+      # Excluir empleos a los que el usuario ya se ha postulado (criterio 2)
+      applied_job_ids = current_user.jobs.pluck(:id)
+      @jobs = @jobs.where.not(id: applied_job_ids)
+    end
+
+    # Verificar si no hay empleos disponibles después de aplicar los filtros
+    if @jobs.empty?
+      flash.now[:notice] = "No hay empleos disponibles en este momento."
+    end
+
+    # Si hay un empleo seleccionado, calcular el tiempo restante
     if params[:job_id].present?
       @selected_job = Job.find(params[:job_id])
       @time_remaining = calculate_time_remaining(@selected_job)

@@ -19,8 +19,8 @@
   <%= f.input :address, label: "Dirección" %>
   <%= f.input :district, label: "Distrito" %>
   <%= f.input :province, label: "Provincia" %>
-  <%= f.input :country, label: "País", as: :string do %>
-    <%= f.country_select :country %>
+  <%= f.input :country, label: "País", as: :select do %>
+    <%= f.country_select :country, { include_blank: true }, { class: "form-control" } %>
   <% end %>
 
   <%= f.input :reference, label: "Referencia de la dirección" %>

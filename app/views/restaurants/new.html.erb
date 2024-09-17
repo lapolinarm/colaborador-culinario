@@ -1,6 +1,14 @@
 <%# Para probar que funciona, se reemplazara por lo de Levi %>
-<h1>Nuevo Restaurante</h1>
+<div class="custom">
+  <h1>Nuevo Restaurante</h1>
 
-<%= render 'form', restaurant: @restaurant %>
+  <%= render 'form', restaurant: @restaurant %>
 
-<%= link_to 'Back', restaurants_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Back', restaurants_path, class: 'btn btn-secondary' %>
+
+  <style>
+    .custom {
+      margin-top: 80px;
+    }
+    </style>
+</div>
