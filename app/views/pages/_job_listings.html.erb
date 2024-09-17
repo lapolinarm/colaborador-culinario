@@ -26,14 +26,16 @@
           <div class="mb-0 child-card">
             <div class="card-body d-flex justify-content-between align-items-center p-2">
               <div>
-                <img src="<%= asset_path('logo.jpg') %>" class="logo" alt="logo">
+                <%= image_tag job.restaurant.user.photo.attached? ? cl_image_path(job.restaurant.user.photo.key) : asset_path('logo.jpg'), class: 'logo', alt: 'logo' %>
               </div>
               <div>
                 <i class="fas fa-bookmark"></i> <!-- Icono guardar empleo -->
               </div>
             </div>
+
             <div class="card-body pt-0 pb-2">
               <h3 class="card-title mb-1"><%= job.restaurant.commercial_name %> <i class="fas fa-check-circle text-success"></i></h3> <!-- Icono de verificado -->
+
               <% if job.function.present? %>
                 <h4 class="card-text mb-2"><%= job.function.humanize %></h4>
               <% else %>
@@ -51,6 +53,7 @@
               <% else %>
                 <p class="card-text mb-2">Modo de trabajo no especificado</p>
               <% end %>
+
               <button class="expiration btn btn-outline-secondary btn-sm rounded-sm me-2">Expira en <%= time_ago_in_words(job.date) %></button>
             </div>
           </div>

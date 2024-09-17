@@ -3,9 +3,9 @@
   <!-- Job Image Card -->
   <div class="card mb-4 position-relative job-image-card">
     <!-- Card with Image and Dark Overlay -->
-    <div class="position-absolute top-0 start-0 w-100 h-100 background-image">
-      <!-- Placeholder for background image -->
-    </div>
+<div class="position-absolute top-0 start-0 w-100 h-100 background-image"
+     style="background-image: url('<%= @selected_job.restaurant.photo.attached? ? cl_image_path(@selected_job.restaurant.photo.key) : asset_path('business-image.jpg') %>'); background-size: cover; background-position: center;">
+</div>
 
     <!-- Dark Overlay with Countdown -->
     <div class="position-absolute top-0 start-0 w-100 h-100 dark-overlay">
@@ -27,8 +27,9 @@
 
     <!-- Logo (Avatar) -->
     <div class="position-absolute job-image-logo">
-      <img src="<%= asset_path('logo.jpg') %>" class="rounded-circle" alt="logo">
+      <img src="<%= @selected_job.restaurant.user.photo.attached? ? cl_image_path(@selected_job.restaurant.user.photo.key) : asset_path('logo.jpg') %>" class="rounded-circle" alt="logo">
     </div>
+
   </div>
 
   <!-- Job Title and Company -->
