@@ -7,7 +7,7 @@ puts "Borrando jobs..."
 Job.destroy_all # Elimina todas las jobs existentes
 
 puts "Borrando restaurants..."
-Restaurant.destroy_all # Elimina todos los restaurants existentes
+Restaurant.destroy_all # Elimina todas los restaurants existentes
 
 puts "Borrando usuarios..."
 User.destroy_all # Elimina todos los usuarios existentes
@@ -25,6 +25,7 @@ puts "Inicio el Seeds en las tablas"
 50.times do
   instance = Util.new
 
+  # Definimos los métodos de pago
   typePayMethod = {
     "Efectivo" => 0,
     "Transferencia bancaria" => 1,
@@ -33,12 +34,13 @@ puts "Inicio el Seeds en las tablas"
 
   valPayMethod = instance.valor_random_del_hash(typePayMethod)
 
+  # Creación de usuario
   user = User.create!(
     email: Faker::Internet.email,
     dni: rand(10000000..99999999),
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    mobile_phone: "99#{rand(1000000..9999999).to_s}",
+    mobile_phone: "99#{rand(1000000..9999999)}",
     role: Util::COLABORADOR,
     address: Faker::Address.full_address,
     payment_method: valPayMethod,
@@ -53,10 +55,10 @@ puts "Inicio el Seeds en las tablas"
   valRestaurant = instance.returnRestaurants
   location = valRestaurant.to_s[-7..-1].strip[1..-2]
 
-  # En lugar de buscar el país dinámicamente, simplemente asignamos el código alpha-2 de Perú
+  # Asignamos un código de país (alpha-2)
   country_code = 'PE'  # Código de Perú
 
-  # puts "Creando restaurantes aleatorios..."
+  # Creación de restaurante
   restaurant = Restaurant.create!(
     ruc: "201#{rand(10000000..99999999)}",
     commercial_name: valRestaurant[0...-7].strip,
@@ -66,11 +68,12 @@ puts "Inicio el Seeds en las tablas"
     address: instance.returnAddres(location),
     district: instance.randomDistritos(location),
     province: instance.returnProvince(location),
-    country: country_code,  # Aquí se almacena el código del país
+    country: country_code,  # Código del país
     reference: "XX_reference",
     user: user
   )
 
+  # Hashes de tipos de trabajo, modos y funciones (enums)
   typeJob = {
     "Fulltime" => 0,
     "Parttime" => 1
@@ -89,17 +92,17 @@ puts "Inicio el Seeds en las tablas"
     "Delivery" => 2,
     "Lavaplatos" => 3
   }
-
   valTypeFunction = instance.valor_random_del_hash(typeFunction)
-  hourTemp = instance.returnMoment("time") #Hora
-  random_hours_sum = rand(2..4) #es una hora aleatoria
+
+  # Creación de trabajos
+  hourTemp = instance.returnMoment("time") # Hora de inicio
+  random_hours_sum = rand(2..4) # Hora de finalización aleatoria
   randomPaymentHour = [20, 30, 40, 50].sample
 
-  # puts "Creando Jobs aleatorios..."
   job = Job.create!(
     date: instance.returnMoment("date"),
     hour_start: hourTemp,
-    hour_end: hourTemp + (random_hours_sum * 3600), #a la hora, se le suma
+    hour_end: hourTemp + (random_hours_sum * 3600), # Añadimos horas aleatorias
     payment_hour: randomPaymentHour,
     job_type: valTypeJob,
     job_mode: valTypeJobMode,
@@ -110,6 +113,7 @@ puts "Inicio el Seeds en las tablas"
     restaurant: restaurant
   )
 
+  # Creación de JobUser
   typeStatus = {
     "aceptado" => 0,
     "pendiente" => 1,
@@ -117,7 +121,6 @@ puts "Inicio el Seeds en las tablas"
   }
   valtypeStatus = instance.valor_random_del_hash(typeStatus)
 
-  # puts "Creando JobUsers aleatorios..."
   job_user = JobUser.create!(
     status: valtypeStatus,
     payment_method_used: valPayMethod,
@@ -126,7 +129,7 @@ puts "Inicio el Seeds en las tablas"
     job: job
   )
 
-  # puts "Creando Favorites aleatorios..."
+  # Creación de favoritos
   favorite = Favorite.create!(
     user: user,
     job: job

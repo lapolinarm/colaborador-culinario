@@ -15,9 +15,12 @@
   <%= f.input :hour_end, label: "Hasta", as: :time %>
   <%= f.input :payment_hour, label: "Pago por hora" %>
 
-  <%= f.input :job_type, label: "Tipo de trabajo", collection: [['Full-time', 1], ['Part-time', 2], ['otros', 3]], prompt: "Selecciona un tipo de trabajo" %>
-  <%= f.input :job_mode, label: "Modo de trabajo", collection: [['Presencial', 1], ['Remoto', 2], ['Hibrido', 3]], prompt: "Selecciona un modo de trabajo" %>
-  <%= f.input :function, label: "Función", collection: [['Mozo', 1], ['Personal de limpieza', 2], ['Delivery', 3], ['Lavaplatos', 4], ['Azafata', 5]], prompt: "Selecciona una función" %>
+  <%= f.input :job_type, label: "Tipo de trabajo", collection: Job.job_types.keys.map { |k| [k.humanize, k] }, prompt: "Selecciona un tipo de trabajo" %>
+
+  <%= f.input :job_mode, label: "Modo de trabajo", collection: Job.job_modes.keys.map { |k| [k.humanize, k] }, prompt: "Selecciona un modo de trabajo" %>
+
+  <%= f.input :function, label: "Función", collection: Job.functions.keys.map { |k| [k.humanize, k] }, prompt: "Selecciona una función" %>
+
   <%= f.input :description, label: "Descripción", as: :text %>
   <%= f.input :responsibility, label: "Responsabilidades del trabajo", as: :text %>
   <%= f.input :requirement, label: "Requerimientos del trabajo", as: :text %>

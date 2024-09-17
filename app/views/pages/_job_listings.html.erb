@@ -7,9 +7,9 @@
       <p>Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
       <div class="position-relative">
         <input type="text" class="form-control search-input" placeholder="Buscar empleos...">
-        <i class="bi bi-search search-icon"></i>
+        <i class="fas fa-search search-icon"></i> <!-- Icono de búsqueda -->
         <button class="btn btn-success search-button">
-          <i class="bi bi-arrow-right text-white"></i>
+          <i class="fas fa-arrow-right text-white"></i> <!-- Icono de flecha hacia la derecha -->
         </button>
       </div>
     </div>
@@ -29,16 +29,30 @@
                 <img src="<%= asset_path('logo.jpg') %>" class="logo" alt="logo">
               </div>
               <div>
-                <i class="bi bi-bookmark"></i> <!-- Icono guardar empleo -->
+                <i class="fas fa-bookmark"></i> <!-- Icono guardar empleo -->
               </div>
             </div>
             <div class="card-body pt-0 pb-2">
-              <h3 class="card-title mb-1"><%= job.restaurant.commercial_name %> <i class="bi bi-check-circle text-success"></i></h3>
+              <h3 class="card-title mb-1"><%= job.restaurant.commercial_name %> <i class="fas fa-check-circle text-success"></i></h3> <!-- Icono de verificado -->
+
               <% if job.function.present? %>
-  <h4 class="card-text mb-2"><%= job.function.humanize %></h4>
-<% else %>
-  <h4 class="card-text mb-2">Función no especificada</h4>
-<% end %>
+                <h4 class="card-text mb-2"><%= job.function.humanize %></h4>
+              <% else %>
+                <h4 class="card-text mb-2">Función no especificada</h4>
+              <% end %>
+
+              <% if job.job_type.present? %>
+                <p class="card-text mb-2"><%= job.job_type.humanize %></p>
+              <% else %>
+                <p class="card-text mb-2">Tipo de trabajo no especificado</p>
+              <% end %>
+
+              <% if job.job_mode.present? %>
+                <p class="card-text mb-2"><%= job.job_mode.humanize %></p>
+              <% else %>
+                <p class="card-text mb-2">Modo de trabajo no especificado</p>
+              <% end %>
+
               <button class="expiration btn btn-outline-secondary btn-sm rounded-sm me-2">Expira en <%= time_ago_in_words(job.date) %></button>
             </div>
           </div>
@@ -50,7 +64,7 @@
               <h4 id="location" class="mb-0"><%= job_location(job) %></h4>
             </div>
             <%= turbo_frame_tag "job_#{job.id}" do %>
-              <%= link_to 'Detalle', home_path(job_id: job.id), data: { turbo_frame: "job_details" }, class: 'detail-button rounded-pill px-3' %>
+              <%= link_to 'Detalles', home_path(job_id: job.id), data: { turbo_frame: "job_details" }, class: 'detail-button rounded-pill px-3' %>
             <% end %>
           </div>
         </div>

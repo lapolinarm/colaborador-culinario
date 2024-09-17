@@ -50,7 +50,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:date, :hour_start, :hour_end, :payment_hour, :description, :responsibility, :requirement, :restaurant_id)
+    params.require(:job).permit(:date, :hour_start, :hour_end, :payment_hour, :description, :responsibility, :requirement, :restaurant_id, :job_mode, :function, :job_type)
   end
 
   def set_job
