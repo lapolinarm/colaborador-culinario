@@ -26,6 +26,6 @@
   <%= f.input :reference, label: "Referencia de la dirección" %>
 
   <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-
+  <%= f.input :photo, as: :file, label: "Subir imagen del restaurante" %>
   <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
