@@ -1,12 +1,11 @@
 <div data-controller="dashboard">
-
   <div class="d-flex flex-row">
     <div class="col-ml-2 " id="side">
       <h2 class="text-start my-4 mt-4 p-4" data-aos="fade-right">Dashboard</h2>
       <div class="d-flex flex-column gap-2" >
         <button class="btn" data-action="click->dashboard#showView" data-view="1" data-aos="fade-right">
           <div class="d-flex">
-            <div class="d-flex gap-3 icon-extras" id="dash-icon">
+            <div class="d-flex gap-3 icon-extras dash-icon" data-action="click->buttons#toggle">
               <i class="fa-solid fa-credit-card" id="icon-custom"></i>
               <p class="my-auto" id="p-white">
                 Mis Pagos
@@ -16,7 +15,7 @@
         </button>
         <button class="btn" data-action="click->dashboard#showView" data-view="2" data-aos="fade-right">
         <div class="d-flex">
-          <div class="d-flex gap-3 icon-extras" id="dash-icon">
+          <div class="d-flex gap-3 icon-extras dash-icon" data-action="click->buttons#toggle">
             <i class="fa-solid fa-list" id="icon-custom"></i>
             <p class="my-auto" id="p-white">
               Mis Postulaciones
@@ -26,92 +25,79 @@
         </button>
         <button class="btn" data-action="click->dashboard#showView" data-view="3" data-aos="fade-right">
         <div class="d-flex">
-          <div class="d-flex gap-3 icon-extras" id="dash-icon">
+          <div class="d-flex gap-3 icon-extras dash-icon" data-action="click->buttons#toggle">
             <i class="fa-solid fa-chart-line" id="icon-custom"></i>
             <p class="my-auto" id="p-white">
-              Mis Graficos
+              Mis Estadisticas
             </p>
           </div>
           </div>
         </button>
       </div>
     </div>
-
     <div class="container pb-5 mb-5" >
       <div class="content" id="content3" style="display: block;">
         <%= render 'shared/graphics_user' %>
       </div>
-
-
       <div class="content" id="content1" style="display: none;">
         <%= render 'shared/payment_user_content' %>
       </div>
-
       <div  class="content" id="content2" style="display: none;">
         <%= render 'shared/all_applications_user' %>
       </div>
-
     </div>
-
     <%# estilos %>
     <style>
-
       #p-white {
-          color: white ;
+          color: white;
+          font-weight: bold;
+          font-size: 12px;
         }
-
       #icon-custom {
         margin-left: 10px;
         color: white;
       }
-
-
-
       #side {
-
         top: 63px;
-        background-color: #f4f4f4; /* Fondo blanco para la barra lateral */
+        background-color: #F4F4F4; /* Fondo blanco para la barra lateral */
         height: 100vh; /* Altura total de la ventana */
         padding: 1rem; /* Espaciado interno */
         margin-top: 60px;
-
         overflow-y: scroll; /* Asegura que el contenido pueda ser desplazado */
         scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
         position: sticky; /* Mantiene la barra lateral fija al hacer scroll */
-
         height: calc(100vh - 60px); /* Altura completa menos el header */
         z-index: 10;
       }
-
       .container_def {
-
         width: 100%%;
         border-radius: 8px;
       }
-
       .custom-title {
-        background-color: #dad0fe;
+        background-color: #DAD0FE;
         border-radius: 8px;
         padding: 1.5rem;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         color: black;
       }
-
       .content {
         padding-top: 100px;
         padding-left: 100px;
         padding-right: 100px;
       }
-
-      #dash-icon {
+      .dash-icon {
         align-self: center;
         margin: 10px;
+        cursor: pointer;
       }
-
+      /* .dash-icon.active {
+        width: 180px;
+        border-radius: 20px;
+      } */
       .icon-extras {
         display: flex;
         align-items: center;
-        background-color: #00ae7a;
+        background-color: #00AE7A;
         border-radius: 50%;
         width: 40px;
         height: 40px;
@@ -119,26 +105,29 @@
         transition: all 0.3s ease;
         overflow: hidden;
       }
-
       .icon-extras:hover {
-        width: 200px;
+        width: 182px;
         border-radius: 20px;
       }
-
       .cancel-btn {
-        background-color: #f4f4f4;
+        background-color: #F4F4F4;
         color: black;
         border-radius: 10px;
       }
-
       .cancel-btn:hover {
-        background-color: #cf4545;
+        background-color: #CF4545;
         color: white;
+      }
 
+      .levitate_card {
+
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .levitate_card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
       }
     </style>
-
   </div>
-
-
 </div>

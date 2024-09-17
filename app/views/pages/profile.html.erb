@@ -2,59 +2,146 @@
   <div class="text-center my-4">
     <h1>Perfil de usuario</h1>
   </div>
-  <div>
-  <img src="" alt="">
-  </div>
-  <div class=" container mb-4 d-flex flex-column align-items-center border gap-4">
-    <div class="my-4 text-center">
-      <h1>Bienvenido
-        <% if current_user.role  == "collaborator" %>
-          colaborador
-        <% else current_user.role  == "owner" %>
-          empresario
-          <% end %>
-      </h1>
-    </div>
-    <div class="mb-4 text-center">
-      <h5 class="mb-4">Nombre: </h5>
-      <h5><%= current_user.first_name.present? ? current_user.first_name : "No hay un nombre disponible." %></h5>
-    </div>
-    <div class="mb-4 text-center">
-      <h5 class="mb-4">Apellido: </h5>
-      <h5><%= current_user.last_name.present? ? current_user.last_name : "No hay un apellido disponible."  %></h5>
-    </div>
-    <div class="mb-4 text-center">
-      <h5 class="mb-4">DNI: </h5>
-      <h5><%= current_user.dni.present? ? current_user.dni : "No hay un DNI disponible."  %></h5>
-    </div>
-    <div class="mb-4 text-center">
-      <h5 class="mb-4">Dirección: </h5>
-      <h5><%= current_user.address.present? ? current_user.address : "No hay una dirección disponible."  %></h5>
-    </div>
-    <div class="text-center mb-4">
-      <h5 class="mb-4">Teléfono </h5>
-      <h5><%= current_user.mobile_phone.present? ? current_user.mobile_phone : "No hay número de teléfono disponible." %></h5>
-    </div>
-    <div class="text-center mb-4">
-      <h5 class="mb-4">Correo: </h5>
-      <h5><%= current_user.email.present? ? current_user.email : "No hay un correo disponible." %></h5>
-    </div>
-    <div class="text-center mb-4">
-      <h5 class="mb-4">Metodo de pago: </h5>
-      <h5><%= current_user.payment_method.present? ? current_user.payment_method : "No hay un metodo de pago disponible." %></h5>
-    </div>
-    <div class="text-center mb-4">
-      <h5 class="mb-4">Mi banco: </h5>
-      <h5><%= current_user.bank.present? ? current_user.bank : "No hay un banco disponible." %></h5>
-    </div>
-    <div class="text-center mb-4">
-      <h5 class="mb-4">Nombre del titular de la cuenta: </h5>
-      <h5><%= current_user.name_holder.present? ? current_user.name_holder : "No hay un titular de la cuenta disponible." %></h5>
-    </div>
-    <div class="text-center mb-4">
-      <h5 class="mb-4">Mi numero de cuenta: </h5>
-      <h5><%= current_user.bank_account.present? ? current_user.bank_account : "No hay un numero de cuenta disponible." %></h5>
-    </div>
 
+  <div class=" container mb-4 d-flex flex-column align-items-center gap-4">
+    <div class="row align-items-center">
+
+        <div class="my-4 text-center">
+          <h1 class="custom-title">Bienvenid@ <%= current_user.first_name + " " + current_user.last_name%></h1>
+        </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-md-6 my-4 d-flex align-items-stretch ">
+        <img class="avatar-img mx-auto levitate" src="https://res.cloudinary.com/roldan-cloudinary/image/upload/v1726246081/colaborador%20culinario/ktscqsdwihjo4fgfo957.jpg" alt="profile-pic">
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <h5 class="custom-cards align-self-center"><strong>Rol: </strong><% if current_user.role  == "collaborator" %>
+            colaborador <i class="fa-solid fa-utensils"></i>
+          <% else current_user.role  == "owner" %>
+            empresario <i class="fa-solid fa-briefcase"></i>
+          <% end %>
+        </h5>
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Nombre: </strong><%= current_user.first_name.present? ? current_user.first_name : "No hay un nombre disponible." %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Apellido: </strong><%= current_user.last_name.present? ? current_user.last_name : "No hay un apellido disponible."  %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>DNI: </strong><%= current_user.dni.present? ? current_user.dni : "No hay un DNI disponible."  %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-8 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Dirección: </strong><%= current_user.address.present? ? current_user.address : "No hay una dirección disponible."  %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Teléfono: </strong><%= current_user.mobile_phone.present? ? current_user.mobile_phone : "No hay número de teléfono disponible." %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Correo: </strong><%= current_user.email.present? ? current_user.email : "No hay un correo disponible." %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Método de pago: </strong><%= current_user.payment_method.present? ? current_user.payment_method : "No hay un método de pago disponible." %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Mi banco: </strong><%= current_user.bank.present? ? current_user.bank : "No hay un banco disponible." %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-6 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Nombre del titular de la cuenta: </strong><%= current_user.name_holder.present? ? current_user.name_holder : "No hay un titular de la cuenta disponible." %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Mi número de cuenta: </strong><%= current_user.bank_account.present? ? current_user.bank_account : "No hay un número de cuenta disponible." %></h5>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <style>
+    .custom-title {
+        background-color: #DAD0FE;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: black;
+      }
+
+    .custom-cards {
+      background-color: #F4F4F4;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      color: black;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .custom-cards:hover {
+      background-color: #00AE7A;
+      color: white;
+      transform: translateY(-10px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .avatar-img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+    }
+
+    @keyframes levitate {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+
+    .levitate {
+      animation: levitate 3s ease-in-out infinite;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .levitate:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Opcional: para un efecto de sombra en hover */
+    }
+
+
+  </style>
+
 </Section>

@@ -20,6 +20,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+
         <% if user_signed_in? %>
           <% if current_user.collaborator? %>
           <%# ----------------------collaborator  %>
@@ -30,10 +31,10 @@
             <%= link_to 'Postulaciones', application_path(user: current_user), class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item active">
-            <%= link_to 'Nosotros', 'about', class: "nav-link custom-link-color" %>
+            <%= link_to 'Nosotros', about_path, class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item active">
-            <%= link_to 'Contáctanos', 'contact', class: "nav-link custom-link-color" %>
+            <%= link_to 'Contáctanos', contact_path, class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -82,10 +83,10 @@
             <%= link_to 'Nueva publicación', new_restaurant_path, class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item active">
-            <%= link_to 'Nosotros', 'about', class: "nav-link custom-link-color" %>
+            <%= link_to 'Nosotros', about_path, class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item active">
-            <%= link_to 'Contáctanos', 'contact', class: "nav-link custom-link-color" %>
+            <%= link_to 'Contáctanos', contact_path, class: "nav-link custom-link-color" %>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -121,6 +122,12 @@
           <% end %>
 
         <% else %>
+          <li class="nav-item active">
+            <%= link_to 'Nosotros', about_path, class: "nav-link custom-link-color" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'Contáctanos', contact_path, class: "nav-link custom-link-color" %>
+          </li>
           <li class="nav-item">
             <%= link_to 'Iniciar sesión', new_user_session_path, class: 'nav-link' %>
           </li>
