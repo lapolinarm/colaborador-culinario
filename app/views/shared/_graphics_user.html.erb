@@ -4,13 +4,14 @@
   </div>
 
 
-  <% column_chart({"2021-01-01" => 2, "2021-01-02" => 3})%>
-  <%= column_chart @array %>
-  <%= @array %>
-
-  <% column_chart({"2021-01-01" => 2, "2021-01-02" => 3})%>
 
 
-  <%# <%= column_chart Utils.months({count: 7}) %>
+
+
+
+  <%= pie_chart JobUser.group(:status).where(user: current_user).count, colors: ["blue", "yellow", "red"], title: "Cuadro de estados de trabajos" %>
+
+   <%= column_chart JobUser.group_by_day_of_week(:created_at, format: "%A").where(user: current_user, status: "aceptado").sum(:amount_paid) %>
+
 
 </div>
