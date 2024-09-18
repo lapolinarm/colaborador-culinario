@@ -3,6 +3,78 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :about, :dashboard, :contact]
 
 
+  def retur_campo
+    {
+      presencial: 'job_mode',
+      hibrido: 'job_mode',
+      fulltime: 'job_type',
+      parttime: 'job_type',
+      range1: 'payment_hour',
+      range2: 'payment_hour',
+      mozo: 'function',
+      azafata: 'function',
+      delivery: 'function',
+      lavaplatos: 'function'
+    }
+  end
+
+  def retur_valor
+    {
+      presencial: 0,
+      hibrido: 1,
+      fulltime: 0,
+      parttime: 1,
+      range1: 20..30,
+      range2: 40..50,
+      mozo: 0,
+      azafata: 1,
+      delivery: 2,
+      lavaplatos: 3
+    }
+  end
+
+  def validar_repetidos(val_categories)
+    array_camp_repet = []
+    val_categories.each do |val|
+      array_camp_repet << retur_campo[val.to_sym]
+    end
+    val_duplicates = array_camp_repet.length != array_camp_repet.uniq.length
+  end
+
+  def ordenar_campos(ingreso_campos)
+    camp_resultado = []
+    campos_ordenados = ["presencial", "hibrido", "fulltime", "parttime", "range1", "range2", "mozo", "azafata", "delivery", "lavaplatos"]
+
+    campos_ordenados.each do |x|
+      if ingreso_campos.include?(x)
+        index_temp = ingreso_campos.index(x)
+        camp_resultado << ingreso_campos[index_temp]
+      end
+    end
+    camp_resultado
+  end
+
+  def obtener_hash_completo_consulta(camp_ordenados)
+    camp_tem =
+    hash_resutl = {}
+    valor = []
+
+    camp_ordenados.each_with_index do |element, index|
+      campo = retur_campo[element.to_sym]
+      camp_tem = index == 0 ? retur_campo[camp_ordenados[0].to_sym] : retur_campo[camp_ordenados[index - 1].to_sym]
+
+      if camp_tem.eql? campo
+        valor << retur_valor[element.to_sym]
+        hash_resutl[campo.to_sym] = valor
+      else
+        valor_temp = []
+        valor_temp << retur_valor[element.to_sym]
+        hash_resutl[campo.to_sym] = valor_temp
+      end
+    end
+    hash_resutl
+  end
+
   def dashboard
     if current_user.owner?
       @restaurants = current_user.restaurants
@@ -21,9 +93,33 @@ class PagesController < ApplicationController
   end
 
   def home
+    if params[:filter]
+      permitted_params = params.require(:filter).permit(categories: [])
+      categories = permitted_params[:categories]
+      query_hash = {}
+
+      if validar_repetidos(categories)
+        camps_ordenados = ordenar_campos(categories)
+        hash_camp_ordenados = obtener_hash_completo_consulta(camps_ordenados)
+
+        hash_camp_ordenados.each do |clave, valor|
+          query_hash[clave.to_sym] = valor
+        end
+        @jobs = Job.where(query_hash)
+
+      else
+        categories.each do |categorie|
+          query_hash[retur_campo[categorie.to_sym].to_sym] = retur_valor[categorie.to_sym]
+        end
+        @jobs = Job.where(query_hash)
+      end
+    else
+      @jobs = Job.where("date > ? OR (date = ? AND hour_start > ?)", Date.current, Date.current, Time.current)
+      .order(:date, :hour_start)  # Ordenar por fecha y hora de inicio, más próximos primero
+
+      Rails.logger.debug("Parámetro 'filter' no está presente.")
+    end
     # Filtrar empleos que no han expirado (criterio 1)
-    @jobs = Job.where("date > ? OR (date = ? AND hour_start > ?)", Date.current, Date.current, Time.current)
-               .order(:date, :hour_start)  # Ordenar por fecha y hora de inicio, más próximos primero
 
     if user_signed_in?
       # Excluir empleos a los que el usuario ya se ha postulado (criterio 2)

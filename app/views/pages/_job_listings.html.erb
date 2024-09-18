@@ -1,4 +1,3 @@
-<!-- app/views/pages/_job_listings.html.erb -->
 <div id="job_listings" class="col-md-7 main-content">
   <!-- Search Card -->
   <div id="card-filter" class="card mb-4 border-0 shadow">
@@ -7,9 +6,9 @@
       <p>Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
       <div class="position-relative">
         <input type="text" class="form-control search-input" placeholder="Buscar empleos...">
-        <i class="fas fa-search search-icon"></i> <!-- Icono de búsqueda -->
+        <i class="bi bi-search search-icon"></i> <!-- Icono de búsqueda -->
         <button class="btn btn-success search-button">
-          <i class="fas fa-arrow-right text-white"></i> <!-- Icono de flecha hacia la derecha -->
+          <i class="bi bi-arrow-right text-white"></i> <!-- Icono de flecha hacia la derecha -->
         </button>
       </div>
     </div>
@@ -34,7 +33,7 @@
             </div>
 
             <div class="card-body pt-0 pb-2">
-              <h3 class="card-title mb-1"><%= job.restaurant.commercial_name %> <i class="fas fa-check-circle text-success"></i></h3> <!-- Icono de verificado -->
+              <h3 class="card-title mb-1"><%= job.restaurant.commercial_name %> <i class="fas fa-check-circle text-success"></i></h3>
 
               <% if job.function.present? %>
                 <h4 class="card-text mb-2"><%= job.function.humanize %></h4>

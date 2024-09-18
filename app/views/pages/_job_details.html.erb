@@ -1,11 +1,10 @@
-<%# app/views/pages/_job_details.html.erb %>
 <%= turbo_frame_tag "job_details", id:"job_details", class:"col-md-3" do %>
   <!-- Job Image Card -->
   <div class="card mb-4 position-relative job-image-card">
     <!-- Card with Image and Dark Overlay -->
-<div class="position-absolute top-0 start-0 w-100 h-100 background-image"
-     style="background-image: url('<%= @selected_job.restaurant.photo.attached? ? cl_image_path(@selected_job.restaurant.photo.key) : asset_path('business-image.jpg') %>'); background-size: cover; background-position: center;">
-</div>
+    <div class="position-absolute top-0 start-0 w-100 h-100 background-image"
+         style="background-image: url('<%= @selected_job.restaurant.photo.attached? ? cl_image_path(@selected_job.restaurant.photo.key) : asset_path('business-image.jpg') %>'); background-size: cover; background-position: center;">
+    </div>
 
     <!-- Dark Overlay with Countdown -->
     <div class="position-absolute top-0 start-0 w-100 h-100 dark-overlay">
@@ -29,7 +28,6 @@
     <div class="position-absolute job-image-logo">
       <img src="<%= @selected_job.restaurant.user.photo.attached? ? cl_image_path(@selected_job.restaurant.user.photo.key) : asset_path('logo.jpg') %>" class="rounded-circle" alt="logo">
     </div>
-
   </div>
 
   <!-- Job Title and Company -->
@@ -39,15 +37,15 @@
 
     <!-- Location Information -->
     <div class="row mb-2">
-      <h3 class="col-6 fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Ubicación</h3> <!-- Icono de ubicación -->
-      <h3 class="col-6 fw-bold text-end"><i class="fas fa-city me-2"></i><%= job_location(@selected_job) %></h3> <!-- Icono de ciudad -->
+      <h3 class="col-6 fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Ubicación</h3>
+      <h3 class="col-6 fw-bold text-end"><i class="fas fa-city me-2"></i><%= job_location(@selected_job) %></h3>
       <h4 class="col-12 specific-details"><%= @selected_job.restaurant.address %></h4>
     </div>
 
     <!-- Schedule Information -->
     <div class="row mb-2">
-      <h3 class="col-6 fw-bold"><i class="fas fa-calendar me-2"></i>Horario</h3> <!-- Icono de calendario -->
-      <h3 class="col-6 fw-bold text-end"><i class="fas fa-briefcase me-2"></i><%= @selected_job.job_mode.capitalize %></h3> <!-- Icono de modalidad de trabajo -->
+      <h3 class="col-6 fw-bold"><i class="fas fa-calendar me-2"></i>Horario</h3>
+      <h3 class="col-6 fw-bold text-end"><i class="fas fa-briefcase me-2"></i><%= @selected_job.job_mode.capitalize %></h3>
       <h4 class="col-12 specific-details">
         <%= formatted_schedule(@selected_job.date, @selected_job.hour_start, @selected_job.hour_end).capitalize %>
       </h4>
@@ -55,8 +53,8 @@
 
     <!-- Hours and Salary Information -->
     <div class="row mb-2">
-      <h3 class="col-6 fw-bold"><i class="fas fa-clock me-2"></i>Horas</h3> <!-- Icono de horas -->
-      <h3 class="col-6 text-end fw-bold"><i class="fas fa-dollar-sign me-2"></i>Salario</h3> <!-- Icono de dólar para salario -->
+      <h3 class="col-6 fw-bold"><i class="fas fa-clock me-2"></i>Horas</h3>
+      <h3 class="col-6 text-end fw-bold"><i class="fas fa-dollar-sign me-2"></i>Salario</h3>
       <h4 class="col-6 specific-details"><%= hours_difference(@selected_job.hour_start, @selected_job.hour_end) %> hr</h4>
       <h4 class="col-6 text-end specific-details"><%= number_to_currency(@selected_job.payment_hour, unit: 'S/.', precision: 0) %>/hr</h4>
     </div>

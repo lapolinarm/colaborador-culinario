@@ -1,84 +1,97 @@
 <!-- Sidebar (feature-sidebar) -->
-<div id="sidebar" class="col-md-2 sidebar">
-  <div class="d-flex justify-content-between align-items-end mb-3">
-    <h2 class="mb-0">Filtrar</h2>
-    <a href="#" class="restore-link">Restaurar</a>
+<div id="sidebar" class="col-md-2 sidebar" data-controller="auto-submit">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0">Filtrar</h4>
+    <button type="button" class="btn btn-outline-danger">Restaurar</button>
   </div>
   <hr class="my-3">
-  <form>
+
+  <%= form_with url: home_path, method: :get, html: { id: "filter-form", class: "d-none d-md-block", "data-auto-submit-target" => "form" } do |f| %>
     <!-- Job Location -->
     <div class="mb-3">
       <label class="form-label">Ubicación del empleo</label>
       <div class="input-group">
         <span class="input-group-text">
-          <i class="fas fa-map-marker-alt"></i> <!-- Icono de ubicación -->
+          <i class="bi bi-geo-alt"></i> <!-- Icono de ubicación -->
         </span>
-        <input type="text" id="jobLocation" class="form-control" placeholder="Distrito">
+        <input type="text" class="form-control" placeholder="Distrito, zona">
       </div>
     </div>
 
     <!-- Modalidad -->
     <div class="mb-3">
       <label class="form-label">Modalidad</label>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="Presencial" id="presencial">
-        <label class="form-check-label" for="presencial">Presencial</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="Remoto" id="remoto">
-        <label class="form-check-label" for="remoto">Remoto</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="Hibrido" id="hibrido">
-        <label class="form-check-label" for="hibrido">Híbrido</label>
-      </div>
+      <%= simple_fields_for :filter do |ff| %>
+        <fieldset>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "presencial", params&.dig("filter", "categories")&.include?("presencial"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">Presencial</label>
+          </div>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "hibrido", params&.dig("filter", "categories")&.include?("hibrido"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">Híbrido</label>
+          </div>
+        </fieldset>
+      <% end %>
     </div>
 
     <!-- Job Type -->
     <div class="mb-3">
       <label class="form-label">Tipo</label>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="Fulltime" id="fulltime">
-        <label class="form-check-label" for="fulltime">Fulltime</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="Parttime" id="parttime">
-        <label class="form-check-label" for="parttime">Parttime</label>
-      </div>
+      <%= simple_fields_for :filter do |ff| %>
+        <fieldset>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "fulltime", params&.dig("filter", "categories")&.include?("fulltime"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">Fulltime</label>
+          </div>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "parttime", params&.dig("filter", "categories")&.include?("parttime"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">Parttime</label>
+          </div>
+        </fieldset>
+      <% end %>
     </div>
 
     <!-- Salary Range -->
     <div class="mb-3">
       <label class="form-label">Rango salarial (hr)</label>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="salary" value="S/20-S/30" id="range1">
-        <label class="form-check-label" for="range1">S/20 - S/30</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="salary" value="S/40-S/50" id="range2">
-        <label class="form-check-label" for="range2">S/40 - S/50</label>
-      </div>
+      <%= simple_fields_for :filter do |ff| %>
+        <fieldset>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "range1", params&.dig("filter", "categories")&.include?("range1"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">S/20 - S/30</label>
+          </div>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "range2", params&.dig("filter", "categories")&.include?("range2"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">S/40 - S/50</label>
+          </div>
+        </fieldset>
+      <% end %>
     </div>
 
     <!-- Funciones -->
     <div class="mb-3">
       <label class="form-label">Funciones</label>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="Mesero" id="mesero">
-        <label class="form-check-label" for="mesero">Mesero</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="Cajero" id="cajero">
-        <label class="form-check-label" for="cajero">Cajero</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="Cocinero" id="cocinero">
-        <label class="form-check-label" for="cocinero">Cocinero</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="Delivery" id="delivery">
-        <label class="form-check-label" for="delivery">Delivery</label>
-      </div>
+      <%= simple_fields_for :filter do |ff| %>
+        <fieldset>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "mozo", params&.dig("filter", "categories")&.include?("mozo"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">Mozo</label>
+          </div>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "azafata", params&.dig("filter", "categories")&.include?("azafata"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">Azafata</label>
+          </div>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "delivery", params&.dig("filter", "categories")&.include?("delivery"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">Delivery</label>
+          </div>
+          <div class="form-check mb-1 d-flex align-items-center">
+            <%= check_box_tag "filter[categories][]", "lavaplatos", params&.dig("filter", "categories")&.include?("lavaplatos"), class: "form-check-input check_boxes mt-0 me-2", "data-action" => "change->auto-submit#filter" %>
+            <label class="form-check-label">Lavaplatos</label>
+          </div>
+        </fieldset>
+      <% end %>
     </div>
-  </form>
+  <% end %>
 </div>
