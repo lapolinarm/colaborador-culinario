@@ -7,7 +7,7 @@
   <div class="p-4">
     <div class="row">
       <% @my_payments.each do |job| %>
-      <div class="col-md-3 my-4 d-flex align-items-stretch">
+      <div class="col-md-4 my-4 d-flex align-items-stretch">
         <div class="card card-def my-4 bg-light w-100 levitate_card" data-aos="fade-right">
           <div class="card-body d-flex flex-column align-items-start c-body">
             <% current_job = job.job_users.find_by(user: current_user) %>
@@ -19,9 +19,15 @@
                 <%= current_job.status.present? ? current_job.status : "sin informacion" %>
               <%# </span> %>
               <% if current_job.status == "aceptado" %>
-                <span class=" status-custom btn btn-outline-success ">
+                <% if job.date < Date.today %>
+                <span class=" status-custom btn success-custom ">
                 Pagado
                 </span>
+                <% else %>
+                  <span class="status-custom btn pending-custom">
+                    Pendiente
+                  </span>
+                <% end %>
               <% end %>
             </p>
             <p><strong>Restaurante: </strong> <span class="font-size-custom"><%= job.restaurant.commercial_name%></span></p>
@@ -29,7 +35,7 @@
             <p><strong> Metodo de pago: </strong><span class="font-size-custom"><%= current_job.payment_method_used.present? ? current_job.payment_method_used : "sin informacion" %></span></p>
             <p><strong> Monto a pagar: </strong><span class="font-size-custom"><%= current_job.amount_paid.present? ? current_job.amount_paid : "sin informacion" %></span></p>
             <p><strong>Función: </strong><span class="font-size-custom"><%= job.function.capitalize %></span></p>
-            <p><strong> Fecha: </strong><span class="font-size-custom"><%= job.date %></span></p>
+            <p><strong> Fecha: </strong><span class="font-size-custom"><%= job.date.strftime("%d-%m-%Y") %></span></p>
           </div>
         </div>
       </div>
@@ -57,5 +63,37 @@
     font-size: 14px;
     color: #6c757d;
   }
+
+  .success-custom {
+    background-color: transparent; /* Sin fondo */
+    color: #00ae7a; /* Texto verde */
+    border: 2px solid #00ae7a; /* Borde verde de 2px */
+    border-radius: 50px; /* Borde redondeado */
+    padding: 0.3rem 0.8rem; /* Ajusta el espacio interior */
+    margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
+    font-size: 18px;
+    &:hover {
+      background-color: #00ae7a; /* Fondo verde al pasar el cursor */
+      color: white; /* Cambia el texto a blanco */
+    }
+  }
+
+  .pending-custom {
+    background-color: transparent; /* Sin fondo */
+    color: #ffcc00; /* Texto amarillo */
+    border: 2px solid #ffcc00; /* Borde amarillo de 2px */
+    border-radius: 50px; /* Borde redondeado */
+    padding: 0.3rem 0.8rem; /* Ajusta el espacio interior */
+    margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
+    font-size: 18px;
+    &:hover {
+      background-color: #ffcc00; /* Fondo amarillo al pasar el cursor */
+      color: white; /* Cambia el texto a blanco */
+    }
+}
   </style>
 </div>
