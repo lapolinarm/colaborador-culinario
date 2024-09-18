@@ -23,6 +23,7 @@ class PagesController < ApplicationController
   def home
     # Filtrar empleos que no han expirado (criterio 1)
     @jobs = Job.where("date > ? OR (date = ? AND hour_start > ?)", Date.current, Date.current, Time.current)
+               .order(:date, :hour_start)  # Ordenar por fecha y hora de inicio, más próximos primero
 
     if user_signed_in?
       # Excluir empleos a los que el usuario ya se ha postulado (criterio 2)
@@ -41,7 +42,7 @@ class PagesController < ApplicationController
       @time_remaining = calculate_time_remaining(@selected_job)
     else
       @selected_job = @jobs.first
-      @time_remaining = calculate_time_remaining(@jobs.first)
+      @time_remaining = @selected_job.present? ? calculate_time_remaining(@selected_job) : nil
     end
 
     @job_user = JobUser.new
