@@ -54,7 +54,12 @@
     // Estilos para el botón de expiración en job
     .expiration {
       font-size: $font-size-h5;
-    }
+      white-space: nowrap;       /* Evita que el texto se divida en varias líneas */
+      overflow: hidden;          /* Oculta el texto que no cabe */
+      text-overflow: ellipsis;   /* Muestra los puntos suspensivos (...) */
+      display: inline-block; /* Asegura que el botón respete su contenedor */
+      max-width: 100%; /* Limita el ancho al contenedor padre */
+  }
   }
 
   #location {
