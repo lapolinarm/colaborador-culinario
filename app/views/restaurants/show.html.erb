@@ -1,32 +1,36 @@
-<%# Para probar que funciona, se reemplazara por lo de Levi %>
-<h1><%= @restaurant.commercial_name %></h1>
+<div class="container mt-5">
+  <%# Para probar que funciona, se reemplazara por lo de Levi %>
+  <br>
+  <h1><%= @restaurant.commercial_name %></h1>
 
-<p>
-  <strong>R.U.C.:</strong>
-  <%= @restaurant.ruc %>
-</p>
+  <p>
+    <strong>R.U.C.:</strong>
+    <%= @restaurant.ruc %>
+  </p>
 
-<p>
-  <strong>Nombre Comercial:</strong>
-  <%= @restaurant.company_name %>
-</p>
+  <p>
+    <strong>Nombre Comercial:</strong>
+    <%= @restaurant.company_name %>
+  </p>
 
-<p>
-  <strong>Telefono fijo:</strong>
-  <%= @restaurant.phone %>
-</p>
+  <p>
+    <strong>Telefono fijo:</strong>
+    <%= @restaurant.phone %>
+  </p>
 
-<p>
-  <strong>Telefono movil:</strong>
-  <%= @restaurant.mobile_phone %>
-</p>
+  <p>
+    <strong>Telefono movil:</strong>
+    <%= @restaurant.mobile_phone %>
+  </p>
 
 
-<p>
-  <strong>Dirección:</strong>
-  <%= @restaurant.address %>
-</p>
+  <p>
+    <strong>Dirección:</strong>
+    <%= @restaurant.address %>
+  </p>
 
-<%= link_to 'Editar', edit_restaurant_path(@restaurant), class: 'btn btn-warning' %>
-<%= link_to 'Regresar', restaurants_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Editar', edit_restaurant_path(@restaurant), class: 'btn btn-warning' %>
+  <%= link_to 'Regresar', restaurants_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Crear trabajo', new_restaurant_job_path(@restaurant), class: 'btn btn-info' %>
 
+</div>

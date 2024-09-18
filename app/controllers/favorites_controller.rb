@@ -4,9 +4,9 @@ class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.build(job: @job)
     if @favorite.save
-      redirect_to job_path(@job), notice: 'Job was successfully added to your favorites.'
+      redirect_to job_path(@job), notice: 'El trabajo se agregó exitosamente a tus favoritos.'
     else
-      redirect_to job_path(@job), alert: 'There was an error adding the job to your favorites.'
+      redirect_to job_path(@job), alert: 'Hubo un error al agregar el trabajo a tus favoritos.'
     end
   end
 
