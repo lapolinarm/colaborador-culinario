@@ -7,21 +7,55 @@
   <div class="p-4">
     <div class="row">
       <% @my_payments.each do |job| %>
-      <div class="col-md-6 my-4 d-flex align-items-stretch">
+      <div class="col-md-3 my-4 d-flex align-items-stretch">
         <div class="card card-def my-4 bg-light w-100 levitate_card" data-aos="fade-right">
           <div class="card-body d-flex flex-column align-items-start c-body">
-            <p><strong>Restaurante: </strong><%= job.restaurant.commercial_name%></p>
             <% current_job = job.job_users.find_by(user: current_user) %>
-            <p><strong> Status: </strong><%= current_job.status.present? ? current_job.status : "sin informacion" %></p>
-            <p><strong> Metodo de pago: </strong><%= current_job.payment_method_used.present? ? current_job.payment_method_used : "sin informacion" %></p>
-            <p><strong> Monto a pagar: </strong><%= current_job.amount_paid.present? ? current_job.amount_paid : "sin informacion" %></p>
-            <p><strong>Función: </strong><%= job.function.capitalize %></p>
-            <p><strong> Fecha: </strong><%= job.date %></p>
+            <p>
+              <strong class="font-custom">
+                Status:
+              </strong>
+              <%# <span class="status-custom btn btn-outline-success">
+                <%= current_job.status.present? ? current_job.status : "sin informacion" %>
+              <%# </span> %>
+              <% if current_job.status == "aceptado" %>
+                <span class=" status-custom btn btn-outline-success ">
+                Pagado
+                </span>
+              <% end %>
+            </p>
+            <p><strong>Restaurante: </strong> <span class="font-size-custom"><%= job.restaurant.commercial_name%></span></p>
+
+            <p><strong> Metodo de pago: </strong><span class="font-size-custom"><%= current_job.payment_method_used.present? ? current_job.payment_method_used : "sin informacion" %></span></p>
+            <p><strong> Monto a pagar: </strong><span class="font-size-custom"><%= current_job.amount_paid.present? ? current_job.amount_paid : "sin informacion" %></span></p>
+            <p><strong>Función: </strong><span class="font-size-custom"><%= job.function.capitalize %></span></p>
+            <p><strong> Fecha: </strong><span class="font-size-custom"><%= job.date %></span></p>
           </div>
         </div>
       </div>
       <% end %>
     </div>
   </div>
+  <style>
+  .status-custom {
+      font-size: 12px;
+      white-space: nowrap;       /* Evita que el texto se divida en varias líneas */
+      overflow: hidden;          /* Oculta el texto que no cabe */
+      border-radius: 50px;
+      display: inline-block; /* Asegura que el botón respete su contenedor */
+      max-width: 100%; /* Limita el ancho al contenedor padre */
+      border: 2px solid;
+  }
 
+  .font-custom {
+    font-size: 18px;
+    font-weight: bolder;
+
+  }
+
+  .font-size-custom {
+    font-size: 14px;
+    color: #6c757d;
+  }
+  </style>
 </div>
