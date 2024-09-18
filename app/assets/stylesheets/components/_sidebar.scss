@@ -67,3 +67,24 @@
     box-shadow: none;
   }
 }
+
+// Estilo para el filtro por ubicación
+.input-group {
+  position: relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.input-group i {
+  position:absolute;
+  z-index: 10;
+  left: 10px;
+}
+
+.input-group input {
+  padding-left: 30px;
+  border:none !important;
+  outline:none !important;
+  box-shadow:none !important;
+}

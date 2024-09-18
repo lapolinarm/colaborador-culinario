@@ -118,3 +118,36 @@
 .parent-card .salary-location {
   font-weight: bold;
 }
+
+// Estilo para el search y ubicación de sus elementos
+.search-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.search-container i.fa-search{
+  position: absolute;
+  left: 11px;
+  font-size: 14px;
+}
+.search-container button.search-button {
+  position: absolute;
+  right:0;
+  height: 88%;
+  margin-right: 3px;
+  border-radius:15px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-container input {
+  border-radius: 0px !important;
+  padding-left: 35px;
+  border:none !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
