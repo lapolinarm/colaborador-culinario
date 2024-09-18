@@ -2,7 +2,7 @@
   <%# Para probar que funciona, se reemplazara por lo de Levi %>
   <br>
   <h1><%= @restaurant.commercial_name %></h1>
-
+  <br>
   <p>
     <strong>R.U.C.:</strong>
     <%= @restaurant.ruc %>
@@ -26,8 +26,9 @@
 
   <p>
     <strong>Dirección:</strong>
-    <%= @restaurant.address %>
+    <%= @restaurant.full_address %>
   </p>
+  <br>
 
   <%= link_to 'Editar', edit_restaurant_path(@restaurant), class: 'btn btn-warning' %>
   <%= link_to 'Regresar', restaurants_path, class: 'btn btn-secondary' %>

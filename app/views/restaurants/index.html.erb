@@ -1,42 +1,45 @@
 <div class="m-5">
 <%# Para probar que funciona, se reemplazara por lo de Levi %>
   <div class="custom">
-    <h1>Lista de Restaurantes</h1>
-
+    <h3>Lista de Restaurantes</h3>
+    <br>
     <%= link_to 'Crear nuevo restaurante', new_restaurant_path, class: 'btn btn-primary' %>
-
-    <table>
-      <thead>
-        <tr>
-          <th>R.U.C.</th>
-          <th>Nombre comercial</th>
-          <th>Razón Social</th>
-          <th>Telefono fijo</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @restaurants.each do |restaurant| %>
+    <br>
+    <div>
+    <br>
+      <table class="table table-bordered table-hover">
+        <thead>
           <tr>
-            <td><%= restaurant.ruc %></td>
-            <td><%= restaurant.commercial_name %></td>
-            <td><%= restaurant.company_name %></td>
-            <td><%= restaurant.phone %></td>
-            <td>
-              <%= link_to 'Ver detalles', restaurant_path(restaurant), class: 'btn btn-info' %>
-              <%= link_to 'Editar', edit_restaurant_path(restaurant), class: 'btn btn-warning' %>
-              <%= link_to 'Borrar', restaurant_path(restaurant), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-              <%= link_to 'Crear trabajo', new_restaurant_job_path(restaurant), class: 'btn btn-info' %>
-            </td>
+            <th>R.U.C.</th>
+            <th>Nombre comercial</th>
+            <th>Razón Social</th>
+            <th>Telefono fijo</th>
+            <th>Acciones</th>
           </tr>
-        <% end %>
-      </tbody>
-      <style>
-      .custom {
-        margin-top: 80px;
-      }
-      </style>
-    </table>
+        </thead>
+        <tbody>
+          <% @restaurants.each do |restaurant| %>
+            <tr>
+              <td><%= restaurant.ruc %></td>
+              <td><%= restaurant.commercial_name %></td>
+              <td><%= restaurant.company_name %></td>
+              <td><%= restaurant.phone %></td>
+              <td>
+                <%= link_to 'Ver detalles', restaurant_path(restaurant), class: 'btn btn-info btn-sm' %>
+                <%= link_to 'Editar', edit_restaurant_path(restaurant), class: 'btn btn-warning btn-sm' %>
+                <%= link_to 'Borrar', restaurant_path(restaurant), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+                <%= link_to 'Crear trabajo', new_restaurant_job_path(restaurant), class: 'btn btn-info btn-sm' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        <style>
+        .custom {
+          margin-top: 80px;
+        }
+        </style>
+      </table>
+    </div>
   </div>
 
 </div>
