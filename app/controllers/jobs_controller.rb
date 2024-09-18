@@ -9,7 +9,11 @@ class JobsController < ApplicationController
   end
 
   def index
-    @jobs = Job.all
+    if current_user.owner?
+      @jobs = current_user.jobs
+    else
+      @jobs = Job.all
+    end
   end
 
   def show

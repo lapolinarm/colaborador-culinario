@@ -1,8 +1,13 @@
 class RestaurantsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
-    @restaurants = Restaurant.all
+    if current_user.owner?
+      @restaurants = current_user.restaurants
+    else
+      @restaurants = Restaurant.all
+    end
   end
 
   def show
