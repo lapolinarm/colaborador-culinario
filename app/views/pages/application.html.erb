@@ -28,7 +28,7 @@
           <div class="d-flex gap-3 icon-extras dash-icon" data-action="click->buttons#toggle">
             <i class="fa-solid fa-chart-line" id="icon-custom"></i>
             <p class="my-auto" id="p-white">
-              Mis Estadisticas
+              Mis Estadísticas
             </p>
           </div>
           </div>
@@ -83,8 +83,8 @@
       }
       .content {
         padding-top: 100px;
-        padding-left: 100px;
-        padding-right: 100px;
+        margin-left: auto;
+        margin-right: auto;
         width: 60vw;
       }
       .dash-icon {
@@ -117,6 +117,13 @@
         background-color: #F4F4F4;
         color: black;
         border-radius: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        font-size: 12px;
+        transition: all 0.3s ease;
+        font-weight: bold;
       }
 
       .cancel-btn:hover {
@@ -132,6 +139,11 @@
       .levitate_card:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .c-body {
+        border-radius: 10px;
+        background-color: #F4F4F4;
       }
     </style>
   </div>
