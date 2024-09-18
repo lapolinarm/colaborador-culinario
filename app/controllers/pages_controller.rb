@@ -101,6 +101,7 @@ class PagesController < ApplicationController
       if validar_repetidos(categories)
         camps_ordenados = ordenar_campos(categories)
         hash_camp_ordenados = obtener_hash_completo_consulta(camps_ordenados)
+        puts "campos ordenados -> #{hash_camp_ordenados}"
 
         hash_camp_ordenados.each do |clave, valor|
           query_hash[clave.to_sym] = valor
@@ -111,6 +112,7 @@ class PagesController < ApplicationController
         categories.each do |categorie|
           query_hash[retur_campo[categorie.to_sym].to_sym] = retur_valor[categorie.to_sym]
         end
+        puts "campos query hash -> #{query_hash}"
         @jobs = Job.where(query_hash)
       end
     else
