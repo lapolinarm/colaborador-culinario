@@ -1,31 +1,32 @@
 <%= simple_form_for(restaurant) do |f| %>
-<%# solucion al error que me daba %>
-  <% if restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(restaurant.errors.count, "error") %> Error falta campos:</h2>
-      <ul>
-        <% restaurant.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+      <%# solucion al error que me daba %>
+        <% if restaurant.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(restaurant.errors.count, "error") %> Error falta campos:</h2>
+            <ul>
+              <% restaurant.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <%= f.input :ruc, label: "R.U.C."  %>
-  <%= f.input :commercial_name, label: "Nombre comercial" %>
-  <%= f.input :company_name, label: "Razón social" %>
-  <%= f.input :phone, label: "Telefono fijo" %>
-  <%= f.input :mobile_phone, label: "Celular" %>
-  <%= f.input :address, label: "Dirección" %>
-  <%= f.input :district, label: "Distrito" %>
-  <%= f.input :province, label: "Provincia" %>
-  <%= f.input :country, label: "País", as: :select do %>
-    <%= f.country_select :country, { include_blank: true }, { class: "form-control" } %>
-  <% end %>
+        <%= f.input :ruc, label: "R.U.C."  %>
+        <%= f.input :commercial_name, label: "Nombre comercial" %>
+        <%= f.input :company_name, label: "Razón social" %>
+        <%= f.input :phone, label: "Telefono fijo" %>
+        <%= f.input :mobile_phone, label: "Celular" %>
+        <%= f.input :address, label: "Dirección" %>
+        <%= f.input :district, label: "Distrito" %>
+        <%= f.input :province, label: "Provincia" %>
+        <%= f.input :country, label: "País", as: :select do %>
+          <%= f.country_select :country, { include_blank: true }, { class: "form-control" } %>
+        <% end %>
 
-  <%= f.input :reference, label: "Referencia de la dirección" %>
+        <%= f.input :reference, label: "Referencia de la dirección" %>
 
-  <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-  <%= f.input :photo, as: :file, label: "Subir imagen del restaurante" %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-<% end %>
+        <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+        <%= f.input :photo, as: :file, label: "Subir imagen del restaurante" %>
+        <%= f.button :submit, label: "Crear Restaurante", class: 'btn btn-primary' %>
+        <br>
+      <% end %>

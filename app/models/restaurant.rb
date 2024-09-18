@@ -6,4 +6,8 @@ class Restaurant < ApplicationRecord
 
   belongs_to :user
   has_many :jobs, dependent: :destroy
+
+  def full_address
+    [address, district, province, country].compact.join(', ')
+  end
 end
