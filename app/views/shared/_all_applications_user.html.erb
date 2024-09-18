@@ -18,15 +18,15 @@
 
                   <%# <%= current_job.status.present? ? current_job.status : "sin informacion"%>
                   <% if current_job.status == "aceptado" %>
-                    <span class=" status-custom btn btn-outline-success ">
+                    <span class=" status-custom btn success-custom ">
                     <%= current_job.status %>
                     </span>
                   <% elsif current_job.status == "rechazado" %>
-                    <span class=" status-custom btn btn-outline-danger ">
+                    <span class=" status-custom btn rejected-custom ">
                     <%= current_job.status %>
                     </span>
                   <% else %>
-                    <span class=" status-custom btn btn-outline-warning ">
+                    <span class=" status-custom btn pending-custom ">
                     <%= current_job.status %>
                     </span>
                   <% end %>
@@ -66,6 +66,54 @@
     color: #6c757d;
   }
 
+  .success-custom {
+    background-color: transparent; /* Sin fondo */
+    color: #00ae7a; /* Texto verde */
+    border: 2px solid #00ae7a; /* Borde verde de 2px */
+    border-radius: 50px; /* Borde redondeado */
+    padding: 0.3rem 0.8rem; /* Ajusta el espacio interior */
+
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
+    font-size: 14px;
+    &:hover {
+      background-color: #00ae7a; /* Fondo verde al pasar el cursor */
+      color: white; /* Cambia el texto a blanco */
+    }
+  }
+
+  .pending-custom {
+      background-color: transparent; /* Sin fondo */
+      color: #dfb406; /* Texto amarillo */
+      border: 2px solid #dfb406; /* Borde amarillo de 2px */
+      border-radius: 50px; /* Borde redondeado */
+      padding: 0.3rem 0.8rem; /* Ajusta el espacio interior */
+      margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+      text-decoration: none; /* Elimina el subrayado en los enlaces */
+      transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
+      font-size: 14px;
+      &:hover {
+        background-color: #dfb406; /* Fondo amarillo al pasar el cursor */
+        color: white; /* Cambia el texto a blanco */
+      }
+    }
+
+    .rejected-custom {
+      background-color: transparent; /* Sin fondo */
+      color: #ff4d4d; /* Texto rojo */
+      border: 2px solid #ff4d4d; /* Borde rojo de 2px */
+      border-radius: 50px; /* Borde redondeado */
+      padding: 0.3rem 0.8rem; /* Ajusta el espacio interior */
+      margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+      text-decoration: none; /* Elimina el subrayado en los enlaces */
+      transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
+      font-size: 14px;
+    }
+
+    .rejected-custom:hover {
+        background-color: #ff4d4d; /* Fondo rojo al pasar el cursor */
+        color: white; /* Cambia el texto a blanco */
+    }
 
   </style>
 
