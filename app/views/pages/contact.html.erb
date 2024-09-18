@@ -1,20 +1,52 @@
-<Section class="container">
-  <div class="text-center my-4">
+<Section class="container custom pt-3">
+  <div class="text-center custom-title m-5">
     <h1>Formulario de contacto</h1>
   </div>
   <div class="mb-4">
   <div class="text-center mb-4">
-    <h5 class="mb-4">Llena el formulario y te contactaremos lo mas pronto posible</h5>
+    <h5 class="mb-4 text-start">Llena el formulario y te contactaremos lo mas pronto posible</h5>
   </div>
-  <div>
+  <div class="mt-5">
     <% user = "Luis" %>
     <%= simple_form_for user do |f| %>
-      <%= f.input :email, placeholder: 'user@domain.com' %>
+      <%= f.input :email, placeholder: 'usuario@dominio.com' %>
+      <%= f.input :rol, placeholder: 'Escribe tu rol' %>
 
-      <%= f.input :Problema, as: :text, placeholder: 'Escribe tu comentario aquí', input_html: { rows: 5 }  %>
+
+      <%= f.input :Problema, as: :text, placeholder: 'Escribe tu comentario aquí', input_html: { rows: 15 }  %>
       <div class="text-center my-5">
-        <%= f.button :submit, "Enviar formulario", class:"text-center" %>
+        <%= f.button :submit, "Enviar formulario", class:"text-center custom-button rounded-pill" %>
       </div>
     <% end %>
   </div>
+
+  <style>
+    .custom {
+      margin-top: 80px;
+    }
+
+    .custom-title {
+        background-color: #DAD0FE;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: black;
+      }
+
+
+      .custom-button {
+        background-color: #00ae7a; /* Fondo verde */
+        color: white; /* Texto blanco */
+        font-weight: bold; /* Texto en negrita */
+        font-size: 16px; /* Altura del texto */
+        border: none; /* Sin borde */
+        padding: 0.5rem 1rem; /* Ajusta el espacio interior */
+        margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+        transition: background-color 0.3s ease; /* Transición suave al hover */
+
+        &:hover {
+          background-color: rgba(0, 174, 122, 0.8); /* Fondo verde más tenue al pasar el cursor */
+        }
+      }
+  </style>
 </Section>
