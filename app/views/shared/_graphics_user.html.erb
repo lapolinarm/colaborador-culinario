@@ -8,10 +8,13 @@
 
 
 
+  <div class="py-4 my-4">
+  <%= pie_chart JobUser.group(:status).where(user: current_user).count, colors: ["#0dcaf0", "#FFC65A", "#d63384"], title: "Cuadro de estados de Postulaciones" %>
+  </div>
 
-  <%= pie_chart JobUser.group(:status).where(user: current_user).count, colors: ["blue", "yellow", "red"], title: "Cuadro de estados de trabajos" %>
-
-   <%= column_chart JobUser.group_by_day_of_week(:created_at, format: "%A").where(user: current_user, status: "aceptado").sum(:amount_paid) %>
+  <div class="py-4 my-4">
+   <%= column_chart JobUser.group_by_day_of_week(:created_at, format: "%A").where(user: current_user, status: "aceptado").sum(:amount_paid), colors: ["#0dcaf0", "#FFC65A", "#d63384"], title: "Grafico de pagos" %>
+  </div>
 
 
 </div>
