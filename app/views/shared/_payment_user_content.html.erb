@@ -9,7 +9,7 @@
       <% @applied_jobs.each do |job| %>
       <div class="col-md-6 my-4 d-flex align-items-stretch">
         <div class="card card-def my-4 bg-light w-100 levitate_card" data-aos="fade-right">
-          <div class="card-body d-flex flex-column align-items-start">
+          <div class="card-body d-flex flex-column align-items-start c-body">
             <p><strong>Restaurante: </strong><%= job.restaurant.commercial_name%></p>
             <% current_job = job.job_users.find_by(user: current_user) %>
             <p><strong> Status: </strong><%= current_job.status.present? ? current_job.status : "sin informacion" %></p>

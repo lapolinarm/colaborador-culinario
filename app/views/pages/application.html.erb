@@ -28,7 +28,7 @@
           <div class="d-flex gap-3 icon-extras dash-icon" data-action="click->buttons#toggle">
             <i class="fa-solid fa-chart-line" id="icon-custom"></i>
             <p class="my-auto" id="p-white">
-              Mis Estadisticas
+              Mis Estadísticas
             </p>
           </div>
           </div>
@@ -51,7 +51,7 @@
       #p-white {
           color: white;
           font-weight: bold;
-          font-size: 12px;
+          font-size: 11px;
         }
       #icon-custom {
         margin-left: 10px;
@@ -59,15 +59,16 @@
       }
       #side {
         top: 63px;
-        background-color: #F4F4F4; /* Fondo blanco para la barra lateral */
-        height: 100vh; /* Altura total de la ventana */
-        padding: 1rem; /* Espaciado interno */
+        background-color: #F4F4F4;
+        height: 100vh;
+        padding: 1rem;
         margin-top: 60px;
-        overflow-y: scroll; /* Asegura que el contenido pueda ser desplazado */
-        scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
-        position: sticky; /* Mantiene la barra lateral fija al hacer scroll */
-        height: calc(100vh - 60px); /* Altura completa menos el header */
+        overflow-y: scroll;
+        scrollbar-width: none;
+        position: sticky;
+        height: calc(100vh - 60px);
         z-index: 10;
+        width: 20%;
       }
       .container_def {
         width: 100%%;
@@ -82,8 +83,9 @@
       }
       .content {
         padding-top: 100px;
-        padding-left: 100px;
-        padding-right: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60vw;
       }
       .dash-icon {
         align-self: center;
@@ -105,15 +107,25 @@
         transition: all 0.3s ease;
         overflow: hidden;
       }
+
       .icon-extras:hover {
-        width: 182px;
+        width: 152px;
         border-radius: 20px;
       }
+
       .cancel-btn {
         background-color: #F4F4F4;
         color: black;
         border-radius: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        font-size: 12px;
+        transition: all 0.3s ease;
+        font-weight: bold;
       }
+
       .cancel-btn:hover {
         background-color: #CF4545;
         color: white;
@@ -127,6 +139,11 @@
       .levitate_card:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .c-body {
+        border-radius: 10px;
+        background-color: #F4F4F4;
       }
     </style>
   </div>
