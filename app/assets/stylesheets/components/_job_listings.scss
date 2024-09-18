@@ -24,6 +24,8 @@
 
   // Estilos para el input de búsqueda dentro de #card-filter
   .search-input {
+    background-color: $septenary-color; /* Fondo blanco */
+    color: $senary-color; /* Color del texto del input */
     border-radius: 18px; // Aplica border-radius al input
   }
 }

@@ -40,6 +40,14 @@
   font-size: $font-size-h4;
 }
 
+/* Estilo para el input con el ID jobLocation */
+#jobLocation {
+  background-color: $septenary-color; /* Fondo blanco */
+  color: $senary-color; /* Color del texto del input */
+  border-radius: 12px; /* Aplica border-radius al input */
+}
+
+
 // Estilo base para el checkbox
 .form-check-input {
   background-color: $septenary-color; // Fondo blanco cuando no está marcado
