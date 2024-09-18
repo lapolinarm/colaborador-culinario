@@ -1,6 +1,6 @@
 <div class="container_def text-center my-4 py-4">
   <div class="custom-title m-5">
-  <h1 >Mis Postulaciones</h1>
+  <h1 id="text-custom">Mis Postulaciones</h1>
   </div>
 
   <!--contenido Card-->
@@ -11,19 +11,63 @@
           <div class="card card-def bg-light w-100 text-start levitate_card " data-aos="fade-right">
             <div class="card-body d-flex flex-column c-body">
               <% current_job = job.job_users.find_by(user: current_user) %>
+              <p >
+                <strong class="font-custom">
+                  Status:
+                </strong>
 
-              <p><strong>Restaurante: </strong><%= job.restaurant.commercial_name %></p>
-              <p><strong>Status: </strong><%= current_job.status.present? ? current_job.status : "sin informacion" %></p>
-              <p><strong>Función: </strong><%= job.function.capitalize %></p>
-              <p><strong>Descripción: </strong><%= job.description.capitalize %></p>
-              <p><strong>Fecha: </strong><%= job.date %></p>
-              <%= button_to 'Cancelar', job_path(job), method: :delete, class: 'btn cancel-btn fixed-bottom', data: { turbo_method: :delete } %>
+                  <%# <%= current_job.status.present? ? current_job.status : "sin informacion"%>
+                  <% if current_job.status == "aceptado" %>
+                    <span class=" status-custom btn btn-outline-success ">
+                    <%= current_job.status %>
+                    </span>
+                  <% elsif current_job.status == "rechazado" %>
+                    <span class=" status-custom btn btn-outline-danger ">
+                    <%= current_job.status %>
+                    </span>
+                  <% else %>
+                    <span class=" status-custom btn btn-outline-warning ">
+                    <%= current_job.status %>
+                    </span>
+                  <% end %>
+              </p>
+              <p><strong>Restaurante: </strong><span class="font-size-custom"><%= job.restaurant.commercial_name %></span></p>
+
+              <p><strong>Función: </strong><span class="font-size-custom"><%= job.function.capitalize %></span></p>
+              <p><strong>Descripción: </strong><span class="font-size-custom"><%= job.description.capitalize %></span></p>
+              <p><strong>Fecha: </strong><span class="font-size-custom"><%= job.date.strftime("%d-%m-%Y") %></span></p>
+              <%= button_to 'Eliminar', job_path(job), method: :delete, class: 'btn cancel-btn fixed-bottom', data: { turbo_method: :delete } %>
             </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+
+  <style>
+  .status-custom {
+      font-size: 12px;
+      white-space: nowrap;       /* Evita que el texto se divida en varias líneas */
+      overflow: hidden;          /* Oculta el texto que no cabe */
+      border-radius: 50px;
+      display: inline-block; /* Asegura que el botón respete su contenedor */
+      max-width: 100%; /* Limita el ancho al contenedor padre */
+      border: 2px solid;
+  }
+
+  .font-custom {
+    font-size: 18px;
+    font-weight: bolder;
+
+  }
+
+  .font-size-custom {
+    font-size: 14px;
+    color: #6c757d;
+  }
+
+
+  </style>
 
 
 </div>
