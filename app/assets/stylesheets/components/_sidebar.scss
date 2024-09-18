@@ -39,3 +39,31 @@
 .form-check-label {
   font-size: $font-size-h4;
 }
+
+/* Estilo para el input con el ID jobLocation */
+#jobLocation {
+  background-color: $septenary-color; /* Fondo blanco */
+  color: $senary-color; /* Color del texto del input */
+  border-radius: 12px; /* Aplica border-radius al input */
+}
+
+
+// Estilo base para el checkbox
+.form-check-input {
+  background-color: $septenary-color; // Fondo blanco cuando no está marcado
+  border-color: $primary-color; // Borde negro
+  color: $primary-color; // Color del check cuando está marcado
+  border: none; // Quitar el borde
+
+  // Estilo cuando el checkbox está marcado
+  &:checked {
+    background-color: $primary-color; // Fondo negro cuando está marcado
+    border-color: $primary-color; // Mantén el borde negro
+    color: $septenary-color; // Color del check en blanco
+  }
+
+  // Elimina el reflejo azul del enfoque
+  &:focus {
+    box-shadow: none;
+  }
+}

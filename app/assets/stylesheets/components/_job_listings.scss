@@ -24,11 +24,11 @@
 
   // Estilos para el input de búsqueda dentro de #card-filter
   .search-input {
+    background-color: $septenary-color; /* Fondo blanco */
+    color: $senary-color; /* Color del texto del input */
     border-radius: 18px; // Aplica border-radius al input
   }
 }
-
-
 
 .job-list .card {
   margin-bottom: 1rem; /* Espacio entre tarjetas en la misma fila */
@@ -40,6 +40,7 @@
   background-color: $septenary-color;
   border: 2px solid $tertiary-color;
   border-radius: 18px !important;
+  overflow: hidden; /* Asegura que ningún contenido salga del contenedor */
 
   // Estilos para el card hijo del job
   .child-card {
@@ -54,11 +55,20 @@
     // Estilos para el botón de expiración en job
     .expiration {
       font-size: $font-size-h5;
-    }
+      white-space: nowrap;       /* Evita que el texto se divida en varias líneas */
+      overflow: hidden;          /* Oculta el texto que no cabe */
+      text-overflow: ellipsis;   /* Muestra los puntos suspensivos (...) */
+      display: inline-block; /* Asegura que el botón respete su contenedor */
+      max-width: 100%; /* Limita el ancho al contenedor padre */
+  }
   }
 
   #location {
     color: $senary-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block; /* Ajusta el contenido al tamaño necesario */
   }
 
   .detail-button {
@@ -70,6 +80,7 @@
     text-decoration: none; /* Elimina el subrayado en los enlaces */
     transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
     font-size: $font-size-h5;
+    white-space: nowrap;
 
     &:hover {
       background-color: $quinary-color; /* Fondo verde claro al pasar el cursor */

@@ -24,7 +24,7 @@
         <div class="card parent-card">
           <!-- Inner Card (Hijo) -->
           <div class="mb-0 child-card">
-            <div class="card-body d-flex justify-content-between align-items-center p-2">
+            <div class="card-body d-flex justify-content-between align-items-center pb-2">
               <div>
                 <%= image_tag job.restaurant.user.photo.attached? ? cl_image_path(job.restaurant.user.photo.key) : asset_path('logo.jpg'), class: 'logo', alt: 'logo' %>
               </div>
@@ -46,13 +46,13 @@
           </div>
 
           <!-- Parent Card Footer -->
-          <div class="card-body d-flex justify-content-between align-items-center p-2">
+          <div class="card-body d-flex justify-content-between align-items-center p-2 overflow-hidden">
             <div>
               <h4 class="mb-1 salary-location"><%= number_to_currency(job.payment_hour, unit: 'S/.', precision: 0) %>/hr</h4>
-              <h4 id="location" class="mb-0"><%= job_location(job) %></h4>
+              <h4 id="location" class="mb-0 text-truncate"><%= job_location(job) %></h4>
             </div>
             <%= turbo_frame_tag "job_#{job.id}" do %>
-              <%= link_to 'Detalles', home_path(job_id: job.id), data: { turbo_frame: "job_details" }, class: 'detail-button rounded-pill px-3' %>
+              <%= link_to 'Detalles', home_path(job_id: job.id), data: { turbo_frame: "job_details" }, class: 'detail-button rounded-pill px-3 ms-2 flex-shrink-0' %>
             <% end %>
           </div>
         </div>
