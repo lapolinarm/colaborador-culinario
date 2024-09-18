@@ -4,10 +4,6 @@
   </div>
 
 
-
-
-
-
   <div class="py-4 my-4">
   <%= pie_chart JobUser.group(:status).where(user: current_user).count, colors: ["#0dcaf0", "#FFC65A", "#d63384"], title: "Cuadro de estados de Postulaciones" %>
   </div>

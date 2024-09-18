@@ -11,9 +11,28 @@
           <div class="card card-def bg-light w-100 text-start levitate_card " data-aos="fade-right">
             <div class="card-body d-flex flex-column c-body">
               <% current_job = job.job_users.find_by(user: current_user) %>
+              <p >
+                <strong>
+                  Status:
+                </strong>
 
+                  <%# <%= current_job.status.present? ? current_job.status : "sin informacion"%>
+                  <% if current_job.status == "aceptado" %>
+                    <span class=" status-custom btn btn-outline-primary ">
+                    <%= current_job.status %>
+                    </span>
+                  <% elsif current_job.status == "rechazado" %>
+                    <span class=" status-custom btn btn-outline-danger ">
+                    <%= current_job.status %>
+                    </span>
+                  <% else %>
+                    <span class=" status-custom btn btn-outline-warning ">
+                    <%= current_job.status %>
+                    </span>
+                  <% end %>
+              </p>
               <p><strong>Restaurante: </strong><%= job.restaurant.commercial_name %></p>
-              <p><strong>Status: </strong><%= current_job.status.present? ? current_job.status : "sin informacion" %></p>
+
               <p><strong>Función: </strong><%= job.function.capitalize %></p>
               <p><strong>Descripción: </strong><%= job.description.capitalize %></p>
               <p><strong>Fecha: </strong><%= job.date %></p>
@@ -24,6 +43,18 @@
       <% end %>
     </div>
   </div>
+
+  <style>
+  .status-custom {
+      font-size: 12px;
+      white-space: nowrap;       /* Evita que el texto se divida en varias líneas */
+      overflow: hidden;          /* Oculta el texto que no cabe */
+      border-radius: 50px;
+      display: inline-block; /* Asegura que el botón respete su contenedor */
+      max-width: 100%; /* Limita el ancho al contenedor padre */
+      border: 2px solid;
+  }
+  </style>
 
 
 </div>
