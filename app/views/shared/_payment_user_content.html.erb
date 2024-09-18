@@ -11,13 +11,9 @@
         <div class="card card-def my-4 bg-light w-100 levitate_card" data-aos="fade-right">
           <div class="card-body d-flex flex-column align-items-start c-body">
             <% current_job = job.job_users.find_by(user: current_user) %>
-            <p>
-              <strong class="font-custom">
+            <p><strong class="font-custom">
                 Status:
               </strong>
-              <%# <span class="status-custom btn btn-outline-success">
-                <%= current_job.status.present? ? current_job.status : "sin informacion" %>
-              <%# </span> %>
               <% if current_job.status == "aceptado" %>
                 <% if job.date < Date.today %>
                 <span class=" status-custom btn success-custom ">
@@ -30,7 +26,7 @@
                 <% end %>
               <% end %>
             </p>
-            <p><strong>Restaurante: </strong> <span class="font-size-custom"><%= job.restaurant.commercial_name%></span></p>
+            <p class="text-start"><strong>Restaurante: </strong><span class="font-size-custom"><%= job.restaurant.commercial_name%></span></p>
 
             <p><strong> Metodo de pago: </strong><span class="font-size-custom"><%= current_job.payment_method_used.present? ? current_job.payment_method_used : "sin informacion" %></span></p>
             <p><strong> Monto a pagar: </strong><span class="font-size-custom"><%= current_job.amount_paid.present? ? current_job.amount_paid : "sin informacion" %></span></p>
@@ -47,6 +43,7 @@
       font-size: 12px;
       white-space: nowrap;       /* Evita que el texto se divida en varias líneas */
       overflow: hidden;          /* Oculta el texto que no cabe */
+
       border-radius: 50px;
       display: inline-block; /* Asegura que el botón respete su contenedor */
       max-width: 100%; /* Limita el ancho al contenedor padre */
@@ -70,7 +67,7 @@
     border: 2px solid #00ae7a; /* Borde verde de 2px */
     border-radius: 50px; /* Borde redondeado */
     padding: 0.3rem 0.8rem; /* Ajusta el espacio interior */
-    margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+    margin: 1rem 0;
     text-decoration: none; /* Elimina el subrayado en los enlaces */
     transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
     font-size: 18px;
@@ -86,7 +83,7 @@
     border: 2px solid #ffcc00; /* Borde amarillo de 2px */
     border-radius: 50px; /* Borde redondeado */
     padding: 0.3rem 0.8rem; /* Ajusta el espacio interior */
-    margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+    margin: 1rem 0;
     text-decoration: none; /* Elimina el subrayado en los enlaces */
     transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para fondo y color */
     font-size: 18px;
