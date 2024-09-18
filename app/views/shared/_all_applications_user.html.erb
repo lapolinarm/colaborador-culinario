@@ -1,6 +1,6 @@
 <div class="container_def text-center my-4 py-4">
   <div class="custom-title m-5">
-  <h1 >Mis Postulaciones</h1>
+  <h1 id="text-custom">Mis Postulaciones</h1>
   </div>
 
   <!--contenido Card-->
@@ -18,7 +18,7 @@
 
                   <%# <%= current_job.status.present? ? current_job.status : "sin informacion"%>
                   <% if current_job.status == "aceptado" %>
-                    <span class=" status-custom btn btn-outline-primary ">
+                    <span class=" status-custom btn btn-outline-success ">
                     <%= current_job.status %>
                     </span>
                   <% elsif current_job.status == "rechazado" %>
@@ -65,6 +65,8 @@
     font-size: 14px;
     color: #6c757d;
   }
+
+
   </style>
 
 

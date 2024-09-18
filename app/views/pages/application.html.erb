@@ -1,7 +1,7 @@
 <div data-controller="dashboard">
   <div class="d-flex flex-row">
     <div class="col-ml-2 " id="side">
-      <h2 class="text-start my-4 mt-4 p-4" data-aos="fade-right">Dashboard</h2>
+      <h2 class="text-start my-4 mt-4 p-4" data-aos="fade-right" id="text-custom">Dashboard</h2>
       <div class="d-flex flex-column gap-2" >
         <button class="btn" data-action="click->dashboard#showView" data-view="1" data-aos="fade-right">
           <div class="d-flex">
@@ -79,7 +79,7 @@
         border-radius: 8px;
         padding: 1.5rem;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        color: black;
+        color: #6c757d !important;
       }
       .content {
         padding-top: 100px;
@@ -144,6 +144,10 @@
       .c-body {
         border-radius: 10px;
         background-color: #F4F4F4;
+      }
+
+      #text-custom {
+        color: #6c757d;
       }
     </style>
   </div>
