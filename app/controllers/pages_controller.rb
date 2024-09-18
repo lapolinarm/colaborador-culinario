@@ -53,17 +53,6 @@ class PagesController < ApplicationController
 
   def application
 
-    @array = []
-
-
-    10.times do
-      @array << Faker::Number.between(from: 1, to: 10)
-    end
-
-    puts @array
-
-
-
 
     if current_user.owner?
       @restaurants = current_user.restaurants
@@ -74,6 +63,7 @@ class PagesController < ApplicationController
       render 'owners_dashboard'
     elsif current_user.collaborator?
       @applied_jobs = current_user.jobs
+      @my_payments = @applied_jobs.where(job_users: { status: "aceptado" })
       @all_applied_jobs = @applied_jobs
       @applied_jobs = @applied_jobs.where(job_users: { status: params[:status] }) if params[:status].present?
       render 'pages/application'
