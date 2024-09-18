@@ -39,3 +39,23 @@
 .form-check-label {
   font-size: $font-size-h4;
 }
+
+// Estilo base para el checkbox
+.form-check-input {
+  background-color: white; // Fondo blanco cuando no está marcado
+  border-color: black; // Borde negro
+  color: black; // Color del check cuando está marcado
+  border: none; // Quitar el borde
+
+  // Estilo cuando el checkbox está marcado
+  &:checked {
+    background-color: black; // Fondo negro cuando está marcado
+    border-color: black; // Mantén el borde negro
+    color: white; // Color del check en blanco
+  }
+
+  // Elimina el reflejo azul del enfoque
+  &:focus {
+    box-shadow: none;
+  }
+}
