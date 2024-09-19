@@ -29,15 +29,15 @@ users = [
 ]
 instance = Util.new
 
-typePayMethod = {
-  "Efectivo" => 0,
-  "Transferencia bancaria" => 1,
-  "Monederos digitales" => 2
-}
-
-valPayMethod = instance.valor_random_del_hash(typePayMethod)
 
 users.each do |user_attrs|
+  typePayMethod = {
+    "Efectivo" => 0,
+    "Transferencia bancaria" => 1,
+    "Monederos digitales" => 2
+  }
+
+  valPayMethod = instance.valor_random_del_hash(typePayMethod)
   User.create!(
     email: user_attrs[:email],
     first_name: user_attrs[:first_name],
@@ -57,7 +57,14 @@ users.each do |user_attrs|
 end
 
 # Usuarios adicionales (colaboradores y owners)
-20.times do
+15.times do
+  typePayMethod = {
+    "Efectivo" => 0,
+    "Transferencia bancaria" => 1,
+    "Monederos digitales" => 2
+  }
+
+  valPayMethod = instance.valor_random_del_hash(typePayMethod)
   User.create!(
     email: Faker::Internet.email,
     first_name: Faker::Name.first_name,
@@ -77,12 +84,14 @@ end
 end
 
 # Crear restaurantes para los owners
-owners = User.where(role: 'owner')
-valRestaurant = instance.returnRestaurants
-location = valRestaurant.to_s[-7..-1].strip[1..-2]
 
+owners = User.where(role: 'owner')
 owners.each do |owner|
   5.times do
+    valRestaurant = instance.returnRestaurants
+    puts "====> Restaurant: #{valRestaurant}"
+    location = valRestaurant.to_s[-7..-1].strip[1..-2]
+
     Restaurant.create!(
       ruc: "201#{rand(10000000..99999999)}",
       commercial_name: valRestaurant[0...-7].strip,
@@ -99,43 +108,52 @@ owners.each do |owner|
   end
 end
 
-typeJob = {
-  "Fulltime" => 0,
-  "Parttime" => 1
-}
-valTypeJob = instance.valor_random_del_hash(typeJob)
 
-typeJobMode = {
-  "Presencial" => 0,
-  "Hibrido" => 1
-}
-valTypeJobMode = instance.valor_random_del_hash(typeJobMode)
-
-typeFunction = {
-  "Mozo" => 0,
-  "Azafata" => 1,
-  "Delivery" => 2,
-  "Lavaplatos" => 3
-}
-
-valTypeFunction = instance.valor_random_del_hash(typeFunction)
-random_hours_sum = rand(2..4) #es una hora aleatoria
-randomPaymentHour = [10, 20, 30, 40, 50].sample
-
-
-typeStatus = {
-  "aceptado" => 0,
-  "pendiente" => 1,
-  "rechazado" => 2
-}
-valtypeStatus = instance.valor_random_del_hash(typeStatus)
 
 # Crear trabajos para los colaboradores
 collaborators = User.where(role: 'collaborator')
 
 collaborators.each do |collaborator|
   Restaurant.all.sample(3).each do |restaurant|
-    10.times do
+    6.times do
+      typePayMethod = {
+        "Efectivo" => 0,
+        "Transferencia bancaria" => 1,
+        "Monederos digitales" => 2
+      }
+      valPayMethod = instance.valor_random_del_hash(typePayMethod)
+
+      typeJob = {
+        "Fulltime" => 0,
+        "Parttime" => 1
+      }
+      valTypeJob = instance.valor_random_del_hash(typeJob)
+
+      typeJobMode = {
+        "Presencial" => 0,
+        "Hibrido" => 1
+      }
+      valTypeJobMode = instance.valor_random_del_hash(typeJobMode)
+
+      typeFunction = {
+        "Mozo" => 0,
+        "Azafata" => 1,
+        "Delivery" => 2,
+        "Lavaplatos" => 3
+      }
+
+      valTypeFunction = instance.valor_random_del_hash(typeFunction)
+      random_hours_sum = rand(2..4) #es una hora aleatoria
+      randomPaymentHour = [10, 20, 30, 40, 50].sample
+
+
+      typeStatus = {
+        "aceptado" => 0,
+        "pendiente" => 1,
+        "rechazado" => 2
+      }
+      valtypeStatus = instance.valor_random_del_hash(typeStatus)
+
       # Crear trabajos con fechas, algunos expirados
       date = rand(1..10) > 2 ? Faker::Date.between(from: Date.today, to: 2.months.from_now) : Faker::Date.between(from: 2.months.ago, to: Date.today)
       job = Job.create!(
