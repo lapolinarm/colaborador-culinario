@@ -24,13 +24,15 @@
 
     <%= javascript_include_tag 'home', crossorigin: 'anonymous', 'data-turbo-track': 'reload' %>
 
-    <!-- Logo (Avatar) -->
-    <div class="position-absolute job-image-logo">
-      <img src="<%= @selected_job.restaurant.user.photo.attached? ? cl_image_path(@selected_job.restaurant.user.photo.key) : asset_path('logo.jpg') %>" class="rounded-circle" alt="logo">
-    </div>
 
   </div>
 
+    <!-- Logo (Avatar) -->
+    <div class="position-relative">
+      <div class="position-absolute job-image-logo">
+        <img src="<%= @selected_job.restaurant.user.photo.attached? ? cl_image_path(@selected_job.restaurant.user.photo.key) : asset_path('logo.jpg') %>" class="rounded-circle" alt="logo">
+      </div>
+    </div>
   <!-- Job Title and Company -->
   <% if @selected_job.present? %>
     <h2 class="mt-4"><%= @selected_job.function.capitalize %></h2>

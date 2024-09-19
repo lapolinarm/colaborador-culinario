@@ -2,9 +2,9 @@
 <div id="job_listings" class="col-md-7 main-content">
   <!-- Search Card -->
   <div id="card-filter" class="card mb-4 border-0 shadow">
-  <div class="card-body">
-    <h1 class="display-6">Encuentra tu empleo ideal</h1>
-    <p>Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
+    <div class="card-body">
+      <h1 class="display-6">Encuentra tu empleo ideal</h1>
+      <p id="caption">Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
     <form action="<%= home_path %>" method="get"> <!-- Ajusta la ruta según tu controlador -->
       <div class="search-container">
         <input type="text" name="query" class="form-control search-input" placeholder="Buscar empleos..." value="<%= params[:query] %>"> <!-- El nombre debe coincidir con el parámetro que esperas en el controlador -->
@@ -15,10 +15,9 @@
       </div>
     </form>
   </div>
-</div>
   <h2 class="mb-4"><%= pluralize(jobs.count, 'Resultado', 'Resultados') %></h2>
   <!-- Job Listings -->
-  <div class="row job-list gx-4 gy-4" data-aos="fade-down-right">
+  <div class="row job-list gx-4 gy-4">
     <% jobs.each do |job| %>
       <div class="col-md-3">
         <div class="card parent-card" >
@@ -69,13 +68,3 @@
     <% end %>
   </div>
 </div>
-
-
-<script>
-  AOS.init({
-  duration: 1200,  // Duración en milisegundos
-  once: false,     // Para que la animación se repita al salir y volver a entrar
-});
-
-
-</script>
