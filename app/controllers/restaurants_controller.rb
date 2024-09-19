@@ -21,7 +21,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
-      redirect_to restaurant_path(@restaurant), notice: "Restaurant was successfully created."
+      redirect_to restaurant_path(@restaurant), notice: "El restaurante fue creado exitosamente."
     else
       render :new, status: :unprocessable_entity
     end

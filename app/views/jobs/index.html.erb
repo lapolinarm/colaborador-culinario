@@ -15,9 +15,11 @@
         <th>Acciones</th>
       </tr>
     </thead>
+    <% console %>
     <tbody>
       <% count = 0 %>
-      <% @jobs.each do |job| %>
+      <% current_user.restaurants.each do |restaurant| %>
+      <% restaurant.jobs.each do |job| %>
         <tr>
           <td id="text-custom"><%= count += 1 %></td>
 
@@ -30,6 +32,7 @@
             <%= link_to 'Borrar', job_path(job), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn cancel-btn' %>
           </td>
         </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
