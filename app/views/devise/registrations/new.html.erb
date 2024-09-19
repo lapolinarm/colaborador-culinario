@@ -1,44 +1,88 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%=
-      f.input :email,
-              required: true,
-              autofocus: true,
-              input_html: {
-                autocomplete: 'email',
-              }
-    %>
-    <%=
-      f.input :password,
-              required: true,
-              hint:
-                (
-                  if @minimum_password_length
-                    "#{@minimum_password_length} characters minimum"
-                  end
-                ),
-              input_html: {
-                autocomplete: 'new-password',
-              }
-    %>
-    <%=
-      f.input :password_confirmation,
-              required: true,
-              input_html: {
-                autocomplete: 'new-password',
-              }
-    %>
-    <%=
-      f.input :role, collection: ["collaborator", "owner"]   %>
+<section class="container custom pt-3 mb-5">
+  <div class="text-center custom-title m-5">
+    <h1 id="text-custom">Registro</h1>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, 'Sign up' %>
-  </div>
-<% end %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-<%= render 'devise/shared/links' %>
+    <div class="form-inputs">
+      <%=
+        f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: {
+                  autocomplete: 'email',
+                }
+      %>
+      <%=
+        f.input :password,
+                required: true,
+                hint:
+                  (
+                    if @minimum_password_length
+                      "#{@minimum_password_length} characters minimum"
+                    end
+                  ),
+                input_html: {
+                  autocomplete: 'new-password',
+                }
+      %>
+      <%=
+        f.input :password_confirmation,
+                required: true,
+                input_html: {
+                  autocomplete: 'new-password',
+                }
+      %>
+      <%=
+        f.input :role, collection: ["collaborator", "owner"]   %>
+    </div>
+
+    <div class="text-center py-4 d-flex flex-row justify-content-center">
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Sign up', class: "create-btn rounded-pill" %>
+    </div>
+    <% end %>
+
+    <%= render 'devise/shared/links' %>
+    </div>
+
+
+  <style>
+  .custom {
+    margin-top: 80px;
+  }
+
+  .custom-title {
+    background-color: #DAD0FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #6c757d !important;
+  }
+
+  #text-custom {
+    color: #6c757d;
+  }
+
+  .create-btn {
+    background-color: #E8FFF0; /* Fondo verde claro */
+    color: #28A745; /* Texto verde */
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding: 5px 20px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .create-btn:hover {
+      background-color: #218838; /* Fondo verde oscuro al hacer hover */
+      color: white; /* Texto blanco al hacer hover */
+  }
+  </style>
+</section>
