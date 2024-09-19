@@ -42,7 +42,7 @@
     <div class="text-center py-4 d-flex flex-row justify-content-center">
 
     <div class="form-actions">
-      <%= f.button :submit, 'Sign up', class: "create-btn rounded-pill" %>
+      <%= f.button :submit, 'Sign up', class: "btn btn-success rounded-pill custom-color mx-3" %>
     </div>
     <% end %>
 
@@ -67,22 +67,11 @@
     color: #6c757d;
   }
 
-  .create-btn {
-    background-color: #E8FFF0; /* Fondo verde claro */
-    color: #28A745; /* Texto verde */
-    border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-
-    padding: 5px 20px;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    font-weight: bold;
+  .custom-color {
+    color: #6c757d;
   }
-
-  .create-btn:hover {
-      background-color: #218838; /* Fondo verde oscuro al hacer hover */
-      color: white; /* Texto blanco al hacer hover */
+  .custom-color:hover {
+    color: white;
   }
   </style>
 </section>
