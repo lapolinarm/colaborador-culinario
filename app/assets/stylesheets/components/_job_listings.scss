@@ -22,6 +22,10 @@
   background-color: $quaternary-color;
   border-radius: 18px; // Aplica border-radius a la tarjeta
 
+  #caption {
+    color: $senary-color;
+  }
+
   // Estilos para el input de búsqueda dentro de #card-filter
   .search-input {
     background-color: $septenary-color; /* Fondo blanco */
