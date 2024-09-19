@@ -86,3 +86,4 @@ end
 gem 'chartkick'
 gem 'groupdate'
 gem "cloudinary"
+gem 'pg_search'
