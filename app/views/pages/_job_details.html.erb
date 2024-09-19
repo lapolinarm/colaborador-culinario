@@ -29,7 +29,7 @@
 
     <!-- Logo (Avatar) -->
     <div class="position-relative">
-      <div class="position-absolute job-image-logo">
+      <div class="position-absolute job-image-logo logo-card-avatar">
         <img src="<%= @selected_job.restaurant.user.photo.attached? ? cl_image_path(@selected_job.restaurant.user.photo.key) : asset_path('logo.jpg') %>" class="rounded-circle" alt="logo">
       </div>
     </div>
