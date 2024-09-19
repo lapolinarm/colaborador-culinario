@@ -33,8 +33,15 @@
               </div>
             </div>
 
+
             <div class="card-body pt-0 pb-2">
-              <h3 class="card-title mb-1"><%= job.restaurant.commercial_name %> <i class="fas fa-check-circle text-success"></i></h3> <!-- Icono de verificado -->
+              <h3 class="card-title mb-1 two-lines">
+                <span class="first-word"><%= job.restaurant.commercial_name.split.first %></span>
+                <span class="rest-text">
+                  <%= job.restaurant.commercial_name.split[1..].join(' ') %>
+                  <i class="fas fa-check-circle text-success"></i>
+                </span>
+              </h3> <!-- Icono de verificado -->
 
               <% if job.function.present? %>
                 <h4 class="card-text mb-2"><%= job.function.humanize %></h4>
@@ -43,6 +50,8 @@
               <% end %>
               <button class="expiration btn btn-outline-secondary btn-sm rounded-sm me-2 text-truncate">Expira en <%= time_ago_in_words(job.date) %></button>
             </div>
+
+
           </div>
 
           <!-- Parent Card Footer -->
