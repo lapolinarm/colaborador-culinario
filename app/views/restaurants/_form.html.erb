@@ -34,7 +34,7 @@
         <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
         <%= f.input :photo, as: :file, label: "Subir imagen del restaurante" %>
         <div class="text-center my-5">
-        <%= f.button :submit, label: "Crear Restaurante", class: 'btn custom-button rounded-pill' %>
+        <%= f.submit "Editar restaurante", class: 'btn custom-button rounded-pill' %>
         </div>
 
       <% end %>

@@ -1,11 +1,14 @@
-<div class="custom">
-  <h1>Trabajos</h1>
+<div class="container custom pt-3">
+  <div class="text-center custom-title m-5">
+    <h1 id="text-custom">Mis Publicaciones de trabajos</h1>
+  </div>
 
   <%# <%= link_to 'Nuevo trabajo', new_restaurant_job_path(@restaurant), class: 'btn btn-primary' %>
 
-  <table class="table">
+  <table class="table table-secondary table-bordered table-hover border-def" id="text-custom">
     <thead>
-      <tr>
+      <tr class="text-center">
+        <th>#</th>
         <th>Descripción</th> <th>Descripción Detallada</th>
         <th>Pago por Hora</th>
         <th>Restaurante</th>
@@ -13,15 +16,18 @@
       </tr>
     </thead>
     <tbody>
+      <% count = 0 %>
       <% @jobs.each do |job| %>
         <tr>
-          <td><%= job.description %></td> <td><%= job.description %></td>
-          <td><%= job.payment_hour %></td>
-          <td><%= job.restaurant.commercial_name if job.restaurant %></td>
-          <td>
-            <%= link_to 'Mostrar', job_path(job), class: 'btn btn-info' %>
-            <%= link_to 'Editar', edit_job_path(job), class: 'btn btn-warning' %>
-            <%= link_to 'Eliminar', job_path(job), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <td id="text-custom"><%= count += 1 %></td>
+
+          <td id="text-custom"><%= job.description %></td> <td><%= job.description %></td>
+          <td id="text-custom"><%= job.payment_hour %></td>
+          <td id="text-custom"><%= job.restaurant.commercial_name if job.restaurant %></td>
+          <td id="text-custom">
+            <%= link_to 'Ver detalles', job_path(job), class: 'btn details-btn' %>
+            <%= link_to 'Editar', edit_job_path(job), class: 'btn edit-btn' %>
+            <%= link_to 'Borrar', job_path(job), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn cancel-btn' %>
           </td>
         </tr>
       <% end %>
@@ -32,6 +38,113 @@
     .custom {
       margin-top: 80px;
     }
-    </style>
+
+    .custom-title {
+    background-color: #DAD0FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #6c757d !important;
+    }
+
+    #text-custom {
+      color: #6c757d;
+    }
+
+    .border-def {
+      color: white;
+      background-color: white;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #dddddd;
+    }
+
+      .custom-button {
+      background-color: #00ae7a; /* Fondo verde */
+      color: white; /* Texto blanco */
+      font-weight: bold; /* Texto en negrita */
+      font-size: 16px; /* Altura del texto */
+      border: none; /* Sin borde */
+      padding: 0.5rem 1rem; /* Ajusta el espacio interior */
+      margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+      transition: background-color 0.3s ease; /* Transición suave al hover */
+
+      &:hover {
+        background-color: rgba(0, 174, 122, 0.8); /* Fondo verde más tenue al pasar el cursor */
+      }
+    }
+
+    .cancel-btn {
+      background-color: #F4F4F4;
+      color: black;
+      border-radius: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      padding: 5px 10px;
+      font-size: 12px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .cancel-btn:hover {
+      background-color: #CF4545;
+      color: white;
+    }
+
+    .details-btn {
+      background-color: #E7F3FF; /* Fondo azul claro */
+      color: #007BFF; /* Texto azul */
+      border-radius: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      padding: 5px 10px;
+      font-size: 12px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      }
+
+    .details-btn:hover {
+        background-color: #0056b3; /* Fondo azul oscuro al hacer hover */
+        color: white; /* Texto blanco al hacer hover */
+    }
+
+    .edit-btn {
+      background-color: #FFF7E6; /* Fondo naranja claro */
+      color: #FF9900; /* Texto naranja */
+      border-radius: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      padding: 5px 10px;
+      font-size: 12px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .edit-btn:hover {
+        background-color: #CC7A00; /* Fondo naranja oscuro al hacer hover */
+        color: white; /* Texto blanco al hacer hover */
+    }
+
+    .create-btn {
+      background-color: #E8FFF0; /* Fondo verde claro */
+      color: #28A745; /* Texto verde */
+      border-radius: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      padding: 5px 10px;
+      font-size: 12px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .create-btn:hover {
+        background-color: #218838; /* Fondo verde oscuro al hacer hover */
+        color: white; /* Texto blanco al hacer hover */
+    }
+  </style>
 
 </div>
