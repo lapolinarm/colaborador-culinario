@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <div class="text-center custom-title m-5">
+  <div class="text-center custom-title m-5 pt-3">
     <h1 id="text-custom">Nueva publicación de trabajo</h1>
   </div>
 
@@ -34,8 +34,9 @@
     <%= f.input :responsibility, label: "Responsabilidades del trabajo", as: :text %>
     <%= f.input :requirement, label: "Requerimientos del trabajo", as: :text %>
     <div class="text-center my-5">
-    <%= f.button :submit, class: 'btn create-btn rounded-pill' %>
+    <%= f.submit "Crear Trabajo",class: 'btn custom-button rounded-pill' %>
     </div>
+
   <% end %>
 
   <style>
@@ -61,22 +62,20 @@
     }
 
 
-    .create-btn {
-      background-color: #E8FFF0; /* Fondo verde claro */
-      color: #28A745; /* Texto verde */
-      border-radius: 10px;
-      margin-left: 10px;
-      margin-right: 10px;
+    .custom-button {
+      background-color: #00ae7a; /* Fondo verde */
+      color: white; /* Texto blanco */
+      font-weight: bold; /* Texto en negrita */
+      font-size: 16px; /* Altura del texto */
+      border: none; /* Sin borde */
+      padding: 0.5rem 1rem; /* Ajusta el espacio interior */
+      margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+      transition: background-color 0.3s ease; /* Transición suave al hover */
 
-      padding: 5px 20px;
-      font-size: 19px;
-      transition: all 0.3s ease;
-      font-weight: bold;
-    }
-
-    .create-btn:hover {
-        background-color: #218838; /* Fondo verde oscuro al hacer hover */
-        color: white; /* Texto blanco al hacer hover */
+      &:hover {
+        background-color: rgba(0, 174, 122, 0.8); /* Fondo verde más tenue al pasar el cursor */
+        color: white;
+      }
     }
   </style>
 </div>
