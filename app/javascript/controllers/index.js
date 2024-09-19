@@ -6,3 +6,6 @@ eagerLoadControllersFrom("controllers", application)
 //stimulus import dashboard
 import DashboardController from "./dashboard_controller"
 application.register("dashboard", DashboardController)
+
+import HomeController from "./home_controller"
+application.register("home", HomeController)
