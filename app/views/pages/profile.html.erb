@@ -11,10 +11,11 @@
         </div>
 
     </div>
+        <%= link_to 'Editar foto perfil', edit_user_registration_path, class: 'btn btn-secondary' %>
     <div class="row">
 
       <div class="col-md-6 my-4 d-flex align-items-stretch ">
-        <img class="avatar-img mx-auto levitate" src="https://res.cloudinary.com/roldan-cloudinary/image/upload/v1726246081/colaborador%20culinario/ktscqsdwihjo4fgfo957.jpg" alt="profile-pic">
+        <img src="<%= current_user.photo.attached? ? cl_image_path(current_user.photo.key) : asset_path('logo.jpg') %>" class="avatar-img mx-auto levitate rounded-circle" alt="profile-pic">
       </div>
 
       <div class="col-md-4 my-4 d-flex align-items-stretch">
