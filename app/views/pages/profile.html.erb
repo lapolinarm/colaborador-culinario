@@ -6,8 +6,8 @@
   <div class=" container mb-4 d-flex flex-column align-items-center gap-4">
     <div class="row align-items-center">
 
-           <div class="my-4 text-center">
-          <h1 class="custom-title">Bienvenid@ <%= current_user.first_name + " " + current_user.last_name%></h1>
+        <div class="my-4 text-center">
+          <h1 class="custom-title" id="text-custom">Bienvenid@ <%= current_user.first_name + " " + current_user.last_name%></h1>
         </div>
 
     </div>
@@ -19,30 +19,31 @@
       </div>
 
       <div class="col-md-4 my-4 d-flex align-items-stretch">
-        <h5 class="custom-cards align-self-center"><strong>Rol: </strong><% if current_user.role  == "collaborator" %>
+        <h5 class="custom-cards align-self-center"><strong>Rol: </strong><span id="text-custom"><% if current_user.role  == "collaborator" %>
             colaborador <i class="fa-solid fa-utensils"></i>
           <% else current_user.role  == "owner" %>
             empresario <i class="fa-solid fa-briefcase"></i>
           <% end %>
+        </span>
         </h5>
       </div>
 
       <div class="container-fluid row custom-container my-5" >
         <div class="col-md-4 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>Nombre: </strong><%= current_user.first_name.present? ? current_user.first_name : "No hay un nombre disponible." %></h5>
+            <h5 class="custom-cards"><strong>Nombre: </strong><span class="font-size-custom"><%= current_user.first_name.present? ? current_user.first_name : "No hay un nombre disponible." %></span></h5>
           </div>
         </div>
 
         <div class="col-md-4 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>Apellido: </strong><%= current_user.last_name.present? ? current_user.last_name : "No hay un apellido disponible."  %></h5>
+            <h5 class="custom-cards"><strong>Apellido: </strong><span class="font-size-custom"><%= current_user.last_name.present? ? current_user.last_name : "No hay un apellido disponible."  %></span></h5>
           </div>
         </div>
 
         <div class="col-md-4 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>DNI: </strong><%= current_user.dni.present? ? current_user.dni : "No hay un DNI disponible."  %></h5>
+            <h5 class="custom-cards"><strong>DNI: </strong><span class="font-size-custom"><%= current_user.dni.present? ? current_user.dni : "No hay un DNI disponible."  %></span></h5>
           </div>
         </div>
 
@@ -50,52 +51,83 @@
 
         <div class="col-md-6 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>Teléfono: </strong><%= current_user.mobile_phone.present? ? current_user.mobile_phone : "No hay número de teléfono disponible." %></h5>
+            <h5 class="custom-cards"><strong>Teléfono: </strong><span class="font-size-custom"><%= current_user.mobile_phone.present? ? current_user.mobile_phone : "No hay número de teléfono disponible." %></span></h5>
           </div>
         </div>
 
         <div class="col-md-6 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>Correo: </strong><%= current_user.email.present? ? current_user.email : "No hay un correo disponible." %></h5>
+            <h5 class="custom-cards"><strong>Correo: </strong><span class="font-size-custom"><%= current_user.email.present? ? current_user.email : "No hay un correo disponible." %></span></h5>
           </div>
         </div>
 
         <div class="col-md-12 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>Dirección: </strong><%= current_user.address.present? ? current_user.address : "No hay una dirección disponible."  %></h5>
+            <h5 class="custom-cards"><strong>Dirección: </strong><span class="font-size-custom"><%= current_user.address.present? ? current_user.address : "No hay una dirección disponible."  %></span></h5>
           </div>
         </div>
       </div>
 
       <div class="container-fluid row custom-container my-5">
+        <% if current_user.payment_method == 1 %>
         <div class="col-md-6 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>Método de pago: </strong><%= current_user.payment_method.present? ? current_user.payment_method : "No hay un método de pago disponible." %></h5>
+            <h5 class="custom-cards"><strong>Método de pago: </strong><span class="font-size-custom"> Por transferencia</span></h5>
           </div>
         </div>
 
         <div class="col-md-6 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>Mi banco: </strong><%= current_user.bank.present? ? current_user.bank : "No hay un banco disponible." %></h5>
+            <h5 class="custom-cards"><strong>Mi banco: </strong><span class="font-size-custom"><%= current_user.bank.present? ? current_user.bank : "No hay un banco disponible." %></span></h5>
           </div>
         </div>
 
         <div class="col-md-6 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>Nombre del titular de la cuenta: </strong><%= current_user.name_holder.present? ? current_user.name_holder : "No hay un titular de la cuenta disponible." %></h5>
+            <h5 class="custom-cards"><strong>Nombre del titular de la cuenta: </strong><span class="font-size-custom"><%= current_user.name_holder.present? ? current_user.name_holder : "No hay un titular de la cuenta disponible." %></span></h5>
           </div>
         </div>
 
         <div class="col-md-6 my-4 d-flex align-items-stretch justify-content-center">
           <div class="mb-4 text-center">
-            <h5 class="custom-cards"><strong>Mi número de cuenta: </strong><%= current_user.bank_account.present? ? current_user.bank_account : "No hay un número de cuenta disponible." %></h5>
+            <h5 class="custom-cards"><strong>Mi número de cuenta: </strong><span class="font-size-custom"><%= current_user.bank_account.present? ? current_user.bank_account : "No hay un número de cuenta disponible." %></span></h5>
           </div>
         </div>
       </div>
+      <% elsif  current_user.payment_method == 2 %>
+
+      <div class="col-md-6 my-4 d-flex align-items-stretch justify-content-center">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Método de pago: </strong><span class="font-size-custom"> billetera digital</span></h5>
+        </div>
+      </div>
+
+      <div class="col-md-6 my-4 d-flex align-items-stretch justify-content-center">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Mi número de cuenta: </strong><span class="font-size-custom"><%= current_user.digital_wallet.present? ? current_user.digital_wallet : "No hay un número de cuenta disponible." %></span></h5>
+        </div>
+      </div>
+
+      <% else %>
+
+      <div class="col-md-6 my-4 d-flex align-items-stretch justify-content-center">
+        <div class="mb-4 text-center">
+          <h5 class="custom-cards"><strong>Método de pago: </strong><span class="font-size-custom"> Efectivo</span></h5>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 
   <style>
+    .font-size-custom {
+      font-size: 18px;
+      color: #6c757d;
+    }
+
+    #text-custom {
+      color: #6c757d;
+    }
     .custom-title {
         background-color: #DAD0FE;
         border-radius: 8px;

@@ -1,16 +1,16 @@
 <div class="container_def text-center  my-4 py-4" >
   <div class="custom-title text-center m-5">
-    <h1>Mis graficos</h1>
+    <h1 id="text-custom">Mis graficos</h1>
   </div>
 
 
-  <% column_chart({"2021-01-01" => 2, "2021-01-02" => 3})%>
-  <%= column_chart @array %>
-  <%= @array %>
+  <div class="py-4 my-4">
+  <%= pie_chart JobUser.group(:status).where(user: current_user).count, colors: ["#0dcaf0", "#FFC65A", "#d63384"], title: "Cuadro de estados de Postulaciones" %>
+  </div>
 
-  <% column_chart({"2021-01-01" => 2, "2021-01-02" => 3})%>
+  <div class="py-4 my-4">
+   <%= column_chart JobUser.group_by_day_of_week(:created_at, format: "%A").where(user: current_user, status: "aceptado").sum(:amount_paid), colors: ["#0dcaf0", "#FFC65A", "#d63384"], title: "Grafico de pagos" %>
+  </div>
 
-
-  <%# <%= column_chart Utils.months({count: 7}) %>
 
 </div>

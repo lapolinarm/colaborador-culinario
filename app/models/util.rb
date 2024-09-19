@@ -95,16 +95,78 @@ class Util
       "Sabor y Estilo (Lima)",
       "La Casa de la Cerveza (Lima)",
       "El Joven Luchador (Lima)",
-      "Maras (Cusco)",
-      "Uchu Peruvian Steakhouse (Cusco)",
-      "Chicha por Gastón Acurio (Cusco)",
+      "Tanta (Lima)",
+      "La Picantería (Lima)",
+      "Canta Rana (Lima)",
+      "Mediterráneo (Lima)",
+      "Los Cuentos de la Abuela (Lima)",
+      "Costanera 700 (Lima)",
+      "La Pólvora (Lima)",
+      "El Rincón que No Conoces (Lima)",
+      "El Restaurante (Lima)",
+      "Pisco Bar (Lima)",
+      "Sushi Maki (Lima)",
+      "Chicha (Cusco)",
+      "MAP Café (Cusco)",
       "Cicciolina (Cusco)",
-      "Pachapapa (Cusco)",
-      "Kion Peruanos (Cusco)",
-      "Café Ayllu (Cusco)",
-      "Le Soleil (Cusco)",
+      "Uchu Peruvian Steakhouse (Cusco)",
       "Limo (Cusco)",
-      "Inkaterra (Cusco)"
+      "Apu Restaurant (Cusco)",
+      "Inka Grill (Cusco)",
+      "Café Del Museo (Cusco)",
+      "Pizzeria Nativo (Cusco)",
+      "La Bodega 138 (Cusco)",
+      "Kintaro (Cusco)",
+      "DonAntonio (Cusco)",
+      "Café Túpac (Cusco)",
+      "El Encuentro (Cusco)",
+      "Pacha Papa (Cusco)",
+      "Chaskana (Cusco)",
+      "La Cúpula (Cusco)",
+      "El Tío Mario (Cusco)",
+      "Café Tinkuy (Cusco)",
+      "Nuna Raymi (Cusco)",
+      "Los Toldos (Cusco)",
+      "Qespi (Cusco)",
+      "Café Cusi (Cusco)",
+      "Café Tahuantinsuyo (Cusco)",
+      "Green Point (Cusco)",
+      "Jack's Café (Cusco)",
+      "Café de los Abuelos (Cusco)",
+      "Café del Parque (Cusco)",
+      "Choco Museo (Cusco)",
+      "La Casa de la Carne (Cusco)",
+      "Pachapapa (Cusco)",
+      "L'Atelier (Cusco)",
+      "Santo Bar (Cusco)",
+      "Sabor de mi Tierra (Cusco)",
+      "Café Bodega (Cusco)",
+      "La Pérgola (Cusco)",
+      "Café Misk'i (Cusco)",
+      "Hanan Pacha (Cusco)",
+      "Chayña (Cusco)",
+      "El Alma (Cusco)",
+      "El Barquero (Cusco)",
+      "La Rana (Cusco)",
+      "Los Cangrejos (Tacna)",
+      "Picantería La Huerta (Tacna)",
+      "La Fonda del Pueblo (Tacna)",
+      "La Casa de la Cerveza (Tacna)",
+      "Mamma Mia (Tacna)",
+      "El Buen Sazón (Tacna)",
+      "Cevichería El Pescador (Tacna)",
+      "Restaurante Chifa Chung Wah (Tacna)",
+      "Restaurante La Plaza (Tacna)",
+      "El Gran Hotel (Piura)",
+      "Sushi House (Piura)",
+      "Restaurante El Batan (Piura)",
+      "Cevichería La Sirena (Piura)",
+      "La Bodega de la Cerveza (Piura)",
+      "Picantería La Chola (Piura)",
+      "Restaurante La Casona (Piura)",
+      "Café Puro (Piura)",
+      "Cevichería Don Ceviche (Piura)",
+      "Café de la Plaza (Piura)"
     ].sample
   end
 
@@ -116,6 +178,26 @@ class Util
         "Urubamba",
         "Canchis",
         "Anta"
+      ].sample
+    elsif province.eql? 'Piura'
+      [
+        "Piura",
+        "Talara",
+        "Sullana",
+        "Paita",
+        "Sechura",
+        "Morropón",
+        "Huancabamba",
+        "Ayabaca"
+      ].sample
+    elsif province.eql? 'Tacna'
+      [
+        "Tacna",
+        "Arica y Parinacota",
+        "Camarones",
+        "Tacna",
+        "Cerro Blanco",
+        "Tarata"
       ].sample
     else
       "Lima"
@@ -130,6 +212,22 @@ class Util
         "Avenida Pardo",
         "Avenida Nicolás de Piérola",
         "Avenida Benavides"
+      ].sample
+    elsif distrito.eql? 'Piura'
+      [
+        "Avenida Sánchez Cerro",
+        "Avenida Loreto",
+        "Avenida Chulucanas",
+        "Avenida Grau",
+        "Avenida Guillermo E. Billinghurst"
+      ].sample
+    elsif distrito.eql? 'Tacna'
+      [
+        "Avenida San Martín",
+        "Avenida Bolognesi",
+        "Avenida Grau",
+        "Avenida Dos de Mayo",
+        "Avenida Libertad"
       ].sample
     else
       [
@@ -165,6 +263,22 @@ class Util
         "San Borja",
         "San Miguel",
         "La Molina"
+      ].sample
+    elsif distrito.eql? 'Piura'
+      [
+        "Piura",
+        "Sullana",
+        "Paita",
+        "Talara",
+        "Morropón"
+      ].sample
+    elsif distrito.eql? 'Tacna'
+      [
+        "Tacna",
+        "Cercado",
+        "Pocollay",
+        "Alto de la Alianza",
+        "La Yarada-Los Palos"
       ].sample
     else
       [
