@@ -1,4 +1,12 @@
 <div class="container mt-5">
+  <div class="text-center custom-title m-5">
+    <h1 id="text-custom">Nueva publicación de trabajo</h1>
+  </div>
+
+  <%= link_to restaurants_path, class: 'btn btn-secondary my-4 back-btn' do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+
   <%= simple_form_for [@restaurant, @job] do |f| %>
     <% if @job.errors.any? %>
       <div id="error_explanation">
@@ -25,7 +33,50 @@
     <%= f.input :description, label: "Descripción", as: :text %>
     <%= f.input :responsibility, label: "Responsabilidades del trabajo", as: :text %>
     <%= f.input :requirement, label: "Requerimientos del trabajo", as: :text %>
-
-    <%= f.button :submit, class: 'btn btn-primary' %>
+    <div class="text-center my-5">
+    <%= f.button :submit, class: 'btn create-btn rounded-pill' %>
+    </div>
   <% end %>
+
+  <style>
+
+  .back-btn {
+    color: #6c757d;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .custom-title {
+    background-color: #DAD0FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #6c757d !important;
+    }
+
+    #text-custom {
+      color: #6c757d;
+    }
+
+
+    .create-btn {
+      background-color: #E8FFF0; /* Fondo verde claro */
+      color: #28A745; /* Texto verde */
+      border-radius: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      padding: 5px 20px;
+      font-size: 19px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .create-btn:hover {
+        background-color: #218838; /* Fondo verde oscuro al hacer hover */
+        color: white; /* Texto blanco al hacer hover */
+    }
+  </style>
 </div>
