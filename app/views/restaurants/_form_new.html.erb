@@ -1,4 +1,11 @@
-<%= simple_form_for(restaurant) do |f| %>
+<div>
+
+
+  <%= link_to restaurants_path, class: 'btn btn-secondary my-4 back-btn' do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+
+  <%= simple_form_for(restaurant) do |f| %>
       <%# solucion al error que me daba %>
         <% if restaurant.errors.any? %>
           <div id="error_explanation">
@@ -27,6 +34,37 @@
 
         <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
         <%= f.input :photo, as: :file, label: "Subir imagen del restaurante" %>
-        <%= f.button :submit, label: "Crear Restaurante", class: 'btn btn-primary' %>
-        <br>
+        <div class="text-center my-5">
+        <%= f.submit "Crear restaurante", class: 'btn custom-button rounded-pill' %>
+        </div>
+
       <% end %>
+
+
+      <style>
+      .back-btn {
+        color: #6c757d;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .custom-button {
+        background-color: #00ae7a; /* Fondo verde */
+        color: white; /* Texto blanco */
+        font-weight: bold; /* Texto en negrita */
+        font-size: 16px; /* Altura del texto */
+        border: none; /* Sin borde */
+        padding: 0.5rem 1rem; /* Ajusta el espacio interior */
+        margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+        transition: background-color 0.3s ease; /* Transición suave al hover */
+
+        &:hover {
+          background-color: rgba(0, 174, 122, 0.8); /* Fondo verde más tenue al pasar el cursor */
+          color: white;
+        }
+      }
+      </style>
+</div>

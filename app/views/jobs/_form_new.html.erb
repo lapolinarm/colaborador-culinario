@@ -1,4 +1,10 @@
 <div class="container mt-5">
+
+
+  <%= link_to restaurants_path, class: 'btn btn-secondary my-4 back-btn' do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+
   <%= simple_form_for [@restaurant, @job] do |f| %>
     <% if @job.errors.any? %>
       <div id="error_explanation">
@@ -25,7 +31,49 @@
     <%= f.input :description, label: "Descripción", as: :text %>
     <%= f.input :responsibility, label: "Responsabilidades del trabajo", as: :text %>
     <%= f.input :requirement, label: "Requerimientos del trabajo", as: :text %>
+    <div class="text-center my-5">
+    <%= f.submit "Crear Trabajo",class: 'btn custom-button rounded-pill' %>
+    </div>
 
-    <%= f.button :submit, class: 'btn btn-primary' %>
   <% end %>
+
+  <style>
+
+  .back-btn {
+    color: #6c757d;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .custom-title {
+    background-color: #DAD0FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #6c757d !important;
+    }
+
+    #text-custom {
+      color: #6c757d;
+    }
+
+
+    .custom-button {
+      background-color: #00ae7a; /* Fondo verde */
+      color: white; /* Texto blanco */
+      font-weight: bold; /* Texto en negrita */
+      font-size: 16px; /* Altura del texto */
+      border: none; /* Sin borde */
+      padding: 0.5rem 1rem; /* Ajusta el espacio interior */
+      margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+      transition: background-color 0.3s ease; /* Transición suave al hover */
+
+      &:hover {
+        background-color: rgba(0, 174, 122, 0.8); /* Fondo verde más tenue al pasar el cursor */
+        color: white;
+      }
+    }
+  </style>
 </div>

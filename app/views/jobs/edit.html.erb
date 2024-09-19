@@ -1,5 +1,32 @@
-<h1>Editar trabajo</h1>
+<section class="container custom pt-3">
+  <%# Para probar que funciona, se reemplazara por lo de Levi %>
+  <div class="container mt-5">
 
-<%= render 'form', job: @job %>
+  <div class="text-center custom-title m-5">
+    <h1 id="text-custom">Editar Trabajo</h1>
+  </div>
 
-<%= link_to 'Regresar', jobs_path, class: 'btn btn-secondary' %>
+  </div>
+
+  <%= render 'form_edit', job: @job %>
+
+
+ <style>
+  .custom {
+    margin-top: 80px;
+  }
+
+  .custom-title {
+    background-color: #DAD0FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #6c757d !important;
+    }
+
+    #text-custom {
+      color: #6c757d;
+    }
+</style>
+
+</section>
