@@ -22,11 +22,19 @@
   background-color: $quaternary-color;
   border-radius: 18px; // Aplica border-radius a la tarjeta
 
+  #caption {
+    color: $senary-color;
+  }
+
   // Estilos para el input de búsqueda dentro de #card-filter
   .search-input {
     background-color: $septenary-color; /* Fondo blanco */
     color: $senary-color; /* Color del texto del input */
     border-radius: 18px; // Aplica border-radius al input
+
+    &::placeholder {
+      color: $senary-color; /* Cambia esto por el color que desees para el placeholder */
+    }
   }
 }
 
@@ -62,7 +70,24 @@
       max-width: 100%; /* Limita el ancho al contenedor padre */
     }
 
+  }
 
+  .two-lines {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 3em; /* Asegura que solo ocupe el espacio para dos líneas */
+  }
+
+  .first-word {
+    flex-basis: 100%; /* Fuerza la primera palabra a estar en una fila separada */
+    white-space: nowrap; /* Evita que se divida la primera palabra */
+  }
+
+  .rest-text {
+    flex-basis: 100%; /* Coloca el resto del texto en la segunda línea */
+    overflow: hidden; /* Oculta el contenido que desborda */
+    white-space: nowrap; /* Evita que el contenido se divida en varias líneas */
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto se corta */
   }
 
   #location {

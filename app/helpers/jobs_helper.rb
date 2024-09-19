@@ -2,7 +2,7 @@ module JobsHelper
   def job_location(job)
     province = job.restaurant.province
     country_code = ISO3166::Country[job.restaurant.country]&.alpha2 || job.restaurant.country
-    "#{province}, #{country_code}"
+    "#{country_code}, #{province}"
   end
 
   def formatted_schedule(date, hour_start, hour_end)

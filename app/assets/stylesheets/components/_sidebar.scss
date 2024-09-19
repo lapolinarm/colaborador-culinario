@@ -45,6 +45,10 @@
   background-color: $septenary-color; /* Fondo blanco */
   color: $senary-color; /* Color del texto del input */
   border-radius: 12px; /* Aplica border-radius al input */
+
+  &::placeholder {
+    color: $senary-color; /* Cambia esto por el color que desees para el placeholder */
+  }
 }
 
 
