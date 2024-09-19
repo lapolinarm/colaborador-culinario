@@ -1,0 +1,81 @@
+<div class="container mt-5">
+  <div class="text-center custom-title m-5 pt-3">
+    <h1 id="text-custom">Editar Trabajo</h1>
+  </div>
+
+  <%= link_to jobs_path, class: 'btn btn-secondary my-4 back-btn' do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+
+  <%= simple_form_for [@restaurant, @job] do |f| %>
+    <% if @job.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@job.errors.count, "error") %> Error falta campos:</h2>
+        <ul>
+          <% @job.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.input :date, as: :string, label: "Fecha del trabajo", placeholder: "YYYY-MM-DD" %>
+    <%= f.input :hour_start, label: "Hora de inicio", as: :time %>
+    <%= f.input :hour_end, label: "Hasta", as: :time %>
+    <%= f.input :payment_hour, label: "Pago por hora" %>
+
+    <%= f.input :job_type, label: "Tipo de trabajo", collection: Job.job_types.keys.map { |k| [k.humanize, k] }, prompt: "Selecciona un tipo de trabajo" %>
+
+    <%= f.input :job_mode, label: "Modo de trabajo", collection: Job.job_modes.keys.map { |k| [k.humanize, k] }, prompt: "Selecciona un modo de trabajo" %>
+
+    <%= f.input :function, label: "Función", collection: Job.functions.keys.map { |k| [k.humanize, k] }, prompt: "Selecciona una función" %>
+
+    <%= f.input :description, label: "Descripción", as: :text %>
+    <%= f.input :responsibility, label: "Responsabilidades del trabajo", as: :text %>
+    <%= f.input :requirement, label: "Requerimientos del trabajo", as: :text %>
+    <div class="text-center my-5">
+    <%= f.submit "Editar Trabajo",class: 'btn custom-button rounded-pill' %>
+    </div>
+
+  <% end %>
+
+  <style>
+
+  .back-btn {
+    color: #6c757d;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .custom-title {
+    background-color: #DAD0FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #6c757d !important;
+    }
+
+    #text-custom {
+      color: #6c757d;
+    }
+
+
+    .custom-button {
+      background-color: #00ae7a; /* Fondo verde */
+      color: white; /* Texto blanco */
+      font-weight: bold; /* Texto en negrita */
+      font-size: 16px; /* Altura del texto */
+      border: none; /* Sin borde */
+      padding: 0.5rem 1rem; /* Ajusta el espacio interior */
+      margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+      transition: background-color 0.3s ease; /* Transición suave al hover */
+
+      &:hover {
+        background-color: rgba(0, 174, 122, 0.8); /* Fondo verde más tenue al pasar el cursor */
+        color: white;
+      }
+    }
+  </style>
+</div>

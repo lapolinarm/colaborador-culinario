@@ -1,60 +1,154 @@
-<h1>Detalles del trabajo</h1>
+<div class="container custom pt-3">
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @job.date %>
-</p>
+  <div class="text-center custom-title m-5">
+    <h1 id="text-custom">Detalles del Trabajo</h1>
+  </div>
+  <%# Para probar que funciona, se reemplazara por lo de Levi %>
 
-<p>
-  <strong>Hora inicial:</strong>
-  <%= @job.hour_start %>
-</p>
+  <%= link_to jobs_path, class: 'btn btn-secondary my-4 back-btn' do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
 
-<p>
-  <strong>Hasta:</strong>
-  <%= @job.hour_end %>
-</p>
 
-<p>
-  <strong>Pago por hora:</strong>
-  <%= @job.payment_hour %>
-</p>
+  <div class="text-center d-flex flex-column card-def">
+    <div class="text-start my-4">
+      <h1><%= @job.restaurant.commercial_name %></h1>
+    </div>
+    <div class="text-start my-4">
 
-<p>
-  <strong>Tipo de trabajo:</strong>
-  <%= @job.job_type %>
-</p>
+    <p>
+      <strong>Fecha:</strong>
+      <%= @job.date %>
+    </p>
 
-<p>
-  <strong>Modo de trabajo:</strong>
-  <%= @job.job_mode %>
-</p>
+    <p>
+      <strong>Hora inicial:</strong>
+      <%= @job.hour_start %>
+    </p>
 
-<p>
-  <strong>Función:</strong>
-  <%= @job.function %>
-</p>
+    <p>
+      <strong>Hasta:</strong>
+      <%= @job.hour_end %>
+    </p>
 
-<p>
-  <strong>Descripción:</strong>
-  <%= @job.description %>
-</p>
+    <p>
+      <strong>Pago por hora:</strong>
+      <%= @job.payment_hour %>
+    </p>
 
-<p>
-  <strong>Responsabilidades del trabajo:</strong>
-  <%= @job.responsibility %>
-</p>
+    <p>
+      <strong>Tipo de trabajo:</strong>
+      <%= @job.job_type %>
+    </p>
 
-<p>
-  <strong>Requirimientos del trabajo:</strong>
-  <%= @job.requirement %>
-</p>
+    <p>
+      <strong>Modo de trabajo:</strong>
+      <%= @job.job_mode %>
+    </p>
 
-<p>
-  <strong>Restaurantrails s:</strong>
-  <%= @job.restaurant.commercial_name if @job.restaurant %>
-</p>
+    <p>
+      <strong>Función:</strong>
+      <%= @job.function %>
+    </p>
 
-<%= link_to 'Editar', edit_job_path(@job), class: 'btn btn-warning' %>
-<%= link_to 'Regresar', jobs_path, class: 'btn btn-secondary' %>
+    <p>
+      <strong>Descripción:</strong>
+      <%= @job.description %>
+    </p>
 
+    <p>
+      <strong>Responsabilidades del trabajo:</strong>
+      <%= @job.responsibility %>
+    </p>
+
+    <p>
+      <strong>Requirimientos del trabajo:</strong>
+      <%= @job.requirement %>
+    </p>
+
+    <%# <p>
+      <strong>Restaurante</strong>
+      <%= @job.restaurant.commercial_name if @job.restaurant %>
+    <%# </p> %>
+  </div>
+  </div>
+
+  <div class="text-center py-4">
+
+    <%= link_to 'Editar', edit_job_path(@job), class: 'btn edit-btn' %>
+
+  </div>
+  <style>
+  .custom {
+    margin-top: 80px;
+  }
+
+  .custom-title {
+    background-color: #DAD0FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #6c757d !important;
+    }
+
+    #text-custom {
+      color: #6c757d;
+    }
+
+    .back-btn {
+    color: #6c757d;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .card-def {
+    color: white;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #dddddd;
+    margin-bottom: 40px;
+    padding: 20px;
+  }
+
+  .edit-btn {
+    background-color: #FFF7E6; /* Fondo naranja claro */
+    color: #FF9900; /* Texto naranja */
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding: 5px 20px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .edit-btn:hover {
+      background-color: #CC7A00; /* Fondo naranja oscuro al hacer hover */
+      color: white; /* Texto blanco al hacer hover */
+  }
+
+  .create-btn {
+    background-color: #E8FFF0; /* Fondo verde claro */
+    color: #28A745; /* Texto verde */
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding: 5px 20px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .create-btn:hover {
+      background-color: #218838; /* Fondo verde oscuro al hacer hover */
+      color: white; /* Texto blanco al hacer hover */
+  }
+  </style>
+
+</div>
