@@ -1,37 +1,125 @@
-<div class="container mt-5">
+<div class="container custom pt-3">
+
+  <div class="text-center custom-title m-5">
+    <h1 id="text-custom">Detalles de Restaurante</h1>
+  </div>
   <%# Para probar que funciona, se reemplazara por lo de Levi %>
-  <br>
-  <h1><%= @restaurant.commercial_name %></h1>
-  <br>
-  <p>
-    <strong>R.U.C.:</strong>
-    <%= @restaurant.ruc %>
-  </p>
 
-  <p>
-    <strong>Nombre Comercial:</strong>
-    <%= @restaurant.company_name %>
-  </p>
+  <%= link_to restaurants_path, class: 'btn btn-secondary my-4 back-btn' do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
 
-  <p>
-    <strong>Telefono fijo:</strong>
-    <%= @restaurant.phone %>
-  </p>
-
-  <p>
-    <strong>Telefono movil:</strong>
-    <%= @restaurant.mobile_phone %>
-  </p>
+  <div class="text-center d-flex flex-column card-def">
+    <div class="text-start my-4">
+      <h1><%= @restaurant.commercial_name %></h1>
+    </div>
+    <div class="text-start my-4">
+      <p>
+        <strong>R.U.C.:</strong>
+        <%= @restaurant.ruc %>
+      </p>
 
 
-  <p>
-    <strong>Dirección:</strong>
-    <%= @restaurant.full_address %>
-  </p>
-  <br>
+      <p>
+        <strong>Nombre Comercial:</strong>
+        <%= @restaurant.company_name %>
+      </p>
 
-  <%= link_to 'Editar', edit_restaurant_path(@restaurant), class: 'btn btn-warning' %>
-  <%= link_to 'Regresar', restaurants_path, class: 'btn btn-secondary' %>
-  <%= link_to 'Crear trabajo', new_restaurant_job_path(@restaurant), class: 'btn btn-info' %>
+      <p>
+        <strong>Telefono fijo:</strong>
+        <%= @restaurant.phone %>
+      </p>
 
+      <p>
+        <strong>Telefono movil:</strong>
+        <%= @restaurant.mobile_phone %>
+      </p>
+
+
+      <p>
+        <strong>Dirección:</strong>
+        <%= @restaurant.full_address %>
+      </p>
+    </div>
+  </div>
+
+  <div class="text-center py-4">
+    <%= link_to 'Editar', edit_restaurant_path(@restaurant), class: 'btn edit-btn' %>
+
+    <%= link_to 'Crear trabajo', new_restaurant_job_path(@restaurant), class: 'btn create-btn' %>
+
+  </div>
+
+  <style>
+  .custom {
+    margin-top: 80px;
+  }
+
+  .custom-title {
+    background-color: #DAD0FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #6c757d !important;
+    }
+
+    #text-custom {
+      color: #6c757d;
+    }
+
+    .back-btn {
+    color: #6c757d;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .card-def {
+    color: white;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #dddddd;
+    margin-bottom: 40px;
+    padding: 20px;
+  }
+
+  .edit-btn {
+    background-color: #FFF7E6; /* Fondo naranja claro */
+    color: #FF9900; /* Texto naranja */
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding: 5px 20px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .edit-btn:hover {
+      background-color: #CC7A00; /* Fondo naranja oscuro al hacer hover */
+      color: white; /* Texto blanco al hacer hover */
+  }
+
+  .create-btn {
+    background-color: #E8FFF0; /* Fondo verde claro */
+    color: #28A745; /* Texto verde */
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding: 5px 20px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .create-btn:hover {
+      background-color: #218838; /* Fondo verde oscuro al hacer hover */
+      color: white; /* Texto blanco al hacer hover */
+  }
+  </style>
 </div>
