@@ -6,10 +6,9 @@
 <div class="position-absolute top-0 start-0 w-100 h-100 background-image"
      style="background-image: url('<%= @selected_job.restaurant.photo.attached? ? cl_image_path(@selected_job.restaurant.photo.key) : asset_path('business-image.jpg') %>'); background-size: cover; background-position: center;">
 </div>
-
     <!-- Dark Overlay with Countdown -->
     <div class="position-absolute top-0 start-0 w-100 h-100 dark-overlay">
-      <div class="d-flex justify-content-center align-items-center h-100 overlay-content">
+      <div class="d-flex justify-content-center align-items-center h-100 overlay-content" id="overlay-content">
         <span class="text-white fw-bold expiration-time" id="countdown" data-time-remaining="<%= @time_remaining.is_a?(String) ? @time_remaining : @time_remaining.to_json %>">
           <!-- JavaScript will update this content -->
           <% if @time_remaining.is_a?(String) %>

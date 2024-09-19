@@ -1,9 +1,10 @@
 <div data-controller="dashboard">
   <div class="d-flex flex-row">
-    <div class="col-ml-2 " id="side">
-      <h2 class="text-start my-4 mt-4 p-4" data-aos="fade-right" id="text-custom">Dashboard</h2>
+    <div class="col-ml-2 " id="side" data-aos="fade-up"
+     data-aos-duration="3000">
+      <h2 class="text-start my-4 mt-4 p-4"  id="text-custom">Dashboard</h2>
       <div class="d-flex flex-column gap-2" >
-        <button class="btn" data-action="click->dashboard#showView" data-view="1" data-aos="fade-right">
+        <button class="btn" data-action="click->dashboard#showView" data-view="1" >
           <div class="d-flex">
             <div class="d-flex gap-3 icon-extras dash-icon" data-action="click->buttons#toggle">
               <i class="fa-solid fa-credit-card" id="icon-custom"></i>
@@ -13,7 +14,7 @@
             </div>
           </div>
         </button>
-        <button class="btn" data-action="click->dashboard#showView" data-view="2" data-aos="fade-right">
+        <button class="btn" data-action="click->dashboard#showView" data-view="2" >
         <div class="d-flex">
           <div class="d-flex gap-3 icon-extras dash-icon" data-action="click->buttons#toggle">
             <i class="fa-solid fa-list" id="icon-custom"></i>
@@ -23,7 +24,7 @@
           </div>
           </div>
         </button>
-        <button class="btn" data-action="click->dashboard#showView" data-view="3" data-aos="fade-right">
+        <button class="btn" data-action="click->dashboard#showView" data-view="3">
         <div class="d-flex">
           <div class="d-flex gap-3 icon-extras dash-icon" data-action="click->buttons#toggle">
             <i class="fa-solid fa-chart-line" id="icon-custom"></i>

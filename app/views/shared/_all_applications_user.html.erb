@@ -35,7 +35,7 @@
 
               <p><strong>Función: </strong><span class="font-size-custom"><%= job.function.capitalize %></span></p>
               <p><strong>Fecha: </strong><span class="font-size-custom"><%= job.date.strftime("%d-%m-%Y") %></span></p>
-              <p class="pb-4"><strong>Descripción: </strong><span class="font-size-custom text-truncate"><%= job.description.capitalize %></span></p>
+              <p class="pb-4"><strong>Descripción: </strong><span class="font-size-custom"><%= job.description.capitalize %></span></p>
               <%= button_to 'Eliminar', job_path(job), method: :delete, class: 'btn cancel-btn fixed-bottom', data: { turbo_method: :delete } %>
             </div>
           </div>
