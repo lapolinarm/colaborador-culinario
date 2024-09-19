@@ -2,20 +2,21 @@
 <div id="job_listings" class="col-md-7 main-content">
   <!-- Search Card -->
   <div id="card-filter" class="card mb-4 border-0 shadow">
-    <div class="card-body">
-      <h1 class="display-6">Encuentra tu empleo ideal</h1>
-      <p>Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
+  <div class="card-body">
+    <h1 class="display-6">Encuentra tu empleo ideal</h1>
+    <p>Experiencia personalizada de búsqueda de empleo aplicando cualquier criterio</p>
+    <form action="<%= home_path %>" method="get"> <!-- Ajusta la ruta según tu controlador -->
       <div class="search-container">
-        <input type="text" class="form-control search-input" placeholder="Buscar empleos...">
+        <input type="text" name="query" class="form-control search-input" placeholder="Buscar empleos..." value="<%= params[:query] %>"> <!-- El nombre debe coincidir con el parámetro que esperas en el controlador -->
         <i class="fas fa-search search-icon"></i> <!-- Icono de búsqueda -->
-        <button class="btn btn-success search-button">
+        <button type="submit" class="btn btn-success search-button">
           <i class="fas fa-arrow-right text-white"></i> <!-- Icono de flecha hacia la derecha -->
         </button>
       </div>
-    </div>
+    </form>
   </div>
+</div>
   <h2 class="mb-4"><%= pluralize(jobs.count, 'Resultado', 'Resultados') %></h2>
-  <h2 class="mb-4" data-aos="fade-up-right"><%= pluralize(jobs.count, 'Resultado', 'Resultados') %></h2>
   <!-- Job Listings -->
   <div class="row job-list gx-4 gy-4" data-aos="fade-down-right">
     <% jobs.each do |job| %>
