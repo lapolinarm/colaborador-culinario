@@ -93,49 +93,41 @@ class PagesController < ApplicationController
   end
 
   def home
-    if params[:filter]
+    if params[:query].present?
+      @jobs = Job.search_by_filters(params[:query])
+                 .where("date > ? OR (date = ? AND hour_start > ?)", Date.current, Date.current, Time.current)
+                 .order(:date, :hour_start)
+    elsif params[:filter]
       permitted_params = params.require(:filter).permit(categories: [])
       categories = permitted_params[:categories]
       query_hash = {}
-
       if validar_repetidos(categories)
         camps_ordenados = ordenar_campos(categories)
         hash_camp_ordenados = obtener_hash_completo_consulta(camps_ordenados)
-        puts "campos ordenados -> #{hash_camp_ordenados}"
-
         hash_camp_ordenados.each do |clave, valor|
           query_hash[clave.to_sym] = valor
         end
-
         @jobs = Job.where(query_hash)
-
       else
         categories.each do |categorie|
           query_hash[retur_campo[categorie.to_sym].to_sym] = retur_valor[categorie.to_sym]
         end
-        puts "campos query hash -> #{query_hash}"
         @jobs = Job.where(query_hash)
       end
     else
-      # Filtrar empleos que no han expirado (criterio 1)
       @jobs = Job.where("date > ? OR (date = ? AND hour_start > ?)", Date.current, Date.current, Time.current)
-      .order(:date, :hour_start)  # Ordenar por fecha y hora de inicio, más próximos primero
-
-      Rails.logger.debug("Parámetro 'filter' no está presente.")
+                 .order(:date, :hour_start)
     end
 
     if user_signed_in?
-      # Excluir empleos a los que el usuario ya se ha postulado (criterio 2)
       applied_job_ids = current_user.jobs.pluck(:id)
       @jobs = @jobs.where.not(id: applied_job_ids)
     end
 
-    # Verificar si no hay empleos disponibles después de aplicar los filtros
     if @jobs.empty?
       flash.now[:notice] = "No hay empleos disponibles en este momento."
     end
 
-    # Si hay un empleo seleccionado, calcular el tiempo restante
     if params[:job_id].present?
       @selected_job = Job.find(params[:job_id])
       @time_remaining = calculate_time_remaining(@selected_job)
