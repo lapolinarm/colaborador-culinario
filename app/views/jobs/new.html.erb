@@ -1,11 +1,28 @@
-<section class="container custom">
+<div>
+  <%# Para probar que funciona, se reemplazara por lo de Levi %>
+  <div class="container custom pt-3 ">
+    <div class="text-center custom-title m-5">
+      <h1 id="text-custom">Nueva publicación de Trabajo</h1>
+    </div>
 
+    <%= render 'form_new', job: @job %>
 
-<%= render 'form_new', job: @job %>
+    <style>
+      .custom {
+        margin-top: 80px;
+      }
 
-<style>
-  .custom {
-    margin-top: 80px;
-  }
-</style>
-</section>
+      .custom-title {
+        background-color: #DAD0FE;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #6c757d !important;
+        }
+
+        #text-custom {
+          color: #6c757d;
+        }
+      </style>
+  </div>
+</div>
