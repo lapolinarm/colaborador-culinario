@@ -5,13 +5,14 @@
       <h1 id="text-custom">Lista de Restaurantes</h1>
     </div>
     <br>
-    <%= link_to 'Crear nuevo restaurante', new_restaurant_path, class: 'btn btn-primary' %>
+    <%= link_to 'Crear nuevo restaurante', new_restaurant_path, class: 'btn btn-primary custom-button rounded-pill' %>
     <br>
     <div>
     <br>
-      <table class="table table-primary table-bordered table-hover table-custom">
+      <table class="table table-secondary table-bordered table-hover border-def" id="text-custom">
         <thead>
-          <tr>
+          <tr class="text-center">
+            <th>#</th>
             <th>R.U.C.</th>
             <th>Nombre comercial</th>
             <th>Razón Social</th>
@@ -19,32 +20,31 @@
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
+          <% count = 0 %>
           <% @restaurants.each do |restaurant| %>
             <tr>
-              <td><%= restaurant.ruc %></td>
-              <td><%= restaurant.commercial_name %></td>
-              <td><%= restaurant.company_name %></td>
-              <td><%= restaurant.phone %></td>
-              <td>
-                <%= link_to 'Ver detalles', restaurant_path(restaurant), class: 'btn btn-info btn-sm' %>
-                <%= link_to 'Editar', edit_restaurant_path(restaurant), class: 'btn btn-warning btn-sm' %>
-                <%= link_to 'Borrar', restaurant_path(restaurant), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-                <%= link_to 'Crear trabajo', new_restaurant_job_path(restaurant), class: 'btn btn-info btn-sm' %>
+              <td id="text-custom"><%= count += 1 %></td>
+              <td id="text-custom"><%= restaurant.ruc %></td>
+              <td id="text-custom"><%= restaurant.commercial_name %></td>
+              <td id="text-custom"><%= restaurant.company_name %></td>
+              <td id="text-custom"><%= restaurant.phone %></td>
+              <td class="text-center">
+                <%= link_to 'Ver detalles', restaurant_path(restaurant), class: 'btn details-btn' %>
+                <%= link_to 'Editar', edit_restaurant_path(restaurant), class: 'btn edit-btn' %>
+                <%= link_to 'Borrar', restaurant_path(restaurant), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn cancel-btn' %>
+                <%= link_to 'Crear trabajo', new_restaurant_job_path(restaurant), class: 'btn create-btn' %>
               </td>
             </tr>
           <% end %>
         </tbody>
-        <style>
+      </table>
+      <style>
         .custom {
           margin-top: 80px;
         }
 
-        .table-custom {
-          border: 3px solid black !important;
-          border-radius: 10px;
-          background-color: #F4F4F4;
-        }
+
 
         .custom-title {
         background-color: #DAD0FE;
@@ -52,13 +52,107 @@
         padding: 1.5rem;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         color: #6c757d !important;
-      }
+        }
 
-      #text-custom {
-        color: #6c757d;
-      }
-        </style>
-      </table>
+        #text-custom {
+          color: #6c757d;
+        }
+
+        .border-def {
+          color: white;
+          background-color: white;
+          padding: 10px;
+          border-radius: 10px;
+          border: 2px solid #dddddd;
+        }
+
+         .custom-button {
+          background-color: #00ae7a; /* Fondo verde */
+          color: white; /* Texto blanco */
+          font-weight: bold; /* Texto en negrita */
+          font-size: 16px; /* Altura del texto */
+          border: none; /* Sin borde */
+          padding: 0.5rem 1rem; /* Ajusta el espacio interior */
+          margin: 1rem 0; /* Agrega espacio igual arriba y abajo */
+          transition: background-color 0.3s ease; /* Transición suave al hover */
+
+          &:hover {
+            background-color: rgba(0, 174, 122, 0.8); /* Fondo verde más tenue al pasar el cursor */
+          }
+        }
+
+        .cancel-btn {
+          background-color: #F4F4F4;
+          color: black;
+          border-radius: 10px;
+          margin-left: 10px;
+          margin-right: 10px;
+
+          padding: 5px 10px;
+          font-size: 12px;
+          transition: all 0.3s ease;
+          font-weight: bold;
+        }
+
+        .cancel-btn:hover {
+          background-color: #CF4545;
+          color: white;
+        }
+
+        .details-btn {
+          background-color: #E7F3FF; /* Fondo azul claro */
+          color: #007BFF; /* Texto azul */
+          border-radius: 10px;
+          margin-left: 10px;
+          margin-right: 10px;
+
+          padding: 5px 10px;
+          font-size: 12px;
+          transition: all 0.3s ease;
+          font-weight: bold;
+          }
+
+        .details-btn:hover {
+            background-color: #0056b3; /* Fondo azul oscuro al hacer hover */
+            color: white; /* Texto blanco al hacer hover */
+        }
+
+        .edit-btn {
+          background-color: #FFF7E6; /* Fondo naranja claro */
+          color: #FF9900; /* Texto naranja */
+          border-radius: 10px;
+          margin-left: 10px;
+          margin-right: 10px;
+
+          padding: 5px 10px;
+          font-size: 12px;
+          transition: all 0.3s ease;
+          font-weight: bold;
+        }
+
+        .edit-btn:hover {
+            background-color: #CC7A00; /* Fondo naranja oscuro al hacer hover */
+            color: white; /* Texto blanco al hacer hover */
+        }
+
+        .create-btn {
+          background-color: #E8FFF0; /* Fondo verde claro */
+          color: #28A745; /* Texto verde */
+          border-radius: 10px;
+          margin-left: 10px;
+          margin-right: 10px;
+
+          padding: 5px 10px;
+          font-size: 12px;
+          transition: all 0.3s ease;
+          font-weight: bold;
+        }
+
+        .create-btn:hover {
+            background-color: #218838; /* Fondo verde oscuro al hacer hover */
+            color: white; /* Texto blanco al hacer hover */
+        }
+      </style>
     </div>
   </div>
 
