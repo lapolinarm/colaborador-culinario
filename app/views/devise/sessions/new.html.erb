@@ -1,28 +1,70 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%=
-      f.input :email,
-              required: false,
-              autofocus: true,
-              input_html: {
-                autocomplete: 'email',
-              }
-    %>
-    <%=
-      f.input :password,
-              required: false,
-              input_html: {
-                autocomplete: 'current-password',
-              }
-    %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<section class="container custom pt-3 mb-5">
+  <div class="text-center custom-title m-5">
+    <h1 id="text-custom">Iniciar Sesión</h1>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, 'Log in' %>
-  </div>
-<% end %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <%=
+        f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: {
+                  autocomplete: 'email',
+                }
+      %>
+      <%=
+        f.input :password,
+                required: false,
+                input_html: {
+                  autocomplete: 'current-password',
+                }
+      %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
 
-<%= render 'devise/shared/links' %>
+    <div class="form-actions">
+      <%= f.button :submit, 'Log in' %>
+    </div>
+  <% end %>
+
+  <%= render 'devise/shared/links' %>
+
+
+  <style>
+  .custom {
+    margin-top: 80px;
+  }
+
+  .custom-title {
+    background-color: #DAD0FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #6c757d !important;
+  }
+
+  #text-custom {
+    color: #6c757d;
+  }
+
+  .create-btn {
+    background-color: #E8FFF0; /* Fondo verde claro */
+    color: #28A745; /* Texto verde */
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding: 5px 20px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .create-btn:hover {
+      background-color: #218838; /* Fondo verde oscuro al hacer hover */
+      color: white; /* Texto blanco al hacer hover */
+  }
+  </style>
+
+</section>
