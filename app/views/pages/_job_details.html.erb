@@ -36,18 +36,18 @@
   <% if @selected_job.present? %>
     <h2 class="mt-4"><%= @selected_job.function.capitalize %></h2>
     <h3 class="fw-bold business-details"><%= @selected_job.restaurant.commercial_name %></h3>
-
+    <br>
     <!-- Location Information -->
     <div class="row mb-2">
       <h3 class="col-6 fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Ubicación</h3> <!-- Icono de ubicación -->
-      <h3 class="col-6 fw-bold text-end"><i class="fa-regular fa-building me-2"></i><%= job_location(@selected_job) %></h3> <!-- Icono de ciudad -->
+      <h3 class="col-6 fw-bold text-start text-truncate"><i class="fa-regular fa-building me-2"></i><%= job_location(@selected_job) %></h3> <!-- Icono de ciudad -->
       <h4 class="col-12 specific-details"><%= @selected_job.restaurant.address %></h4>
     </div>
 
     <!-- Schedule Information -->
     <div class="row mb-2">
       <h3 class="col-6 fw-bold"><i class="fa-regular fa-calendar-check me-2"></i>Horario</h3> <!-- Icono de calendario -->
-      <h3 class="col-6 fw-bold text-end"><i class="fa-regular fa-address-card me-2"></i><%= @selected_job.job_mode.capitalize %></h3> <!-- Icono de modalidad de trabajo -->
+      <h3 class="col-6 fw-bold text-start"><i class="fa-regular fa-address-card me-2"></i><%= @selected_job.job_mode.capitalize %></h3> <!-- Icono de modalidad de trabajo -->
       <h4 class="col-12 specific-details">
         <%= formatted_schedule(@selected_job.date, @selected_job.hour_start, @selected_job.hour_end).capitalize %>
       </h4>
@@ -56,9 +56,9 @@
     <!-- Hours and Salary Information -->
     <div class="row mb-2">
       <h3 class="col-6 fw-bold"><i class="fa-regular fa-clock me-2"></i>Horas</h3> <!-- Icono de horas -->
-      <h3 class="col-6 text-end fw-bold"><i class="fa-regular fa-money-bill-1 me-2"></i>Salario</h3> <!-- Icono de dólar para salario -->
+      <h3 class="col-6 text-start fw-bold"><i class="fa-regular fa-money-bill-1 me-2"></i>Salario</h3> <!-- Icono de dólar para salario -->
       <h4 class="col-6 specific-details"><%= hours_difference(@selected_job.hour_start, @selected_job.hour_end) %> hr</h4>
-      <h4 class="col-6 text-end specific-details"><%= number_to_currency(@selected_job.payment_hour, unit: 'S/.', precision: 0) %>/hr</h4>
+      <h4 class="col-6 text-start specific-details"><%= number_to_currency(@selected_job.payment_hour, unit: 'S/.', precision: 0) %>/hr</h4>
     </div>
 
     <!-- Published Date and Other Offers -->
