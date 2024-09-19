@@ -1,16 +1,30 @@
-<div class="container mt-5">
+<div>
   <%# Para probar que funciona, se reemplazara por lo de Levi %>
-  <div class="custom">
-    <h3>Nuevo Restaurante</h3>
+  <div class="container custom pt-3 ">
+    <div class="text-center custom-title m-5">
+      <h1 id="text-custom">Nuevo Restaurante</h1>
+    </div>
 
-    <%= render 'form', restaurant: @restaurant %>
+    <%= render 'form_new', restaurant: @restaurant %>
 
-    <%= link_to 'Regresar', restaurants_path, class: 'btn btn-secondary' %>
+
 
     <style>
       .custom {
         margin-top: 80px;
       }
+
+      .custom-title {
+        background-color: #DAD0FE;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #6c757d !important;
+        }
+
+        #text-custom {
+          color: #6c757d;
+        }
       </style>
   </div>
 </div>
