@@ -4,39 +4,47 @@
   </div>
 
   <%# <%= link_to 'Nuevo trabajo', new_restaurant_job_path(@restaurant), class: 'btn btn-primary' %>
+  <div class="table-responsive">
 
-  <table class="table table-secondary table-bordered table-hover border-def" id="text-custom">
-    <thead>
-      <tr class="text-center">
-        <th>#</th>
-        <th>Descripción</th> <th>Descripción Detallada</th>
-        <th>Pago por Hora</th>
-        <th>Restaurante</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% count = 0 %>
-      <% current_user.restaurants.each do |restaurant| %>
-      <% restaurant.jobs.each do |job| %>
-        <tr>
-          <td id="text-custom"><%= count += 1 %></td>
-
-          <td id="text-custom"><%= job.description %></td> <td><%= job.description %></td>
-          <td id="text-custom"><%= job.payment_hour %></td>
-          <td id="text-custom"><%= job.restaurant.commercial_name if job.restaurant %></td>
-          <td id="text-custom">
-            <%= link_to 'Ver detalles', job_path(job), class: 'btn details-btn' %>
-            <%= link_to 'Editar', edit_job_path(job), class: 'btn edit-btn' %>
-            <%= link_to 'Borrar', job_path(job), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn cancel-btn' %>
-          </td>
+    <table class="table table-secondary table-bordered table-hover border-def" id="text-custom">
+      <thead>
+        <tr class="text-center">
+          <th>#</th>
+          <th>Descripción</th>
+          <th>Pago por Hora</th>
+          <th>Restaurante</th>
+          <th>Acciones</th>
         </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% count = 0 %>
+        <% current_user.restaurants.each do |restaurant| %>
+        <% restaurant.jobs.each do |job| %>
+          <tr class="text-center">
+            <td id="text-custom" ><%= count += 1 %></td>
 
+            <td id="text-custom" class="text-start" style="max-width: 350px;" ><%= job.description %></td>
+            <td id="text-custom"><%= job.payment_hour %></td>
+            <td id="text-custom"><%= job.restaurant.commercial_name if job.restaurant %></td>
+            <td id="text-custom">
+              <%= link_to 'Ver detalles', job_path(job), class: 'btn details-btn' %>
+              <%= link_to 'Editar', edit_job_path(job), class: 'btn edit-btn' %>
+              <%= link_to 'Borrar', job_path(job), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn cancel-btn' %>
+            </td>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
   <style>
+    .table td#description-column {
+      max-width: 200px !important; /* Forzar el ancho máximo */
+      overflow: hidden !important; /* Forzar ocultar el contenido desbordado */
+      text-overflow: ellipsis !important; /* Forzar puntos suspensivos */
+      white-space: nowrap !important; /* Forzar que el texto no se divida */
+      }
+
     .custom {
       margin-top: 80px;
     }
